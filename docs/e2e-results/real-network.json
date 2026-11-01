@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-01T16:46:12.285Z",
+  "at": "2026-11-01T16:55:06.813Z",
   "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Mobile/15E148 Safari/604.1",
   "basemap": {
     "current": "ign",
@@ -26,21 +26,21 @@
   },
   "overpass": {
     "ok": true,
-    "wallMs": 34724,
+    "wallMs": 38136,
     "error": null,
     "busy": null
   },
   "graph": {
-    "wallMs": 35117,
+    "wallMs": 38748,
     "info": {
       "zone": "lyon-centre",
       "nodes": 34097,
       "edges": 46460,
       "steps": 1141,
       "lengthKm": 989.7988806380541,
-      "downloadMs": 32531,
-      "buildMs": 181,
-      "elevationMs": 1240,
+      "downloadMs": 36700,
+      "buildMs": 198,
+      "elevationMs": 521,
       "fromCache": false,
       "mirror": "https://overpass-api.de/api/interpreter",
       "bytes": 13867622,
@@ -66,7 +66,7 @@
       },
       "elevationSource": "Terrarium AWS (z14, ~7 m/px, source SRTM/EU-DEM ~30 m)",
       "missingEle": 0,
-      "osmTimestamp": "2026-11-01T16:44:51Z"
+      "osmTimestamp": "2026-11-01T16:53:50Z"
     }
   },
   "r2": {
@@ -81,14 +81,14 @@
       "length": 1947.730599252601,
       "gain": 144.75992463650334,
       "steps": 19,
-      "routeMs": 12,
+      "routeMs": 11,
       "climbs": 1
     },
     "prefer": {
       "length": 1461.8030232239691,
       "gain": 146.75087967550812,
       "steps": 829,
-      "routeMs": 22,
+      "routeMs": 7,
       "climbs": 1
     }
   },
@@ -106,114 +106,114 @@
       "error": null
     }
   },
-  "r3-reference": "Point\tRéf.\tTerrarium\tIGN\tOpen-Meteo\nEsplanade de Fourvière\t287\t298.2\t291.7\t293.0\nPlace Bellecour\t168\t173.6\t168.1\t168.0\nPlace de la Croix-Rousse\t250\t254.6\t250.4\t254.0\nPlace des Terreaux\t170\t183.8\t169.6\t177.0\nQuai Saint-Antoine\t166\t159.2\t167.2\t161.0\nPlace Saint-Jean\t170\t179.0\t168.7\t176.0\nTête d'Or (lac)\t170\t180.4\t167.5\t180.0\nPont Bonaparte (tablier)\t172\t160.0\t162.1\t161.0\n\nterrarium : 0 ms — OK (CORS accepté)\nign : 425 ms — OK (CORS accepté)\nopen-meteo : 68 ms — OK (CORS accepté)",
+  "r3-reference": "Point\tRéf.\tTerrarium\tIGN\tOpen-Meteo\nEsplanade de Fourvière\t287\t298.2\t291.7\t293.0\nPlace Bellecour\t168\t173.6\t168.1\t168.0\nPlace de la Croix-Rousse\t250\t254.6\t250.4\t254.0\nPlace des Terreaux\t170\t183.8\t169.6\t177.0\nQuai Saint-Antoine\t166\t159.2\t167.2\t161.0\nPlace Saint-Jean\t170\t179.0\t168.7\t176.0\nTête d'Or (lac)\t170\t180.4\t167.5\t180.0\nPont Bonaparte (tablier)\t172\t160.0\t162.1\t161.0\n\nterrarium : 1 ms — OK (CORS accepté)\nign : 307 ms — OK (CORS accepté)\nopen-meteo : 16 ms — OK (CORS accepté)",
   "r4-generators": {
-    "ar-same": 503,
-    "ar-diff": 552,
-    "loop": 873,
-    "variants": 243,
+    "ar-same": 302,
+    "ar-diff": 596,
+    "loop": 513,
+    "variants": 177,
     "variantsCount": 4
   },
   "timings": [
     {
       "label": "Téléchargement/chargement graphe",
-      "ms": 32531,
-      "at": 1793551612780
+      "ms": 36700,
+      "at": 1793552152035
     },
     {
       "label": "Construction graphe",
-      "ms": 181,
-      "at": 1793551612780
+      "ms": 198,
+      "at": 1793552152035
     },
     {
       "label": "Altitudes graphe",
-      "ms": 1240,
-      "at": 1793551612780
+      "ms": 521,
+      "at": 1793552152035
     },
     {
       "label": "Routage A*",
       "ms": 23,
-      "at": 1793551613792
+      "at": 1793552153304
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 3,
+      "at": 1793552153307
+    },
+    {
+      "label": "Routage A*",
+      "ms": 10,
+      "at": 1793552162299
     },
     {
       "label": "Analyse du tracé",
       "ms": 2,
-      "at": 1793551613795
+      "at": 1793552162300
     },
     {
       "label": "Routage A*",
-      "ms": 14,
-      "at": 1793551623463
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793551623464
-    },
-    {
-      "label": "Routage A*",
-      "ms": 12,
-      "at": 1793551623528
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793551623528
-    },
-    {
-      "label": "Routage A*",
-      "ms": 7,
-      "at": 1793551632443
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793551632443
-    },
-    {
-      "label": "Routage A*",
-      "ms": 22,
-      "at": 1793551632525
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793551632526
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 827,
-      "at": 1793551642339
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 362,
-      "at": 1793551643304
+      "ms": 11,
+      "at": 1793552162365
     },
     {
       "label": "Analyse du tracé",
       "ms": 0,
-      "at": 1793551643956
+      "at": 1793552162366
+    },
+    {
+      "label": "Routage A*",
+      "ms": 5,
+      "at": 1793552170845
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 0,
+      "at": 1793552170845
+    },
+    {
+      "label": "Routage A*",
+      "ms": 7,
+      "at": 1793552170902
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 1,
+      "at": 1793552170903
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 636,
+      "at": 1793552180006
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 116,
+      "at": 1793552180763
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 0,
+      "at": 1793552181414
     },
     {
       "label": "A/R même chemin",
-      "ms": 136,
-      "at": 1793551646161
+      "ms": 157,
+      "at": 1793552182828
     },
     {
       "label": "A/R retour différent",
-      "ms": 275,
-      "at": 1793551646708
+      "ms": 256,
+      "at": 1793552183413
     },
     {
       "label": "Boucle",
-      "ms": 519,
-      "at": 1793551647577
+      "ms": 327,
+      "at": 1793552183922
     },
     {
       "label": "Variantes",
-      "ms": 68,
-      "at": 1793551648059
+      "ms": 55,
+      "at": 1793552184407
     }
   ],
   "responses": {
