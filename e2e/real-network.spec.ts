@@ -74,6 +74,8 @@ test.describe('real network (CI only)', () => {
       const s = await routeSummary(page);
       const ms = await page.evaluate(() => window.__randotrail.state.routeMs);
       r2[pref] = { length: s.length, gain: s.gain, steps: s.steps, routeMs: ms, climbs: s.climbs };
+      await page.evaluate(() => window.__randotrail.mapCtl.map.jumpTo({ center: [4.8275, 45.7605], zoom: 15.1 }));
+      await page.waitForTimeout(1500);
       await shot(page, `real-03-bellecour-fourviere-${pref}`);
     }
     results['r2'] = r2;
