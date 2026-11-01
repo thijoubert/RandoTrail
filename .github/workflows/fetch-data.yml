@@ -56,7 +56,7 @@ jobs:
           for i in 1 2 3 4; do
             git fetch origin main
             git reset -q origin/main
-            git add -A fixtures docs/e2e-results docs/screenshots 2>/dev/null || true
+            git add -A fixtures
             if git diff --cached --quiet; then echo "nothing new"; break; fi
             git commit -q -m "data: refresh real Lyon fixtures (Overpass, IGN RGE ALTI, Open-Meteo, probes)"
             git push origin HEAD:main && break

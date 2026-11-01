@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T16:28:07.087Z",
+  "generatedAt": "2026-11-01T16:52:20.896Z",
   "meta": {
-    "fetchedAt": "2026-11-01T16:05:07.159Z",
+    "fetchedAt": "2026-11-01T16:48:14.910Z",
     "bbox": {
       "south": 45.746,
       "west": 4.796,
@@ -9,7 +9,26 @@
       "east": 4.85
     },
     "steps": {
-      "probes": 12
+      "probes": 12,
+      "overpass": {
+        "mirror": "https://overpass-api.de/api/interpreter",
+        "ms": 36208,
+        "elements": 22190,
+        "osmTimestamp": "2026-11-01T16:41:41Z"
+      },
+      "knownStairs": {
+        "mirror": "https://overpass-api.de/api/interpreter",
+        "ms": 39930,
+        "elements": 93
+      },
+      "ign": {
+        "reused": true,
+        "count": 63006
+      },
+      "openMeteo": {
+        "points": 610,
+        "cors": null
+      }
     }
   },
   "r1": {
@@ -2348,7 +2367,7 @@
       "steps": 19,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 25.618709999999737,
+      "ms": 26.955167999999958,
       "edges": 106
     },
     {
@@ -2365,7 +2384,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 6.762064999999893,
+      "ms": 9.35822300000018,
       "edges": 92
     },
     {
@@ -2382,7 +2401,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 13.700910999999905,
+      "ms": 14.994032999999945,
       "edges": 92
     },
     {
@@ -2395,7 +2414,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 5.01861800000006,
+      "ms": 5.016071000000011,
       "edges": 66
     },
     {
@@ -2411,7 +2430,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 2.1150210000000698,
+      "ms": 2.0976630000000114,
       "edges": 61
     },
     {
@@ -2427,7 +2446,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 6.517026999999871,
+      "ms": 4.332174000000123,
       "edges": 61
     },
     {
@@ -2440,7 +2459,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 2.069814999999835,
+      "ms": 2.164176000000225,
       "edges": 42
     },
     {
@@ -2456,7 +2475,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.47697799999968993,
+      "ms": 0.5456500000000233,
       "edges": 26
     },
     {
@@ -2472,7 +2491,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.6857949999998709,
+      "ms": 0.7222890000002735,
       "edges": 26
     },
     {
@@ -2485,7 +2504,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 3.2255350000000362,
+      "ms": 4.32287899999983,
       "edges": 124
     },
     {
@@ -2500,7 +2519,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 3.252002000000175,
+      "ms": 2.2082400000003872,
       "edges": 126
     },
     {
@@ -2515,7 +2534,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 7.397351999999955,
+      "ms": 8.867032000000108,
       "edges": 126
     },
     {
@@ -2545,23 +2564,23 @@
   ],
   "r3References": [
     {
-      "name": "Esplanade de Fourvière",
+      "name": "Esplanade de Fourvière (basilique)",
       "lat": 45.76235,
       "lng": 4.8225,
       "publicAlt": 287,
-      "ign": null,
+      "source": "IGN carte / Wikipédia (colline 294 m au point culminant)",
+      "ign": 291.71,
       "openMeteo": 293,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 298.24617571966866
     },
     {
-      "name": "Place Bellecour",
+      "name": "Place Bellecour (centre)",
       "lat": 45.75777,
       "lng": 4.83215,
       "publicAlt": 168,
-      "ign": 167.99,
+      "source": "Wikipédia / IGN",
+      "ign": 168.05,
       "openMeteo": 168,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 173.55888542116114
     },
     {
@@ -2569,9 +2588,9 @@
       "lat": 45.77445,
       "lng": 4.83165,
       "publicAlt": 250,
-      "ign": 250.52,
+      "source": "Wikipédia (plateau ~250 m)",
+      "ign": 250.41,
       "openMeteo": 254,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 254.60558806587724
     },
     {
@@ -2579,52 +2598,90 @@
       "lat": 45.76737,
       "lng": 4.8336,
       "publicAlt": 170,
-      "ign": 169.76,
+      "source": "Wikipédia",
+      "ign": 169.62,
       "openMeteo": 177,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 183.80265328279668
     },
     {
-      "name": "Quai Saint-Antoine",
+      "name": "Quai Saint-Antoine (Saône)",
       "lat": 45.7623,
       "lng": 4.8316,
       "publicAlt": 166,
-      "ign": null,
+      "source": "niveau quai bas Saône ~164-168 m",
+      "ign": 167.24,
       "openMeteo": 161,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 159.22210040061765
     },
     {
-      "name": "Place Saint-Jean",
+      "name": "Place Saint-Jean (Vieux Lyon)",
       "lat": 45.7608,
       "lng": 4.8272,
       "publicAlt": 170,
-      "ign": null,
+      "source": "Wikipédia / IGN",
+      "ign": 168.68,
       "openMeteo": 176,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 179.02729621628177
     },
     {
-      "name": "Tête d'Or (lac)",
+      "name": "Parc de la Tête d'Or (lac)",
       "lat": 45.7776,
       "lng": 4.853,
       "publicAlt": 170,
-      "ign": null,
+      "source": "Wikipédia (parc ~170 m)",
+      "ign": 167.52,
       "openMeteo": 180,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 180.44664070629346
     },
     {
-      "name": "Pont Bonaparte (tablier)",
+      "name": "Montée de la Grande-Côte (haut)",
+      "lat": 45.7708,
+      "lng": 4.8323,
+      "publicAlt": 230,
+      "source": "estimation carte IGN",
+      "ign": 207.39,
+      "openMeteo": 210,
+      "terrarium": 227.4600657975659
+    },
+    {
+      "name": "Montée de la Grande-Côte (bas)",
+      "lat": 45.768,
+      "lng": 4.8337,
+      "publicAlt": 180,
+      "source": "estimation carte IGN",
+      "ign": 170.17,
+      "openMeteo": 189,
+      "terrarium": 186.3847122464755
+    },
+    {
+      "name": "Pont Bonaparte (milieu, tablier)",
       "lat": 45.7604,
       "lng": 4.8298,
       "publicAlt": 172,
-      "ign": null,
+      "source": "tablier ~6 m au-dessus de la Saône",
+      "ign": 162.11,
       "openMeteo": 161,
-      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
       "terrarium": 160.0380417478832
     }
   ],
+  "r3Sample": {
+    "openMeteoVsIgn": {
+      "n": 600,
+      "mean": 6.134066666666666,
+      "mae": 7.712933333333332,
+      "rmse": 10.26914579375195,
+      "max": 50.47,
+      "p90": 16.379999999999995
+    },
+    "terrariumVsIgn": {
+      "n": 600,
+      "mean": 5.745708749561521,
+      "mae": 6.948160748947252,
+      "rmse": 8.50956768710384,
+      "max": 28.204888291565368,
+      "p90": 13.77933107704905
+    }
+  },
   "r3TerrariumVsIgnAll": {
     "n": 121829,
     "mean": 5.654850294498478,
@@ -2796,7 +2853,7 @@
       "contentType": "image/png",
       "bytes": 17654,
       "cors": "*",
-      "ms": 943
+      "ms": 979
     },
     {
       "name": "ign-wmts-ortho",
@@ -2806,7 +2863,7 @@
       "contentType": "image/jpeg",
       "bytes": 7779,
       "cors": "*",
-      "ms": 418
+      "ms": 548
     },
     {
       "name": "ign-wmts-capabilities",
@@ -2816,7 +2873,7 @@
       "contentType": "application/xml",
       "bytes": 3080569,
       "cors": "*",
-      "ms": 430
+      "ms": 467
     },
     {
       "name": "opentopomap",
@@ -2826,7 +2883,7 @@
       "contentType": "image/png",
       "bytes": 8014,
       "cors": "*",
-      "ms": 449
+      "ms": 421
     },
     {
       "name": "terrarium-aws",
@@ -2836,7 +2893,7 @@
       "contentType": "image/png",
       "bytes": 60845,
       "cors": null,
-      "ms": 244
+      "ms": 235
     },
     {
       "name": "ign-alti-get",
@@ -2846,7 +2903,7 @@
       "contentType": "application/json",
       "bytes": 24,
       "cors": "*",
-      "ms": 203
+      "ms": 183
     },
     {
       "name": "open-meteo",
@@ -2856,7 +2913,7 @@
       "contentType": "application/json",
       "bytes": 21,
       "cors": null,
-      "ms": 188
+      "ms": 550
     },
     {
       "name": "opentopodata-srtm30m",
@@ -2866,15 +2923,17 @@
       "contentType": "application/json",
       "bytes": 181,
       "cors": null,
-      "ms": 496
+      "ms": 344
     },
     {
       "name": "overpass-status https://overpass-api.de",
       "url": "https://overpass-api.de/api/status",
-      "status": 0,
+      "status": 502,
       "ok": false,
-      "error": "This operation was aborted",
-      "ms": 30002
+      "contentType": "text/plain",
+      "bytes": 534,
+      "cors": "*",
+      "ms": 356
     },
     {
       "name": "overpass-status https://overpass.kumi.systems",
@@ -2882,7 +2941,7 @@
       "status": 0,
       "ok": false,
       "error": "This operation was aborted",
-      "ms": 30001
+      "ms": 30003
     },
     {
       "name": "overpass-status https://overpass.private.coffee",
@@ -2900,25 +2959,25 @@
       "contentType": "text/plain; charset=utf-8",
       "bytes": 168,
       "cors": "*",
-      "ms": 13977
+      "ms": 9518
     }
   ],
   "r4": {
     "fixtureBytes": 10302240,
-    "fixtureGzipBytes": 1691654,
+    "fixtureGzipBytes": 1691653,
     "elements": 22190,
     "ways": 22190,
     "nodes": 34097,
     "edges": 46460,
-    "parseMs": 13.45570900000007,
-    "buildMs": 186.83459900000003,
-    "terrariumAssignMs": 39.77277099999992,
-    "astarBellecourCroixRousseMs": 3.9105060000001686,
-    "outAndBackSameMs": 133.5710270000004,
-    "outAndBackDiffMs": 233.12917600000037,
-    "loopsMs": 321.9643649999998,
+    "parseMs": 13.924082999999882,
+    "buildMs": 187.26008000000002,
+    "terrariumAssignMs": 38.35806600000001,
+    "astarBellecourCroixRousseMs": 3.9394589999992604,
+    "outAndBackSameMs": 129.87262800000008,
+    "outAndBackDiffMs": 254.61999800000012,
+    "loopsMs": 303.2805510000003,
     "loops": 5,
-    "variantsMs": 36.17259000000013,
+    "variantsMs": 43.08564000000024,
     "variants": 3
   }
 }
