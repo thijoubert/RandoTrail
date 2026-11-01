@@ -75,6 +75,14 @@ La logique `src/core` est écrite pour être portée en Swift : fonctions pures,
 - **Pas de glisser-déposer des points** : annuler / effacer / inverser uniquement (prototype).
 - **Calculs sur le thread principal** : les générateurs affichent un état « … » pendant le calcul ; les temps mesurés sont dans REPORT.md.
 
+## Captures (WebKit iPhone 13, CI)
+
+Commitées par le workflow `validate-real` dans [`docs/screenshots/`](docs/screenshots/) : fond IGN réel (`real-01-basemap.png`), escaliers de Fourvière (`lyon-01-stairs-fourviere.png`), R2 éviter / tolérer / rechercher (`lyon-02-r2-*.png`), montées de référence (`lyon-03-*.png`), générateurs et variantes (`lyon-04-*.png`, `lyon-05-variants.png`), sources d'altitude (`real-04-elevation-sources.png`).
+
 ## État du déploiement et CI
 
-Voir la section « Preuves » de REPORT.md (liens vers les runs, captures en artefacts `e2e-screenshots-and-results`).
+- `ci.yml` : lint, typecheck, tests unitaires (67), build, E2E Playwright (WebKit iPhone 13 + Chromium) sur fixtures hors ligne, puis déploiement GitHub Pages **si Pages est activé** (job `pages-enabled` : il tente de créer le site via l'API, sinon avertissement). Artefact `e2e-screenshots-and-results`.
+- `fetch-data.yml` : récupère les données réelles (Overpass, IGN, Open-Meteo, sondes) et les committe dans `fixtures/`.
+- `validate-real.yml` : E2E WebKit en réseau réel + E2E sur la fixture Lyon, résultats commités dans `docs/e2e-results/` et `docs/screenshots/`.
+
+Si l'URL Pages ne répond pas : Settings → Pages → Build and deployment → Source : **GitHub Actions**, puis relancer le workflow `ci` (Actions → ci → Run workflow). Le job `deploy` publie `dist/` (≈ 18 Mo avec les données embarquées, servies gzip).
