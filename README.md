@@ -11,7 +11,7 @@ Le verdict chiffré est dans **[REPORT.md](REPORT.md)**. Les choix sont dans [DE
 
 ## Ouvrir sur iPhone
 
-URL GitHub Pages : **https://thijoubert.github.io/RandoTrail/** (voir « État du déploiement » ci-dessous).
+URL GitHub Pages : **https://thijoubert.github.io/RandoTrail/** (déployée par le job `deploy` du workflow `ci` à chaque push sur `main`).
 
 1. Ouvrir l'URL dans Safari.
 2. Bouton Partager → **Sur l'écran d'accueil** → Ajouter. L'app s'ouvre alors en plein écran (PWA, manifest + service worker minimal).
