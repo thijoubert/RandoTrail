@@ -62,12 +62,12 @@ Escaliers longs (≥ 30 m, n = 68), hauteur calibrée : IGN erreur relative méd
 ## R2 — Le routage réagit-il aux préférences ?
 | Trajet | Préférence | Distance | D+ | Escaliers (arêtes) | Marches | Noms d'escaliers empruntés | Temps A* (Node) |
 |---|---|---|---|---|---|---|---|
-| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 23 ms |
-| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 6 ms |
-| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 12 ms |
+| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 26 ms |
+| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 7 ms |
+| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 14 ms |
 | Terreaux → Croix-Rousse | avoid | 1105 m | 81 m | 0 | 0 | — | 5 ms |
 | Terreaux → Croix-Rousse | tolerate | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 2 ms |
-| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 5 ms |
+| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 7 ms |
 | Saint-Paul → Fourvière | avoid | 1263 m | 121 m | 0 | 0 | — | 2 ms |
 | Saint-Paul → Fourvière | tolerate | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 0 ms |
 | Saint-Paul → Fourvière | prefer | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 1 ms |
@@ -79,8 +79,24 @@ Escaliers longs (≥ 30 m, n = 68), hauteur calibrée : IGN erreur relative méd
 | Bellecour → Fourvière, escaliers évités | pentes : seek | 1948 m | 134 m | — | — | raide+très raide : 510 m, pente max 23 % | — |
 
 ## R3 — Fiabilité des altitudes
+_Source des points de référence : Open-Meteo mesuré depuis WebKit (docs/e2e-results/real-network.json) ; IGN = nœud OSM le plus proche (≤ 15 m) dans fixtures/lyon-centre.ign-alti.json._
 
-Sur **tous** les sommets du graphe (121713) : Terrarium − IGN : biais 5.66 m, erreur abs. moyenne 6.83 m, RMSE 8.23 m, P90 12.9 m, max 56.7 m.
+### Points de référence
+
+| Point | Valeur publique | IGN RGE ALTI | Open-Meteo (GLO-90) | Terrarium z14 | Écart Terrarium−IGN | Écart Open-Meteo−IGN |
+|---|---|---|---|---|---|---|
+| Esplanade de Fourvière | 287 m | — | 293.0 | 298.2 | — | — |
+| Place Bellecour | 168 m | 168.0 | 168.0 | 173.6 | 5.6 | 0.0 |
+| Place de la Croix-Rousse | 250 m | 250.5 | 254.0 | 254.6 | 4.1 | 3.5 |
+| Place des Terreaux | 170 m | 169.8 | 177.0 | 183.8 | 14.0 | 7.2 |
+| Quai Saint-Antoine | 166 m | — | 161.0 | 159.2 | — | — |
+| Place Saint-Jean | 170 m | — | 176.0 | 179.0 | — | — |
+| Tête d'Or (lac) | 170 m | — | 180.0 | 180.4 | — | — |
+| Pont Bonaparte (tablier) | 172 m | — | 161.0 | 160.0 | — | — |
+
+_Échantillon Open-Meteo vs IGN sur les nœuds du graphe : **non disponible** (Open-Meteo a répondu HTTP 429 lors de la 2e exécution du workflow `fetch-data`, voir LOG.md ; relancer le workflow pour l'obtenir)._
+
+Sur **tous** les sommets du graphe (121829) : Terrarium − IGN : biais 5.65 m, erreur abs. moyenne 6.83 m, RMSE 8.23 m, P90 12.9 m, max 56.7 m.
 
 ### Ponts, tunnels, sauts aberrants (source IGN RGE ALTI)
 
@@ -128,14 +144,14 @@ Sur **tous** les sommets du graphe (121713) : Terrarium − IGN : biais 5.66 m, 
 |---|---|
 | JSON Overpass (zone 4,2 × 4,4 km) | 10.30 Mo brut, **1.69 Mo gzip** (22190 ways) |
 | Graphe | 34097 nœuds, 46460 arêtes |
-| Parse JSON → ways | 25 ms |
-| Construction du graphe | 164 ms |
-| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 78 ms |
+| Parse JSON → ways | 13 ms |
+| Construction du graphe | 187 ms |
+| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 40 ms |
 | A* Bellecour → Croix-Rousse | 4 ms |
-| A/R même chemin (6 km, 250 m D+) | 113 ms |
-| A/R retour différent | 201 ms |
-| Boucles (5 résultats) | 257 ms |
-| Variantes (3 résultats) | 33 ms |
+| A/R même chemin (6 km, 250 m D+) | 134 ms |
+| A/R retour différent | 233 ms |
+| Boucles (5 résultats) | 322 ms |
+| Variantes (3 résultats) | 36 ms |
 
 ## Cas de test de référence (export JSON pour la future app Swift)
 
@@ -199,11 +215,75 @@ Risques restants : fraîcheur et exhaustivité d'OSM hors centre (couverture `st
 ## Preuves et procédure pour refaire les mesures
 
 ### Mesures navigateur (Playwright)
-_Aucun résultat navigateur commité (workflow `validate-real`)._
+
+#### Fixture Lyon réelle, hors ligne — `lyon-iphone-chromium.json` (projet iphone-chromium)
+- Chargement complet 2.05 s (téléchargement simulé 830 ms, construction 111 ms, altitudes 581 ms) ; 34097 nœuds, 46460 arêtes, 1055 ways escaliers.
+- R2 Bellecour → Fourvière : avoid = 1948 m, D+ 145 m, 19 marches, A* 13 ms ; tolerate = 1462 m, D+ 147 m, 829 marches, A* 3 ms ; prefer = 1462 m, D+ 147 m, 829 marches, A* 6 ms
+- Tracés de référence : gourguillon = 1028 m, D+ 128 m, 810 marches, 1 montée(s) ; saint-barthelemy = 743 m, D+ 113 m, 1362 marches, 1 montée(s) ; grande-cote = 962 m, D+ 68 m, 218 marches, 1 montée(s) ; quais-pont = 673 m, D+ 36 m, 23 marches, 2 montée(s)
+- Générateurs (temps mur) : ar-same = 353 ms, ar-diff = 607 ms, loop = 683 ms, variants = 418 ms, variantsCount = 4
+
+#### Fixture Lyon réelle, hors ligne — `lyon-iphone-webkit.json` (projet iphone-webkit)
+- Chargement complet 1.88 s (téléchargement simulé 801 ms, construction 134 ms, altitudes 426 ms) ; 34097 nœuds, 46460 arêtes, 1055 ways escaliers.
+- R2 Bellecour → Fourvière : avoid = 1948 m, D+ 145 m, 19 marches, A* 16 ms ; tolerate = 1462 m, D+ 147 m, 829 marches, A* 4 ms ; prefer = 1462 m, D+ 147 m, 829 marches, A* 11 ms
+- Tracés de référence : gourguillon = 1028 m, D+ 128 m, 810 marches, 1 montée(s) ; saint-barthelemy = 743 m, D+ 113 m, 1362 marches, 1 montée(s) ; grande-cote = 962 m, D+ 68 m, 218 marches, 1 montée(s) ; quais-pont = 673 m, D+ 36 m, 23 marches, 2 montée(s)
+- Générateurs (temps mur) : ar-same = 425 ms, ar-diff = 242 ms, loop = 313 ms, variants = 187 ms, variantsCount = 4
+
+#### Réseau réel depuis WebKit (iPhone 13 simulé, GitHub Actions) — `real-network.json`, 2026-11-01T16:18:00.350Z
+- User-Agent : `Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Mobile/15E148 Safari/604.1`
+- Fond de carte au chargement : **ign** (IGN Plan v2 = succès sans clé).
+- Overpass depuis le navigateur : **échec** après 420.12 s (Téléchargement Overpass 4/4…) → repli sur les données embarquées
+- Graphe (données embarquées) : 34097 nœuds, 46460 arêtes, 1141 arêtes escaliers ; chargement 508 ms (10.3 Mo), construction 72 ms, altitudes Terrarium 1.09 s ; anomalies : {"bridge":267,"tunnel":381,"jumps":187,"corrected":130}
+- R2 Bellecour → Fourvière (altitudes Terrarium) : tolerate = 1462 m, D+ 147 m, 829 marches, A* 13 ms ; avoid = 1948 m, D+ 145 m, 19 marches, A* 18 ms ; prefer = 1462 m, D+ 147 m, 829 marches, A* 7 ms
+- Altitudes du tracé par API (CORS réel) : ign : OK, D+ 0 m / D− 0 m, 142 points manquants ; open-meteo : OK, D+ 155 m / D− 35 m, 0 points manquants
+- Points de référence (Labo) :
+
+```
+Point	Réf.	Terrarium	IGN	Open-Meteo
+Esplanade de Fourvière	287	298.2	✗	293.0
+Place Bellecour	168	173.6	✗	168.0
+Place de la Croix-Rousse	250	254.6	✗	254.0
+Place des Terreaux	170	183.8	✗	177.0
+Quai Saint-Antoine	166	159.2	✗	161.0
+Place Saint-Jean	170	179.0	✗	176.0
+Tête d'Or (lac)	170	180.4	✗	180.0
+Pont Bonaparte (tablier)	172	160.0	✗	161.0
+
+terrarium : 0 ms — OK (CORS accepté)
+ign : 571 ms — erreur : HTTP 500
+open-meteo : 67 ms — OK (CORS accepté)
+```
+- Générateurs (temps mur, interface comprise) : ar-same = 236 ms, ar-diff = 386 ms, loop = 491 ms, variants = 244 ms, variantsCount = 4
+- Réponses HTTP par hôte (ok / erreurs, CORS) :
+  - localhost : 7 ok, 2 erreurs, ACAO=http://localhost:4173
+  -  : 2 ok, 0 erreurs
+  - data.geopf.fr : 24 ok, 2 erreurs, ACAO=*
+  - overpass-api.de : 3 ok, 2 erreurs, ACAO=*
+  - maps.mail.ru : 0 ok, 1 erreurs, ACAO=*
+  - s3.amazonaws.com : 18 ok, 0 erreurs, ACAO=*
+  - api.open-meteo.com : 3 ok, 0 erreurs, ACAO=*
+- Erreurs console : 14 — Failed to load resource: the server responded with a status of 502 (Bad Gateway) | Failed to load resource: the server responded with a status of 504 (Gateway Time-out) | Failed to load resource: the server responded with a status of 502 (Bad Gateway)
 
 ### Captures
+- [lyon-01-stairs-fourviere.png](docs/screenshots/lyon-01-stairs-fourviere.png)
+- [lyon-02-r2-avoid.png](docs/screenshots/lyon-02-r2-avoid.png)
+- [lyon-02-r2-prefer.png](docs/screenshots/lyon-02-r2-prefer.png)
+- [lyon-02-r2-tolerate.png](docs/screenshots/lyon-02-r2-tolerate.png)
+- [lyon-03-gourguillon.png](docs/screenshots/lyon-03-gourguillon.png)
+- [lyon-03-grande-cote.png](docs/screenshots/lyon-03-grande-cote.png)
+- [lyon-03-quais-pont.png](docs/screenshots/lyon-03-quais-pont.png)
+- [lyon-03-saint-barthelemy.png](docs/screenshots/lyon-03-saint-barthelemy.png)
+- [lyon-04-gen-ar-diff.png](docs/screenshots/lyon-04-gen-ar-diff.png)
+- [lyon-04-gen-ar-same.png](docs/screenshots/lyon-04-gen-ar-same.png)
+- [lyon-04-gen-loop.png](docs/screenshots/lyon-04-gen-loop.png)
+- [lyon-05-variants.png](docs/screenshots/lyon-05-variants.png)
 - [real-01-basemap.png](docs/screenshots/real-01-basemap.png)
 - [real-02-graph.png](docs/screenshots/real-02-graph.png)
+- [real-02b-graph-embedded.png](docs/screenshots/real-02b-graph-embedded.png)
+- [real-03-bellecour-fourviere-avoid.png](docs/screenshots/real-03-bellecour-fourviere-avoid.png)
+- [real-03-bellecour-fourviere-prefer.png](docs/screenshots/real-03-bellecour-fourviere-prefer.png)
+- [real-03-bellecour-fourviere-tolerate.png](docs/screenshots/real-03-bellecour-fourviere-tolerate.png)
+- [real-04-elevation-sources.png](docs/screenshots/real-04-elevation-sources.png)
+- [real-05-generated.png](docs/screenshots/real-05-generated.png)
 
 ### Refaire les mesures
 

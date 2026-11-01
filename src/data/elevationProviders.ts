@@ -111,43 +111,60 @@ export class IgnAltiProvider implements ElevationProvider {
   readonly label = 'IGN Géoplateforme RGE ALTI (1 m)';
   readonly resolutionM = 1;
   readonly stats = newStats();
+  /**
+   * GET with 50 points per request: validated in real conditions (POST batches of 100..2000 points answer
+   * HTTP 500 "An unexpected error occurred", from Node and from WebKit). Requests run 4 at a time.
+   */
   constructor(
     private url: string = IGN_ALTI_URL,
-    private batch = 1000,
+    private batch = 50,
     private resource = 'ign_rge_alti_wld',
+    private concurrency = 4,
   ) {}
+
+  private async one(chunk: LngLat[]): Promise<number[]> {
+    const params = new URLSearchParams({
+      lon: chunk.map((p) => p.lng.toFixed(6)).join('|'),
+      lat: chunk.map((p) => p.lat.toFixed(6)).join('|'),
+      resource: this.resource,
+      zonly: 'true',
+      delimiter: '|',
+    });
+    const t0 = performance.now();
+    try {
+      const res = await fetch(`${this.url}?${params.toString()}`);
+      this.stats.requests++;
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      this.stats.bytes += text.length;
+      const json = JSON.parse(text) as { elevations?: (number | { z: number })[] };
+      const els = json.elevations ?? [];
+      return chunk.map((_, k) => {
+        const e = els[k];
+        const z = typeof e === 'number' ? e : e?.z;
+        return typeof z === 'number' && z > -1000 ? z : NaN;
+      });
+    } catch (e) {
+      this.stats.errors.push((e as Error).message);
+      return chunk.map(() => NaN);
+    } finally {
+      this.stats.ms += performance.now() - t0;
+    }
+  }
 
   async elevations(points: LngLat[]): Promise<number[]> {
     const out = new Array<number>(points.length).fill(NaN);
-    for (let i = 0; i < points.length; i += this.batch) {
-      const chunk = points.slice(i, i + this.batch);
-      const body = new URLSearchParams({
-        lon: chunk.map((p) => p.lng.toFixed(6)).join('|'),
-        lat: chunk.map((p) => p.lat.toFixed(6)).join('|'),
-        resource: this.resource,
-        zonly: 'true',
-        delimiter: '|',
-      });
-      const t0 = performance.now();
-      try {
-        const res = await fetch(this.url, { method: 'POST', body, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
-        this.stats.requests++;
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const text = await res.text();
-        this.stats.bytes += text.length;
-        const json = JSON.parse(text) as { elevations?: (number | { z: number })[] };
-        const els = json.elevations ?? [];
-        for (let k = 0; k < chunk.length; k++) {
-          const e = els[k];
-          const z = typeof e === 'number' ? e : e?.z;
-          out[i + k] = typeof z === 'number' && z > -1000 ? z : NaN;
-        }
-      } catch (e) {
-        this.stats.errors.push((e as Error).message);
-      } finally {
-        this.stats.ms += performance.now() - t0;
+    const chunks: { i: number; pts: LngLat[] }[] = [];
+    for (let i = 0; i < points.length; i += this.batch) chunks.push({ i, pts: points.slice(i, i + this.batch) });
+    let next = 0;
+    const worker = async (): Promise<void> => {
+      while (next < chunks.length) {
+        const c = chunks[next++]!;
+        const eles = await this.one(c.pts);
+        for (let k = 0; k < eles.length; k++) out[c.i + k] = eles[k]!;
       }
-    }
+    };
+    await Promise.all(Array.from({ length: Math.min(this.concurrency, chunks.length) }, worker));
     return out;
   }
 }

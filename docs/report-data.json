@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T16:08:42.202Z",
+  "generatedAt": "2026-11-01T16:28:07.087Z",
   "meta": {
     "fetchedAt": "2026-11-01T16:05:07.159Z",
     "bbox": {
@@ -2348,7 +2348,7 @@
       "steps": 19,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 23.069074,
+      "ms": 25.618709999999737,
       "edges": 106
     },
     {
@@ -2365,7 +2365,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 6.3733179999999265,
+      "ms": 6.762064999999893,
       "edges": 92
     },
     {
@@ -2382,7 +2382,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 11.584292000000005,
+      "ms": 13.700910999999905,
       "edges": 92
     },
     {
@@ -2395,7 +2395,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 4.503889000000072,
+      "ms": 5.01861800000006,
       "edges": 66
     },
     {
@@ -2411,7 +2411,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 1.8850419999998849,
+      "ms": 2.1150210000000698,
       "edges": 61
     },
     {
@@ -2427,7 +2427,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 5.039584999999988,
+      "ms": 6.517026999999871,
       "edges": 61
     },
     {
@@ -2440,7 +2440,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 1.9919409999997697,
+      "ms": 2.069814999999835,
       "edges": 42
     },
     {
@@ -2456,7 +2456,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.4988939999998365,
+      "ms": 0.47697799999968993,
       "edges": 26
     },
     {
@@ -2472,7 +2472,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.6806060000003527,
+      "ms": 0.6857949999998709,
       "edges": 26
     },
     {
@@ -2485,7 +2485,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 3.1068970000001173,
+      "ms": 3.2255350000000362,
       "edges": 124
     },
     {
@@ -2500,7 +2500,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 2.9096949999998287,
+      "ms": 3.252002000000175,
       "edges": 126
     },
     {
@@ -2515,7 +2515,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 7.113786999999775,
+      "ms": 7.397351999999955,
       "edges": 126
     },
     {
@@ -2543,13 +2543,95 @@
       "maxGrade": 22.712622615729753
     }
   ],
+  "r3References": [
+    {
+      "name": "Esplanade de Fourvière",
+      "lat": 45.76235,
+      "lng": 4.8225,
+      "publicAlt": 287,
+      "ign": null,
+      "openMeteo": 293,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 298.24617571966866
+    },
+    {
+      "name": "Place Bellecour",
+      "lat": 45.75777,
+      "lng": 4.83215,
+      "publicAlt": 168,
+      "ign": 167.99,
+      "openMeteo": 168,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 173.55888542116114
+    },
+    {
+      "name": "Place de la Croix-Rousse",
+      "lat": 45.77445,
+      "lng": 4.83165,
+      "publicAlt": 250,
+      "ign": 250.52,
+      "openMeteo": 254,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 254.60558806587724
+    },
+    {
+      "name": "Place des Terreaux",
+      "lat": 45.76737,
+      "lng": 4.8336,
+      "publicAlt": 170,
+      "ign": 169.76,
+      "openMeteo": 177,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 183.80265328279668
+    },
+    {
+      "name": "Quai Saint-Antoine",
+      "lat": 45.7623,
+      "lng": 4.8316,
+      "publicAlt": 166,
+      "ign": null,
+      "openMeteo": 161,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 159.22210040061765
+    },
+    {
+      "name": "Place Saint-Jean",
+      "lat": 45.7608,
+      "lng": 4.8272,
+      "publicAlt": 170,
+      "ign": null,
+      "openMeteo": 176,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 179.02729621628177
+    },
+    {
+      "name": "Tête d'Or (lac)",
+      "lat": 45.7776,
+      "lng": 4.853,
+      "publicAlt": 170,
+      "ign": null,
+      "openMeteo": 180,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 180.44664070629346
+    },
+    {
+      "name": "Pont Bonaparte (tablier)",
+      "lat": 45.7604,
+      "lng": 4.8298,
+      "publicAlt": 172,
+      "ign": null,
+      "openMeteo": 161,
+      "ignNote": "nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud",
+      "terrarium": 160.0380417478832
+    }
+  ],
   "r3TerrariumVsIgnAll": {
-    "n": 121713,
-    "mean": 5.659060251329184,
-    "mae": 6.830050079891429,
-    "rmse": 8.232237415174724,
+    "n": 121829,
+    "mean": 5.654850294498478,
+    "mae": 6.827581063980184,
+    "rmse": 8.229606400624062,
     "max": 56.695639070624594,
-    "p90": 12.900735519646787
+    "p90": 12.897824410107916
   },
   "r3Anomalies": {
     "bridges": 277,
@@ -2828,15 +2910,15 @@
     "ways": 22190,
     "nodes": 34097,
     "edges": 46460,
-    "parseMs": 25.221497,
-    "buildMs": 163.62597200000005,
-    "terrariumAssignMs": 77.66679199999999,
-    "astarBellecourCroixRousseMs": 4.4880319999992935,
-    "outAndBackSameMs": 112.72839000000022,
-    "outAndBackDiffMs": 201.38220499999989,
-    "loopsMs": 256.64514599999984,
+    "parseMs": 13.45570900000007,
+    "buildMs": 186.83459900000003,
+    "terrariumAssignMs": 39.77277099999992,
+    "astarBellecourCroixRousseMs": 3.9105060000001686,
+    "outAndBackSameMs": 133.5710270000004,
+    "outAndBackDiffMs": 233.12917600000037,
+    "loopsMs": 321.9643649999998,
     "loops": 5,
-    "variantsMs": 32.60094600000048,
+    "variantsMs": 36.17259000000013,
     "variants": 3
   }
 }

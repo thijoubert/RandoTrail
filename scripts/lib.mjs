@@ -206,12 +206,18 @@ export async function openMeteoElevations(points) {
     const chunk = points.slice(i, i + 100);
     const url = `https://api.open-meteo.com/v1/elevation?latitude=${chunk.map((p) => p.lat.toFixed(6)).join(',')}&longitude=${chunk.map((p) => p.lng.toFixed(6)).join(',')}`;
     const t0 = Date.now();
-    const res = await fetchWithTimeout(url, {}, 60000);
-    if (!res.ok) throw new Error('open-meteo HTTP ' + res.status);
+    let res = null;
+    for (let attempt = 0; attempt < 6; attempt++) {
+      res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } }, 60000);
+      if (res.status !== 429) break;
+      console.warn('open-meteo 429, waiting 60 s');
+      await new Promise((r) => setTimeout(r, 60000));
+    }
+    if (!res || !res.ok) throw new Error('open-meteo HTTP ' + (res ? res.status : 0));
     const json = await res.json();
     for (let k = 0; k < chunk.length; k++) out[i + k] = json.elevation?.[k] ?? null;
     log.push({ i, n: chunk.length, ms: Date.now() - t0, cors: res.headers.get('access-control-allow-origin') });
-    await new Promise((r) => setTimeout(r, 300));
+    await new Promise((r) => setTimeout(r, 1500));
   }
   return { values: out, log };
 }

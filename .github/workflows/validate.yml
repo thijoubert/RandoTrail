@@ -68,5 +68,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/e2e-results docs/screenshots
           git commit -m "validate: real-network and Lyon E2E results (WebKit)" || echo "nothing to commit"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git fetch origin main
+          git reset --soft origin/main
+          git add fixtures docs/e2e-results docs/screenshots 2>/dev/null || true
+          git commit -m "$(git log -1 --format=%s HEAD@{1} 2>/dev/null || echo 'data: refresh')" || echo "nothing new"
+          for i in 1 2 3 4; do git push origin HEAD:main && break; git fetch origin main; git reset --soft origin/main; git commit -m "data: refresh (rebased)" || true; sleep 5; done

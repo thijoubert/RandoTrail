@@ -54,12 +54,12 @@ Escaliers longs (≥ 30 m, n = 68), hauteur calibrée : IGN erreur relative méd
 ## R2 — Le routage réagit-il aux préférences ?
 | Trajet | Préférence | Distance | D+ | Escaliers (arêtes) | Marches | Noms d'escaliers empruntés | Temps A* (Node) |
 |---|---|---|---|---|---|---|---|
-| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 23 ms |
-| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 6 ms |
-| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 12 ms |
+| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 26 ms |
+| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 7 ms |
+| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 14 ms |
 | Terreaux → Croix-Rousse | avoid | 1105 m | 81 m | 0 | 0 | — | 5 ms |
 | Terreaux → Croix-Rousse | tolerate | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 2 ms |
-| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 5 ms |
+| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 7 ms |
 | Saint-Paul → Fourvière | avoid | 1263 m | 121 m | 0 | 0 | — | 2 ms |
 | Saint-Paul → Fourvière | tolerate | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 0 ms |
 | Saint-Paul → Fourvière | prefer | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 1 ms |
@@ -71,8 +71,24 @@ Escaliers longs (≥ 30 m, n = 68), hauteur calibrée : IGN erreur relative méd
 | Bellecour → Fourvière, escaliers évités | pentes : seek | 1948 m | 134 m | — | — | raide+très raide : 510 m, pente max 23 % | — |
 
 ## R3 — Fiabilité des altitudes
+_Source des points de référence : Open-Meteo mesuré depuis WebKit (docs/e2e-results/real-network.json) ; IGN = nœud OSM le plus proche (≤ 15 m) dans fixtures/lyon-centre.ign-alti.json._
 
-Sur **tous** les sommets du graphe (121713) : Terrarium − IGN : biais 5.66 m, erreur abs. moyenne 6.83 m, RMSE 8.23 m, P90 12.9 m, max 56.7 m.
+### Points de référence
+
+| Point | Valeur publique | IGN RGE ALTI | Open-Meteo (GLO-90) | Terrarium z14 | Écart Terrarium−IGN | Écart Open-Meteo−IGN |
+|---|---|---|---|---|---|---|
+| Esplanade de Fourvière | 287 m | — | 293.0 | 298.2 | — | — |
+| Place Bellecour | 168 m | 168.0 | 168.0 | 173.6 | 5.6 | 0.0 |
+| Place de la Croix-Rousse | 250 m | 250.5 | 254.0 | 254.6 | 4.1 | 3.5 |
+| Place des Terreaux | 170 m | 169.8 | 177.0 | 183.8 | 14.0 | 7.2 |
+| Quai Saint-Antoine | 166 m | — | 161.0 | 159.2 | — | — |
+| Place Saint-Jean | 170 m | — | 176.0 | 179.0 | — | — |
+| Tête d'Or (lac) | 170 m | — | 180.0 | 180.4 | — | — |
+| Pont Bonaparte (tablier) | 172 m | — | 161.0 | 160.0 | — | — |
+
+_Échantillon Open-Meteo vs IGN sur les nœuds du graphe : **non disponible** (Open-Meteo a répondu HTTP 429 lors de la 2e exécution du workflow `fetch-data`, voir LOG.md ; relancer le workflow pour l'obtenir)._
+
+Sur **tous** les sommets du graphe (121829) : Terrarium − IGN : biais 5.65 m, erreur abs. moyenne 6.83 m, RMSE 8.23 m, P90 12.9 m, max 56.7 m.
 
 ### Ponts, tunnels, sauts aberrants (source IGN RGE ALTI)
 
@@ -120,14 +136,14 @@ Sur **tous** les sommets du graphe (121713) : Terrarium − IGN : biais 5.66 m, 
 |---|---|
 | JSON Overpass (zone 4,2 × 4,4 km) | 10.30 Mo brut, **1.69 Mo gzip** (22190 ways) |
 | Graphe | 34097 nœuds, 46460 arêtes |
-| Parse JSON → ways | 25 ms |
-| Construction du graphe | 164 ms |
-| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 78 ms |
+| Parse JSON → ways | 13 ms |
+| Construction du graphe | 187 ms |
+| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 40 ms |
 | A* Bellecour → Croix-Rousse | 4 ms |
-| A/R même chemin (6 km, 250 m D+) | 113 ms |
-| A/R retour différent | 201 ms |
-| Boucles (5 résultats) | 257 ms |
-| Variantes (3 résultats) | 33 ms |
+| A/R même chemin (6 km, 250 m D+) | 134 ms |
+| A/R retour différent | 233 ms |
+| Boucles (5 résultats) | 322 ms |
+| Variantes (3 résultats) | 36 ms |
 
 ## Cas de test de référence (export JSON pour la future app Swift)
 

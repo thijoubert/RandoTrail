@@ -24,7 +24,8 @@ const osmText = readFileSync(must('lyon-centre.overpass.json'), 'utf8');
 const osm = JSON.parse(osmText) as OverpassJson;
 const known = existsSync(F + 'lyon-known-stairs.overpass.json') ? (JSON.parse(readFileSync(F + 'lyon-known-stairs.overpass.json', 'utf8')) as OverpassJson) : { elements: [] };
 const ignFile = existsSync(F + 'lyon-centre.ign-alti.json') ? (JSON.parse(readFileSync(F + 'lyon-centre.ign-alti.json', 'utf8')) as { nodes: Record<string, number>; count: number }) : null;
-const refs = existsSync(F + 'lyon-reference-elevations.json') ? JSON.parse(readFileSync(F + 'lyon-reference-elevations.json', 'utf8')) : null;
+let refs = existsSync(F + 'lyon-reference-elevations.json') ? JSON.parse(readFileSync(F + 'lyon-reference-elevations.json', 'utf8')) : null;
+let refsOrigin = 'fixtures/lyon-reference-elevations.json (IGN API + Open-Meteo API, GitHub Actions)';
 const probes = existsSync(F + 'network-probes.json') ? JSON.parse(readFileSync(F + 'network-probes.json', 'utf8')) : null;
 const meta = existsSync(F + 'meta.json') ? JSON.parse(readFileSync(F + 'meta.json', 'utf8')) : null;
 
@@ -204,7 +205,45 @@ out['r2'] = r2;
 
 /* ---------------- R3 ---------------- */
 md.push('\n## R3 — Fiabilité des altitudes');
+// Fallback: reference points measured from the real WebKit run (Labo tab), IGN from the nearest graph vertex (<= 15 m).
+if (!refs && existsSync('docs/e2e-results/real-network.json')) {
+  const rn = JSON.parse(readFileSync('docs/e2e-results/real-network.json', 'utf8')) as { 'r3-reference'?: string };
+  const txt = rn['r3-reference'] ?? '';
+  const REF_PTS = [
+    { name: 'Esplanade de Fourvière', lat: 45.76235, lng: 4.8225, publicAlt: 287 },
+    { name: 'Place Bellecour', lat: 45.75777, lng: 4.83215, publicAlt: 168 },
+    { name: 'Place de la Croix-Rousse', lat: 45.77445, lng: 4.83165, publicAlt: 250 },
+    { name: 'Place des Terreaux', lat: 45.76737, lng: 4.8336, publicAlt: 170 },
+    { name: 'Quai Saint-Antoine', lat: 45.7623, lng: 4.8316, publicAlt: 166 },
+    { name: 'Place Saint-Jean', lat: 45.7608, lng: 4.8272, publicAlt: 170 },
+    { name: "Tête d'Or (lac)", lat: 45.7776, lng: 4.853, publicAlt: 170 },
+    { name: 'Pont Bonaparte (tablier)', lat: 45.7604, lng: 4.8298, publicAlt: 172 },
+  ];
+  const ignNear = (p: LngLat): number => {
+    if (!ignFile) return NaN;
+    let best = NaN;
+    let bd = 15;
+    for (const n of graph.nodes) {
+      const d = fastDistance(p, n);
+      const v = ignFile.nodes[String(n.id)];
+      if (d < bd && v !== undefined) {
+        bd = d;
+        best = v;
+      }
+    }
+    return best;
+  };
+  const references = REF_PTS.map((p) => {
+    const line = txt.split('\n').find((l) => l.startsWith(p.name));
+    const cols = line ? line.split('\t') : [];
+    const om = cols.length >= 5 ? Number(cols[4]) : NaN;
+    return { ...p, ign: ignNear(p), openMeteo: om, ignNote: 'nœud OSM le plus proche (≤ 15 m) du fichier IGN par nœud' };
+  });
+  refs = { references, sample: [] };
+  refsOrigin = 'Open-Meteo mesuré depuis WebKit (docs/e2e-results/real-network.json) ; IGN = nœud OSM le plus proche (≤ 15 m) dans fixtures/lyon-centre.ign-alti.json';
+}
 if (refs) {
+  md.push(`_Source des points de référence : ${refsOrigin}._\n`);
   md.push('### Points de référence\n\n| Point | Valeur publique | IGN RGE ALTI | Open-Meteo (GLO-90) | Terrarium z14 | Écart Terrarium−IGN | Écart Open-Meteo−IGN |\n|---|---|---|---|---|---|---|');
   const rows: Record<string, unknown>[] = [];
   for (const p of refs.references) {
@@ -214,11 +253,15 @@ if (refs) {
   }
   out['r3References'] = rows;
   const sampleMeteo = refs.sample.filter((s: { ign: number | null; openMeteo: number | null }) => s.ign !== null && s.openMeteo !== null);
-  const dMeteo = stats(sampleMeteo.map((s: { ign: number; openMeteo: number }) => s.openMeteo - s.ign));
-  const sampleTerr = terrarium(refs.sample.map((s: { lng: number; lat: number }) => ({ lng: s.lng, lat: s.lat })));
-  const dTerrSample = stats(refs.sample.map((s: { ign: number | null }, i: number) => (s.ign !== null ? sampleTerr[i]! - s.ign : NaN)));
-  out['r3Sample'] = { openMeteoVsIgn: dMeteo, terrariumVsIgn: dTerrSample };
-  md.push(`\n### Écarts par rapport à IGN RGE ALTI sur ${sampleMeteo.length} nœuds du graphe (échantillon régulier)\n\n| Source | Biais moyen | Erreur abs. moyenne | RMSE | P90 | Max |\n|---|---|---|---|---|---|\n| Open-Meteo (GLO-90) | ${r(dMeteo.mean, 2)} m | ${r(dMeteo.mae, 2)} m | ${r(dMeteo.rmse, 2)} m | ${r(dMeteo.p90, 1)} m | ${r(dMeteo.max, 1)} m |\n| Terrarium z14 | ${r(dTerrSample.mean, 2)} m | ${r(dTerrSample.mae, 2)} m | ${r(dTerrSample.rmse, 2)} m | ${r(dTerrSample.p90, 1)} m | ${r(dTerrSample.max, 1)} m |`);
+  if (sampleMeteo.length > 0) {
+    const dMeteo = stats(sampleMeteo.map((s: { ign: number; openMeteo: number }) => s.openMeteo - s.ign));
+    const sampleTerr = terrarium(refs.sample.map((s: { lng: number; lat: number }) => ({ lng: s.lng, lat: s.lat })));
+    const dTerrSample = stats(refs.sample.map((s: { ign: number | null }, i: number) => (s.ign !== null ? sampleTerr[i]! - s.ign : NaN)));
+    out['r3Sample'] = { openMeteoVsIgn: dMeteo, terrariumVsIgn: dTerrSample };
+    md.push(`\n### Écarts par rapport à IGN RGE ALTI sur ${sampleMeteo.length} nœuds du graphe (échantillon régulier)\n\n| Source | Biais moyen | Erreur abs. moyenne | RMSE | P90 | Max |\n|---|---|---|---|---|---|\n| Open-Meteo (GLO-90) | ${r(dMeteo.mean, 2)} m | ${r(dMeteo.mae, 2)} m | ${r(dMeteo.rmse, 2)} m | ${r(dMeteo.p90, 1)} m | ${r(dMeteo.max, 1)} m |\n| Terrarium z14 | ${r(dTerrSample.mean, 2)} m | ${r(dTerrSample.mae, 2)} m | ${r(dTerrSample.rmse, 2)} m | ${r(dTerrSample.p90, 1)} m | ${r(dTerrSample.max, 1)} m |`);
+  } else {
+    md.push('\n_Échantillon Open-Meteo vs IGN sur les nœuds du graphe : **non disponible** (Open-Meteo a répondu HTTP 429 lors de la 2e exécution du workflow `fetch-data`, voir LOG.md ; relancer le workflow pour l\'obtenir)._');
+  }
 }
 if (hasIgn) {
   const ignVerts = vertexElevationsById(graph, ignFile!.nodes);

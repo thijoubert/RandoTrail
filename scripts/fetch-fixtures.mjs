@@ -1,6 +1,6 @@
 // Fetch REAL data for the Lyon centre zone (runs in GitHub Actions, which has internet access).
 // Outputs are committed into fixtures/ so that tests, the report and the embedded demo use real data.
-// fixtures-version: 4 (adaptive IGN batches)
+// fixtures-version: 5 (skip bulk IGN when present, Open-Meteo backoff)
 import {
   LYON_CENTRE, REFERENCE_POINTS, KNOWN_STAIRS, overpass, overpassQuery, ignElevations, openMeteoElevations, probe, writeJson, writeJsonPretty,
 } from './lib.mjs';
@@ -43,19 +43,27 @@ if (!only || only === 'elevation') {
   }
   const ids = [...nodes.keys()];
   const pts = ids.map((id) => nodes.get(id));
-  console.log(`IGN RGE ALTI for ${ids.length} nodes`);
-  const ign = await ignElevations(pts);
-  const ignMap = {};
-  ids.forEach((id, i) => { if (ign.values[i] !== null) ignMap[id] = Math.round(ign.values[i] * 100) / 100; });
-  writeJson('fixtures/lyon-centre.ign-alti.json', { resource: 'ign_rge_alti_wld', fetchedAt: new Date().toISOString(), count: Object.keys(ignMap).length, nodes: ignMap });
-  meta.steps.ign = { points: ids.length, requests: ign.log.length, totalMs: ign.log.reduce((a, b) => a + b.ms, 0), cors: ign.log[0]?.cors ?? null };
+  const existing = readJson('fixtures/lyon-centre.ign-alti.json');
+  let ignMap;
+  if (existing && existing.nodes && ids.filter((id) => existing.nodes[id] === undefined).length < ids.length * 0.02) {
+    console.log(`IGN RGE ALTI already present for ${existing.count} nodes (skipping bulk download)`);
+    ignMap = existing.nodes;
+    meta.steps.ign = { reused: true, count: existing.count };
+  } else {
+    console.log(`IGN RGE ALTI for ${ids.length} nodes`);
+    const ign = await ignElevations(pts);
+    ignMap = {};
+    ids.forEach((id, i) => { if (ign.values[i] !== null) ignMap[id] = Math.round(ign.values[i] * 100) / 100; });
+    writeJson('fixtures/lyon-centre.ign-alti.json', { resource: 'ign_rge_alti_wld', fetchedAt: new Date().toISOString(), count: Object.keys(ignMap).length, nodes: ignMap });
+    meta.steps.ign = { points: ids.length, requests: ign.log.length, totalMs: ign.log.reduce((a, b) => a + b.ms, 0), cors: ign.log[0]?.cors ?? null, strategy: ign.log.find((l) => l.method) ?? null };
+  }
 
   // Reference points: IGN + Open-Meteo.
   const refIgn = await ignElevations(REFERENCE_POINTS);
   const refMeteo = await openMeteoElevations(REFERENCE_POINTS);
   // Sample of 1500 graph nodes for Open-Meteo vs IGN comparison (deterministic stride).
-  const stride = Math.max(1, Math.floor(ids.length / 1500));
-  const sampleIds = ids.filter((_, i) => i % stride === 0).slice(0, 1500);
+  const stride = Math.max(1, Math.floor(ids.length / 600));
+  const sampleIds = ids.filter((_, i) => i % stride === 0).slice(0, 600);
   const samplePts = sampleIds.map((id) => nodes.get(id));
   const meteo = await openMeteoElevations(samplePts);
   const sample = sampleIds.map((id, i) => ({ id, lng: samplePts[i].lng, lat: samplePts[i].lat, ign: ignMap[id] ?? null, openMeteo: meteo.values[i] }));
