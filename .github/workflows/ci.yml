@@ -49,7 +49,7 @@ jobs:
       - run: npm run build
       - name: E2E (WebKit iPhone 13 + Chromium), offline fixtures
         run: npx playwright test
-      - name: E2E real network (WebKit): Overpass, IGN, Terrarium, Open-Meteo, IGN WMTS from a browser
+      - name: "E2E real network (WebKit) - Overpass, IGN, Terrarium, Open-Meteo, IGN WMTS from a browser"
         if: always()
         env:
           REAL_NETWORK: '1'
