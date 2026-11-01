@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-01T16:05:07.159Z",
+  "fetchedAt": "2026-11-01T16:48:14.910Z",
   "bbox": {
     "south": 45.746,
     "west": 4.796,
@@ -7,6 +7,25 @@
     "east": 4.85
   },
   "steps": {
-    "probes": 12
+    "probes": 12,
+    "overpass": {
+      "mirror": "https://overpass-api.de/api/interpreter",
+      "ms": 36208,
+      "elements": 22190,
+      "osmTimestamp": "2026-11-01T16:41:41Z"
+    },
+    "knownStairs": {
+      "mirror": "https://overpass-api.de/api/interpreter",
+      "ms": 39930,
+      "elements": 93
+    },
+    "ign": {
+      "reused": true,
+      "count": 63006
+    },
+    "openMeteo": {
+      "points": 610,
+      "cors": null
+    }
   }
 }

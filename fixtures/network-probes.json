@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-01T16:06:54.511Z",
+  "fetchedAt": "2026-11-01T16:49:28.515Z",
   "probes": [
     {
       "name": "ign-wmts-planignv2",
@@ -9,7 +9,7 @@
       "contentType": "image/png",
       "bytes": 17654,
       "cors": "*",
-      "ms": 943
+      "ms": 979
     },
     {
       "name": "ign-wmts-ortho",
@@ -19,7 +19,7 @@
       "contentType": "image/jpeg",
       "bytes": 7779,
       "cors": "*",
-      "ms": 418
+      "ms": 548
     },
     {
       "name": "ign-wmts-capabilities",
@@ -29,7 +29,7 @@
       "contentType": "application/xml",
       "bytes": 3080569,
       "cors": "*",
-      "ms": 430
+      "ms": 467
     },
     {
       "name": "opentopomap",
@@ -39,7 +39,7 @@
       "contentType": "image/png",
       "bytes": 8014,
       "cors": "*",
-      "ms": 449
+      "ms": 421
     },
     {
       "name": "terrarium-aws",
@@ -49,7 +49,7 @@
       "contentType": "image/png",
       "bytes": 60845,
       "cors": null,
-      "ms": 244
+      "ms": 235
     },
     {
       "name": "ign-alti-get",
@@ -59,7 +59,7 @@
       "contentType": "application/json",
       "bytes": 24,
       "cors": "*",
-      "ms": 203
+      "ms": 183
     },
     {
       "name": "open-meteo",
@@ -69,7 +69,7 @@
       "contentType": "application/json",
       "bytes": 21,
       "cors": null,
-      "ms": 188
+      "ms": 550
     },
     {
       "name": "opentopodata-srtm30m",
@@ -79,15 +79,17 @@
       "contentType": "application/json",
       "bytes": 181,
       "cors": null,
-      "ms": 496
+      "ms": 344
     },
     {
       "name": "overpass-status https://overpass-api.de",
       "url": "https://overpass-api.de/api/status",
-      "status": 0,
+      "status": 502,
       "ok": false,
-      "error": "This operation was aborted",
-      "ms": 30002
+      "contentType": "text/plain",
+      "bytes": 534,
+      "cors": "*",
+      "ms": 356
     },
     {
       "name": "overpass-status https://overpass.kumi.systems",
@@ -95,7 +97,7 @@
       "status": 0,
       "ok": false,
       "error": "This operation was aborted",
-      "ms": 30001
+      "ms": 30003
     },
     {
       "name": "overpass-status https://overpass.private.coffee",
@@ -113,7 +115,7 @@
       "contentType": "text/plain; charset=utf-8",
       "bytes": 168,
       "cors": "*",
-      "ms": 13977
+      "ms": 9518
     }
   ]
 }
