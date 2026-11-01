@@ -38,6 +38,7 @@ jobs:
           cat fixtures/meta.json
           cat fixtures/network-probes.json | head -80
       - name: Upload fixtures artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: fixtures

@@ -57,7 +57,7 @@ export function overpassQuery(b: BBox, timeoutSec = 90): string {
   return (
     `[out:json][timeout:${timeoutSec}][bbox:${bbox}];` +
     `way["highway"~"${re}"]["foot"!~"^(no|private)$"]["access"!~"^(private|no)$"]["area"!="yes"];` +
-    `out tags geom qt;`
+    `out body geom qt;`
   );
 }
 
@@ -202,6 +202,7 @@ export function buildGraph(ways: OsmWay[], opts: BuildGraphOptions = {}): Graph 
       const isCut = i === w.nodeIds.length - 1 || (usage.get(nid) ?? 0) >= 2 || acc >= maxEdgeLength;
       if (!isCut) continue;
       const geometry = w.coords.slice(startI, i + 1);
+      const vertexIds = w.nodeIds.slice(startI, i + 1);
       const segLengths: number[] = [];
       for (let k = 1; k < geometry.length; k++) segLengths.push(fastDistance(geometry[k - 1]!, geometry[k]!));
       const fromIdx = getNode(w.nodeIds[startI]!, w.coords[startI]!);
@@ -213,6 +214,7 @@ export function buildGraph(ways: OsmWay[], opts: BuildGraphOptions = {}): Graph 
           from: fromIdx,
           to: toIdx,
           geometry,
+          vertexIds,
           length: acc,
           segLengths,
           tags,

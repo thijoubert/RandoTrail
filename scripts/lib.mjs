@@ -113,7 +113,7 @@ export async function overpass(query, { timeoutMs = 180000, rounds = 3 } = {}) {
 export function overpassQuery(b, timeoutSec = 180) {
   const walkable = ['steps','footway','path','pedestrian','living_street','residential','service','track','unclassified','tertiary','tertiary_link','secondary','secondary_link','primary','primary_link','cycleway','bridleway','corridor','road'];
   const bbox = `${b.south},${b.west},${b.north},${b.east}`;
-  return `[out:json][timeout:${timeoutSec}][bbox:${bbox}];way["highway"~"^(${walkable.join('|')})$"]["foot"!~"^(no|private)$"]["access"!~"^(private|no)$"]["area"!="yes"];out tags geom qt;`;
+  return `[out:json][timeout:${timeoutSec}][bbox:${bbox}];way["highway"~"^(${walkable.join('|')})$"]["foot"!~"^(no|private)$"]["access"!~"^(private|no)$"]["area"!="yes"];out body geom qt;`;
 }
 
 /** IGN Géoplateforme altimetry, RGE ALTI (1 m). Up to 5000 points per POST. */

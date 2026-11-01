@@ -10,7 +10,7 @@ describe('osm parsing', () => {
     expect(q).toContain('[bbox:45.746,4.796,45.786,4.85]');
     expect(q).toContain('steps');
     expect(q).not.toContain('motorway');
-    expect(q).toContain('out tags geom');
+    expect(q).toContain('out body geom');
   });
   it('parses numbers from OSM tag strings', () => {
     expect(parseNumber('20')).toBe(20);

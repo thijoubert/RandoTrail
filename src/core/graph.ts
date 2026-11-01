@@ -61,6 +61,8 @@ export interface GraphEdge {
   to: number; // node index
   /** Full geometry including both endpoints (lng/lat). */
   geometry: LngLat[];
+  /** OSM node ids aligned with geometry (used to join external per-node elevation files). */
+  vertexIds: number[];
   /** Horizontal length in metres. */
   length: number;
   /** Length of each sub-segment geometry[i] -> geometry[i+1] (metres). */

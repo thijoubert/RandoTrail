@@ -125,41 +125,43 @@ export function assignElevations(graph: Graph, vertexEles: number[]): void {
   }
 }
 
-/** Assign node elevations from a map OSM node id -> elevation (e.g. IGN fixture); edge vertices need ids. */
-export function assignNodeElevationsById(graph: Graph, byId: Record<string, number>, vertexIds?: number[][]): number {
-  let assigned = 0;
-  for (const n of graph.nodes) {
-    const v = byId[String(n.id)];
-    if (v !== undefined) {
-      n.ele = v;
-      assigned++;
+/** Elevations of all graph vertices from a map OSM node id -> elevation (e.g. IGN per-node file); NaN when missing. */
+export function vertexElevationsById(graph: Graph, byId: Record<string, number>): number[] {
+  const out: number[] = [];
+  for (const e of graph.edges) {
+    for (const id of e.vertexIds) {
+      const v = byId[String(id)];
+      out.push(v === undefined ? NaN : v);
     }
   }
-  if (vertexIds) {
-    graph.edges.forEach((e, i) => {
-      const ids = vertexIds[i];
-      if (!ids) return;
-      e.eles = ids.map((id) => {
-        const v = byId[String(id)];
-        return v === undefined ? NaN : v;
-      });
-      e.eleCorrected = false;
-    });
-  } else {
-    for (const e of graph.edges) {
-      const a = graph.nodes[e.from]!.ele;
-      const b = graph.nodes[e.to]!.ele;
-      const n = e.geometry.length;
-      let acc = 0;
-      e.eles = e.geometry.map((_, i) => {
-        if (i > 0) acc += e.segLengths[i - 1]!;
-        return e.length > 0 ? lerp(a, b, acc / e.length) : a;
-      });
-      e.eleCorrected = false;
-      if (n === 0) e.eles = [];
+  return out;
+}
+
+/** Fill NaN vertex elevations by linear interpolation inside each edge (or copy the other end). */
+export function fillMissingElevations(graph: Graph): number {
+  let filled = 0;
+  for (const e of graph.edges) {
+    const eles = e.eles;
+    if (!eles) continue;
+    const n = eles.length;
+    for (let i = 0; i < n; i++) {
+      if (Number.isFinite(eles[i]!)) continue;
+      let a = i - 1;
+      while (a >= 0 && !Number.isFinite(eles[a]!)) a--;
+      let b = i + 1;
+      while (b < n && !Number.isFinite(eles[b]!)) b++;
+      if (a >= 0 && b < n) eles[i] = lerp(eles[a]!, eles[b]!, (i - a) / (b - a));
+      else if (a >= 0) eles[i] = eles[a]!;
+      else if (b < n) eles[i] = eles[b]!;
+      else continue;
+      filled++;
     }
+    const na = graph.nodes[e.from]!;
+    const nb = graph.nodes[e.to]!;
+    if (!Number.isFinite(na.ele) && Number.isFinite(eles[0]!)) na.ele = eles[0]!;
+    if (!Number.isFinite(nb.ele) && Number.isFinite(eles[n - 1]!)) nb.ele = eles[n - 1]!;
   }
-  return assigned;
+  return filled;
 }
 
 export interface AnomalyReport {
