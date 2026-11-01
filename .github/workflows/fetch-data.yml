@@ -34,6 +34,13 @@ jobs:
       - name: Network probes (IGN WMTS no key, CORS headers, mirrors)
         continue-on-error: true
         run: node scripts/fetch-fixtures.mjs probes
+      - name: Regenerate report data and expected test cases from the refreshed fixtures
+        continue-on-error: true
+        run: |
+          npm ci
+          npx vite-node scripts/report-data.mts
+          node scripts/assemble-report.mjs
+          npm test
       - name: Summary
         if: always()
         run: |
@@ -56,7 +63,7 @@ jobs:
           for i in 1 2 3 4; do
             git fetch origin main
             git reset -q origin/main
-            git add -A fixtures
+            git add -A fixtures expected docs/report-data.json docs/report-tables.md REPORT.md
             if git diff --cached --quiet; then echo "nothing new"; break; fi
             git commit -q -m "data: refresh real Lyon fixtures (Overpass, IGN RGE ALTI, Open-Meteo, probes)"
             git push origin HEAD:main && break

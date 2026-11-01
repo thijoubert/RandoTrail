@@ -1,6 +1,6 @@
 // Fetch REAL data for the Lyon centre zone (runs in GitHub Actions, which has internet access).
 // Outputs are committed into fixtures/ so that tests, the report and the embedded demo use real data.
-// fixtures-version: 6 (commit strategy fixed)
+// fixtures-version: 7 (OSM timestamp guard)
 import {
   LYON_CENTRE, REFERENCE_POINTS, KNOWN_STAIRS, overpass, overpassQuery, ignElevations, openMeteoElevations, probe, writeJson, writeJsonPretty,
 } from './lib.mjs';
@@ -13,8 +13,18 @@ const only = process.argv[2]; // optional: 'overpass' | 'elevation' | 'probes'
 
 if (!only || only === 'overpass') {
   const { json, mirror, ms } = await overpass(overpassQuery(LYON_CENTRE));
-  writeJson('fixtures/lyon-centre.overpass.json', json);
-  meta.steps.overpass = { mirror, ms, elements: json.elements.length, osmTimestamp: json.osm3s?.timestamp_osm_base };
+  // Guard: some public mirrors (e.g. maps.mail.ru) serve a stale database. Never replace the fixture with
+  // older OSM data than the one already committed (tests and expected/ are tied to it).
+  const prev = readJson('fixtures/lyon-centre.overpass.json');
+  const prevTs = prev?.osm3s?.timestamp_osm_base ?? '';
+  const newTs = json.osm3s?.timestamp_osm_base ?? '';
+  if (prev && newTs < prevTs) {
+    console.warn(`Overpass data from ${mirror} is older (${newTs}) than the committed fixture (${prevTs}): keeping the existing fixture`);
+    meta.steps.overpass = { mirror, ms, elements: json.elements.length, osmTimestamp: newTs, rejected: 'older than committed fixture', keptTimestamp: prevTs };
+  } else {
+    writeJson('fixtures/lyon-centre.overpass.json', json);
+    meta.steps.overpass = { mirror, ms, elements: json.elements.length, osmTimestamp: newTs };
+  }
 
   // Known stairs lookup by name (any highway type), wider bbox (whole Lyon).
   const re = KNOWN_STAIRS.map((n) => n.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
