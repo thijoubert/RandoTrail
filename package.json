@@ -15,7 +15,7 @@
     "e2e": "playwright test",
     "fixtures:fetch": "node scripts/fetch-fixtures.mjs",
     "fixtures:elevation": "node scripts/fetch-terrarium.mjs",
-    "report": "node scripts/report-data.mjs"
+    "report": "npx vite-node scripts/report-data.mts && node scripts/assemble-report.mjs"
   },
   "dependencies": {
     "maplibre-gl": "^5.24.0",
