@@ -1,0 +1,10 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.vite/
+*.log
+.DS_Store
+e2e/screenshots/*.png
+!e2e/screenshots/.gitkeep
+scratch/

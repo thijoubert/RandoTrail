@@ -1,0 +1,52 @@
+name: fetch-data
+# Fetches REAL Overpass / IGN / Open-Meteo data for Lyon centre and commits it into fixtures/.
+# The development sandbox has no access to these hosts; GitHub Actions has.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fetch-fixtures.mjs'
+      - 'scripts/lib.mjs'
+      - '.github/workflows/fetch-data.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch Overpass (Lyon centre + known stairs)
+        run: node scripts/fetch-fixtures.mjs overpass
+      - name: Fetch elevations (IGN RGE ALTI for all nodes, Open-Meteo sample)
+        run: node scripts/fetch-fixtures.mjs elevation
+      - name: Network probes (IGN WMTS no key, CORS headers, mirrors)
+        run: node scripts/fetch-fixtures.mjs probes
+      - name: Summary
+        run: |
+          ls -la fixtures
+          cat fixtures/meta.json
+          cat fixtures/network-probes.json | head -80
+      - name: Upload fixtures artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixtures
+          path: fixtures/
+      - name: Commit fixtures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fixtures
+          git commit -m "data: refresh real Lyon fixtures (Overpass, IGN RGE ALTI, Open-Meteo, probes)" || echo "nothing to commit"
+          git pull --rebase origin main
+          git push origin HEAD:main

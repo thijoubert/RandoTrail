@@ -1,0 +1,37 @@
+{
+  "name": "randotrail-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Labo urban trail Lyon : escaliers OSM, routage navigateur, altitudes, générateurs de parcours",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "fixtures:fetch": "node scripts/fetch-fixtures.mjs",
+    "fixtures:elevation": "node scripts/fetch-terrarium.mjs",
+    "report": "node scripts/report-data.mjs"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.24.0",
+    "uplot": "^1.6.32"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.39.5",
+    "fake-indexeddb": "^6.2.7",
+    "globals": "^16.0.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^7.3.7",
+    "vitest": "^4.1.12"
+  }
+}
