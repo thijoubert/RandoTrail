@@ -146,8 +146,19 @@ const relErr = (arr: number[]): { mae: number; medAbs: number; medRel: number; w
 const estIgn = hasIgn ? relErr(est.map((e) => e.estIgn)) : null;
 const estTerr = relErr(est.map((e) => e.estTerr));
 const impliedRise = est.map((e) => e.dhIgn / e.real).filter((x) => Number.isFinite(x) && x > 0).sort((a, b) => a - b);
-out['r1Estimation'] = { n: est.length, ign: estIgn, terrarium: estTerr, impliedStepRiseMedianIgn: median(impliedRise), sample: est.slice(0, 200) };
-md.push(`\n### Fiabilité de l'estimation des marches (marches = |Δh| / 0,17 m)\n\nSur les **${est.length}** escaliers ayant un \`step_count\` ≥ 3 :\n\n| Source d'altitude | Erreur abs. moyenne | Erreur abs. médiane | Erreur relative médiane | ≤ 25 % d'erreur | ≤ 50 % d'erreur |\n|---|---|---|---|---|---|\n${estIgn ? `| IGN RGE ALTI 1 m | ${r(estIgn.mae)} marches | ${r(estIgn.medAbs, 0)} | ${r(100 * estIgn.medRel, 0)} % | ${r(100 * estIgn.within25, 0)} % | ${r(100 * estIgn.within50, 0)} % |\n` : ''}| Terrarium z14 (~30 m) | ${r(estTerr.mae)} marches | ${r(estTerr.medAbs, 0)} | ${r(100 * estTerr.medRel, 0)} % | ${r(100 * estTerr.within25, 0)} % | ${r(100 * estTerr.within50, 0)} % |\n\nHauteur de marche implicite médiane (Δh IGN / step_count) : **${r(median(impliedRise), 3)} m**.`);
+const calib = median(impliedRise);
+const estIgnCal = hasIgn ? relErr(est.map((e) => Math.round(e.dhIgn / calib))) : null;
+const estTerrCal = relErr(est.map((e) => Math.round(e.dhTerr / calib)));
+// Long stairs only (>= 30 m): DEM resolution matters less.
+const longIdx = est.map((e, i) => (e.length >= 30 ? i : -1)).filter((i) => i >= 0);
+const relErrSub = (arr: number[], idx: number[]): { medRel: number; within25: number; within50: number; n: number } => {
+  const rel = idx.map((i) => Math.abs(arr[i]! - est[i]!.real) / est[i]!.real).filter((x) => Number.isFinite(x)).sort((a, b) => a - b);
+  return { n: rel.length, medRel: median(rel), within25: rel.filter((x) => x <= 0.25).length / rel.length, within50: rel.filter((x) => x <= 0.5).length / rel.length };
+};
+const longIgn = hasIgn ? relErrSub(est.map((e) => Math.round(e.dhIgn / calib)), longIdx) : null;
+const longTerr = relErrSub(est.map((e) => Math.round(e.dhTerr / calib)), longIdx);
+out['r1Estimation'] = { n: est.length, ign: estIgn, terrarium: estTerr, impliedStepRiseMedianIgn: calib, calibrated: { ign: estIgnCal, terrarium: estTerrCal }, longStairs: { n: longIdx.length, ign: longIgn, terrarium: longTerr }, sample: est.slice(0, 200) };
+md.push(`\n### Fiabilité de l'estimation des marches (marches = |Δh| / hauteur de marche)\n\nSur les **${est.length}** escaliers ayant un \`step_count\` ≥ 3 (Δh = différence d'altitude entre les deux extrémités de la way) :\n\n| Source d'altitude | Hauteur de marche | Erreur abs. moyenne | Erreur abs. médiane | Erreur relative médiane | ≤ 25 % d'erreur | ≤ 50 % d'erreur |\n|---|---|---|---|---|---|---|\n${estIgn ? `| IGN RGE ALTI 1 m | 0,17 m | ${r(estIgn.mae)} marches | ${r(estIgn.medAbs, 0)} | ${r(100 * estIgn.medRel, 0)} % | ${r(100 * estIgn.within25, 0)} % | ${r(100 * estIgn.within50, 0)} % |\n| IGN RGE ALTI 1 m | ${r(calib, 3)} m (calibrée) | ${r(estIgnCal!.mae)} marches | ${r(estIgnCal!.medAbs, 0)} | ${r(100 * estIgnCal!.medRel, 0)} % | ${r(100 * estIgnCal!.within25, 0)} % | ${r(100 * estIgnCal!.within50, 0)} % |\n` : ''}| Terrarium z14 (~30 m) | 0,17 m | ${r(estTerr.mae)} marches | ${r(estTerr.medAbs, 0)} | ${r(100 * estTerr.medRel, 0)} % | ${r(100 * estTerr.within25, 0)} % | ${r(100 * estTerr.within50, 0)} % |\n| Terrarium z14 (~30 m) | ${r(calib, 3)} m (calibrée) | ${r(estTerrCal.mae)} marches | ${r(estTerrCal.medAbs, 0)} | ${r(100 * estTerrCal.medRel, 0)} % | ${r(100 * estTerrCal.within25, 0)} % | ${r(100 * estTerrCal.within50, 0)} % |\n\nHauteur de marche implicite médiane (Δh IGN / step_count) : **${r(calib, 3)} m** (au lieu des 0,17 m attendus : le MNT 1 m « lisse » les escaliers et les extrémités des ways ne coïncident pas toujours avec le bas et le haut des marches).\n\nEscaliers longs (≥ 30 m, n = ${longIdx.length}), hauteur calibrée : IGN erreur relative médiane ${longIgn ? r(100 * longIgn.medRel, 0) : '—'} %, ≤ 25 % : ${longIgn ? r(100 * longIgn.within25, 0) : '—'} % ; Terrarium erreur relative médiane ${r(100 * longTerr.medRel, 0)} %, ≤ 25 % : ${r(100 * longTerr.within25, 0)} %.`);
 
 /* ---------------- R2 ---------------- */
 md.push('\n## R2 — Le routage réagit-il aux préférences ?');
@@ -156,9 +167,12 @@ const FOURVIERE = { lng: 4.8225, lat: 45.76235 };
 const CROIX_ROUSSE = { lng: 4.83165, lat: 45.77445 };
 const TERREAUX = { lng: 4.8336, lat: 45.76737 };
 const prefs = (p: Partial<RoutingPreferences>): RoutingPreferences => ({ ...DEFAULT_PREFERENCES, ...p });
+const SAINT_PAUL = { lng: 4.8277, lat: 45.7658 };
 const r2Cases: [string, LngLat[]][] = [
   ['Bellecour → Fourvière', [BELLECOUR, FOURVIERE]],
   ['Terreaux → Croix-Rousse', [TERREAUX, CROIX_ROUSSE]],
+  ['Saint-Paul → Fourvière', [SAINT_PAUL, FOURVIERE]],
+  ['Quai Saint-Antoine → Croix-Rousse', [{ lng: 4.8316, lat: 45.7623 }, CROIX_ROUSSE]],
 ];
 const r2: Record<string, unknown>[] = [];
 md.push('| Trajet | Préférence | Distance | D+ | Escaliers (arêtes) | Marches | Noms d\'escaliers empruntés | Temps A* (Node) |\n|---|---|---|---|---|---|---|---|');
@@ -274,8 +288,9 @@ const cases = [
   { id: 'bellecour-fourviere-tolerate', waypoints: [BELLECOUR, FOURVIERE], prefs: prefs({ stairs: 'tolerate' }) },
   { id: 'bellecour-fourviere-avoid', waypoints: [BELLECOUR, FOURVIERE], prefs: prefs({ stairs: 'avoid' }) },
   { id: 'bellecour-fourviere-prefer', waypoints: [BELLECOUR, FOURVIERE], prefs: prefs({ stairs: 'prefer' }) },
-  { id: 'gourguillon', waypoints: [{ lng: 4.8265, lat: 45.7593 }, FOURVIERE], prefs: prefs({ stairs: 'tolerate' }) },
-  { id: 'saint-barthelemy', waypoints: [{ lng: 4.8277, lat: 45.7633 }, FOURVIERE], prefs: prefs({ stairs: 'tolerate' }) },
+  { id: 'gourguillon', waypoints: [{ lng: 4.8268, lat: 45.7589 }, { lng: 4.8232, lat: 45.7602 }], prefs: prefs({ stairs: 'avoid' }) },
+  { id: 'saint-barthelemy', waypoints: [SAINT_PAUL, FOURVIERE], prefs: prefs({ stairs: 'avoid' }) },
+  { id: 'saint-paul-fourviere-stairs', waypoints: [SAINT_PAUL, FOURVIERE], prefs: prefs({ stairs: 'prefer' }) },
   { id: 'grande-cote', waypoints: [{ lng: 4.8337, lat: 45.768 }, CROIX_ROUSSE], prefs: prefs({ stairs: 'tolerate' }) },
   { id: 'quais-pont-bonaparte', waypoints: [{ lng: 4.8316, lat: 45.7623 }, { lng: 4.8275, lat: 45.7585 }], prefs: prefs({ stairs: 'tolerate' }) },
   { id: 'tete-dor-plat', waypoints: [{ lng: 4.846, lat: 45.775 }, { lng: 4.849, lat: 45.7835 }], prefs: prefs({ stairs: 'tolerate' }) },

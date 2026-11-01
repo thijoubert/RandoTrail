@@ -1,0 +1,2842 @@
+{
+  "generatedAt": "2026-11-01T16:08:42.202Z",
+  "meta": {
+    "fetchedAt": "2026-11-01T16:05:07.159Z",
+    "bbox": {
+      "south": 45.746,
+      "west": 4.796,
+      "north": 45.786,
+      "east": 4.85
+    },
+    "steps": {
+      "probes": 12
+    }
+  },
+  "r1": {
+    "stats": {
+      "ways": 1055,
+      "withStepCount": 778,
+      "withIncline": 989,
+      "withName": 114,
+      "withHandrail": 876,
+      "withSurface": 853,
+      "withWidth": 83,
+      "withLit": 649,
+      "totalLengthM": 13536.209864565637,
+      "totalStepCount": 18588
+    },
+    "pct": {
+      "stepCount": 73.74407582938389,
+      "incline": 93.74407582938389,
+      "name": 10.80568720379147,
+      "handrail": 83.03317535545024,
+      "surface": 80.85308056872037,
+      "width": 7.867298578199052,
+      "lit": 61.51658767772512
+    },
+    "stepCountMedian": 14,
+    "stepCountMax": 562,
+    "inclineValues": [
+      [
+        "up",
+        563
+      ],
+      [
+        "down",
+        425
+      ],
+      [
+        "40%",
+        1
+      ]
+    ],
+    "surfaceValues": [
+      [
+        "concrete",
+        406
+      ],
+      [
+        "paving_stones",
+        280
+      ],
+      [
+        "asphalt",
+        60
+      ],
+      [
+        "sett",
+        47
+      ],
+      [
+        "wood",
+        14
+      ],
+      [
+        "metal",
+        9
+      ],
+      [
+        "unhewn_cobblestone",
+        9
+      ],
+      [
+        "fine_gravel",
+        6
+      ]
+    ]
+  },
+  "r1Known": [
+    {
+      "name": "Montée du Gourguillon",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "pedestrian"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée Saint-Barthélemy",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "residential"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée des Chazeaux",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 109,
+      "otherHighways": [
+        "footway"
+      ],
+      "stepCount": [
+        "249"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée de la Grande-Côte",
+      "found": true,
+      "stepsWays": 2,
+      "stepsLengthM": 75,
+      "otherHighways": [
+        "residential",
+        "pedestrian",
+        "footway"
+      ],
+      "stepCount": [
+        "108",
+        "24"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "paving_stones"
+      ]
+    },
+    {
+      "name": "Montée des Carmélites",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 31,
+      "otherHighways": [
+        "residential",
+        "footway",
+        "pedestrian",
+        "service"
+      ],
+      "stepCount": [
+        "39"
+      ],
+      "incline": [
+        "down"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée Nicolas de Lange",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 253,
+      "otherHighways": [
+        "living_street",
+        "residential",
+        "footway"
+      ],
+      "stepCount": [
+        "562"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée des Épies",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 75,
+      "otherHighways": [
+        "footway",
+        "residential"
+      ],
+      "stepCount": [],
+      "incline": [
+        "down"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée du Garillan",
+      "found": true,
+      "stepsWays": 2,
+      "stepsLengthM": 123,
+      "otherHighways": [
+        "footway"
+      ],
+      "stepCount": [
+        "123",
+        "99"
+      ],
+      "incline": [
+        "down"
+      ],
+      "handrail": [
+        "no",
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée du Chemin Neuf",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "residential"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée Saint-Sébastien",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 3,
+      "otherHighways": [
+        "residential",
+        "footway",
+        "unclassified",
+        "path"
+      ],
+      "stepCount": [
+        "9"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée de la Sarra",
+      "found": true,
+      "stepsWays": 2,
+      "stepsLengthM": 277,
+      "otherHighways": [
+        "residential",
+        "service",
+        "footway",
+        "path",
+        "cycleway",
+        "primary"
+      ],
+      "stepCount": [
+        "269",
+        "150"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Escaliers Mermet",
+      "found": true,
+      "stepsWays": 2,
+      "stepsLengthM": 34,
+      "otherHighways": [
+        "service",
+        "footway"
+      ],
+      "stepCount": [
+        "38",
+        "20"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée des Esses",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "secondary",
+        "primary",
+        "cycleway"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée du Change",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 47,
+      "otherHighways": [
+        "pedestrian"
+      ],
+      "stepCount": [
+        "121"
+      ],
+      "incline": [
+        "down"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée Rey",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 9,
+      "otherHighways": [
+        "residential",
+        "pedestrian",
+        "living_street",
+        "tertiary"
+      ],
+      "stepCount": [
+        "19"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée Hoche",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 92,
+      "otherHighways": [],
+      "stepCount": [
+        "219"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Montée de Choulans",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "primary",
+        "tertiary_link"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée Bonafous",
+      "found": true,
+      "stepsWays": 0,
+      "stepsLengthM": 0,
+      "otherHighways": [
+        "residential"
+      ],
+      "stepCount": [],
+      "incline": [],
+      "handrail": [],
+      "surface": []
+    },
+    {
+      "name": "Montée du Télégraphe",
+      "found": true,
+      "stepsWays": 1,
+      "stepsLengthM": 5,
+      "otherHighways": [
+        "residential",
+        "footway"
+      ],
+      "stepCount": [
+        "16"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    },
+    {
+      "name": "Rue Pouteau",
+      "found": true,
+      "stepsWays": 2,
+      "stepsLengthM": 74,
+      "otherHighways": [
+        "residential",
+        "footway"
+      ],
+      "stepCount": [
+        "76",
+        "84"
+      ],
+      "incline": [
+        "up"
+      ],
+      "handrail": [
+        "yes"
+      ],
+      "surface": [
+        "concrete"
+      ]
+    }
+  ],
+  "r1Estimation": {
+    "n": 738,
+    "ign": {
+      "mae": 10.558265582655826,
+      "medAbs": 6,
+      "medRel": 0.6,
+      "within25": 0.23170731707317074,
+      "within50": 0.44850948509485095
+    },
+    "terrarium": {
+      "mae": 16.56910569105691,
+      "medAbs": 11,
+      "medRel": 0.8421052631578947,
+      "within25": 0.058265582655826556,
+      "within50": 0.17208672086720866
+    },
+    "impliedStepRiseMedianIgn": 0.09764705882352921,
+    "calibrated": {
+      "ign": {
+        "mae": 16.139566395663955,
+        "medAbs": 7,
+        "medRel": 0.6991150442477876,
+        "within25": 0.2018970189701897,
+        "within50": 0.3875338753387534
+      },
+      "terrarium": {
+        "mae": 14.555555555555555,
+        "medAbs": 9,
+        "medRel": 0.7777777777777778,
+        "within25": 0.13550135501355012,
+        "within50": 0.2859078590785908
+      }
+    },
+    "longStairs": {
+      "n": 68,
+      "ign": {
+        "n": 68,
+        "medRel": 0.6991150442477876,
+        "within25": 0.11764705882352941,
+        "within50": 0.29411764705882354
+      },
+      "terrarium": {
+        "n": 68,
+        "medRel": 0.36893203883495146,
+        "within25": 0.36764705882352944,
+        "within50": 0.6764705882352942
+      }
+    },
+    "sample": [
+      {
+        "name": "way 1349801735",
+        "real": 6,
+        "dhIgn": 0,
+        "dhTerr": 0.027892194865273723,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.8859448760083861
+      },
+      {
+        "name": "way 1382604982",
+        "real": 6,
+        "dhIgn": 0.5,
+        "dhTerr": 0.07050571689143226,
+        "estIgn": 3,
+        "estTerr": 0,
+        "length": 3.4201097469139556
+      },
+      {
+        "name": "way 1314122501",
+        "real": 5,
+        "dhIgn": 0.4300000000000068,
+        "dhTerr": 0.03209273095382059,
+        "estIgn": 3,
+        "estTerr": 0,
+        "length": 1.2556012504996
+      },
+      {
+        "name": "way 1353666965",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.027902631432482394,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.0452088670187585
+      },
+      {
+        "name": "way 69421675",
+        "real": 20,
+        "dhIgn": 3.519999999999982,
+        "dhTerr": 6.9226474837244325,
+        "estIgn": 21,
+        "estTerr": 41,
+        "length": 26.808376973964624
+      },
+      {
+        "name": "Chemin des Villas",
+        "real": 185,
+        "dhIgn": 30.51000000000002,
+        "dhTerr": 36.20643565404279,
+        "estIgn": 179,
+        "estTerr": 213,
+        "length": 107.92373817171324
+      },
+      {
+        "name": "way 413081249",
+        "real": 5,
+        "dhIgn": 0.25,
+        "dhTerr": 0.15608900427736216,
+        "estIgn": 1,
+        "estTerr": 1,
+        "length": 0.8769321364627686
+      },
+      {
+        "name": "way 1339446857",
+        "real": 5,
+        "dhIgn": 0.4300000000000068,
+        "dhTerr": 0.016760470363465174,
+        "estIgn": 3,
+        "estTerr": 0,
+        "length": 2.9479054890500564
+      },
+      {
+        "name": "way 1339446859",
+        "real": 11,
+        "dhIgn": 1.4300000000000068,
+        "dhTerr": 0.009623357634382046,
+        "estIgn": 8,
+        "estTerr": 0,
+        "length": 6.310261107272799
+      },
+      {
+        "name": "way 1339461849",
+        "real": 4,
+        "dhIgn": 0.2599999999999909,
+        "dhTerr": 0.041094157252359764,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 4.23484743256948
+      },
+      {
+        "name": "way 1339461850",
+        "real": 4,
+        "dhIgn": 0.2400000000000091,
+        "dhTerr": 0.04504668170659443,
+        "estIgn": 1,
+        "estTerr": 0,
+        "length": 4.176547060343335
+      },
+      {
+        "name": "way 301883237",
+        "real": 52,
+        "dhIgn": 3.3300000000000125,
+        "dhTerr": 1.8548730190098581,
+        "estIgn": 20,
+        "estTerr": 11,
+        "length": 28.070699320462307
+      },
+      {
+        "name": "way 307928990",
+        "real": 40,
+        "dhIgn": 9.329999999999984,
+        "dhTerr": 1.154055290858878,
+        "estIgn": 55,
+        "estTerr": 7,
+        "length": 63.61183798031213
+      },
+      {
+        "name": "way 1253781781",
+        "real": 31,
+        "dhIgn": 2.4599999999999795,
+        "dhTerr": 0.6004242365488608,
+        "estIgn": 14,
+        "estTerr": 4,
+        "length": 14.078487847716247
+      },
+      {
+        "name": "way 1254392014",
+        "real": 6,
+        "dhIgn": 0.7699999999999818,
+        "dhTerr": 0.038712159282113134,
+        "estIgn": 5,
+        "estTerr": 0,
+        "length": 3.6870810535219714
+      },
+      {
+        "name": "way 1331540868",
+        "real": 4,
+        "dhIgn": 0,
+        "dhTerr": 0.005745081143686548,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 2.272146981172424
+      },
+      {
+        "name": "way 1302304915",
+        "real": 12,
+        "dhIgn": 1.2099999999999795,
+        "dhTerr": 1.0350263993507838,
+        "estIgn": 7,
+        "estTerr": 6,
+        "length": 9.526667256531049
+      },
+      {
+        "name": "way 1324181520",
+        "real": 6,
+        "dhIgn": 0.5199999999999818,
+        "dhTerr": 0.11202120991868014,
+        "estIgn": 3,
+        "estTerr": 1,
+        "length": 1.7993247387061106
+      },
+      {
+        "name": "way 120398518",
+        "real": 74,
+        "dhIgn": 9.140000000000015,
+        "dhTerr": 8.236674229962489,
+        "estIgn": 54,
+        "estTerr": 48,
+        "length": 53.70572560407189
+      },
+      {
+        "name": "way 41272988",
+        "real": 17,
+        "dhIgn": 3.0500000000000114,
+        "dhTerr": 1.9273533315387112,
+        "estIgn": 18,
+        "estTerr": 11,
+        "length": 23.346257092381606
+      },
+      {
+        "name": "way 41272989",
+        "real": 18,
+        "dhIgn": 2.3499999999999943,
+        "dhTerr": 1.2734256620453266,
+        "estIgn": 14,
+        "estTerr": 7,
+        "length": 19.347829132790668
+      },
+      {
+        "name": "way 41272991",
+        "real": 13,
+        "dhIgn": 1.710000000000008,
+        "dhTerr": 0.39358167308802194,
+        "estIgn": 10,
+        "estTerr": 2,
+        "length": 5.406790845657405
+      },
+      {
+        "name": "way 69421676",
+        "real": 20,
+        "dhIgn": 3.069999999999993,
+        "dhTerr": 6.787023378860113,
+        "estIgn": 18,
+        "estTerr": 40,
+        "length": 34.89922620476984
+      },
+      {
+        "name": "Montée des Génovéfains",
+        "real": 16,
+        "dhIgn": 0,
+        "dhTerr": 0.08700597131996801,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 4.50382847536892
+      },
+      {
+        "name": "way 133488444",
+        "real": 6,
+        "dhIgn": 0.4300000000000068,
+        "dhTerr": 0.3932827751813477,
+        "estIgn": 3,
+        "estTerr": 2,
+        "length": 5.274581823639322
+      },
+      {
+        "name": "Square du lieutenant de Police Patrick Fillon",
+        "real": 19,
+        "dhIgn": 1.5300000000000011,
+        "dhTerr": 0.5561285304027308,
+        "estIgn": 9,
+        "estTerr": 3,
+        "length": 5.249341504726445
+      },
+      {
+        "name": "way 413081251",
+        "real": 5,
+        "dhIgn": 1.5500000000000114,
+        "dhTerr": 0.7766458125757083,
+        "estIgn": 9,
+        "estTerr": 5,
+        "length": 3.1131343059750174
+      },
+      {
+        "name": "way 456635458",
+        "real": 41,
+        "dhIgn": 2.8799999999999955,
+        "dhTerr": 1.5838869155977022,
+        "estIgn": 17,
+        "estTerr": 9,
+        "length": 17.99705992638059
+      },
+      {
+        "name": "way 970053996",
+        "real": 18,
+        "dhIgn": 2.6899999999999977,
+        "dhTerr": 1.381712399294372,
+        "estIgn": 16,
+        "estTerr": 8,
+        "length": 8.387272185336196
+      },
+      {
+        "name": "way 1108163118",
+        "real": 6,
+        "dhIgn": 0.12999999999999545,
+        "dhTerr": 0.04756596069572083,
+        "estIgn": 1,
+        "estTerr": 0,
+        "length": 3.9480085878806754
+      },
+      {
+        "name": "way 1108163121",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.004067398883591977,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.1669013630993648
+      },
+      {
+        "name": "way 192528462",
+        "real": 41,
+        "dhIgn": 5.010000000000048,
+        "dhTerr": 2.527871397564013,
+        "estIgn": 29,
+        "estTerr": 15,
+        "length": 17.746243168531898
+      },
+      {
+        "name": "way 41268288",
+        "real": 14,
+        "dhIgn": 2.5500000000000114,
+        "dhTerr": 2.808976035998114,
+        "estIgn": 15,
+        "estTerr": 17,
+        "length": 19.88024660887222
+      },
+      {
+        "name": "way 102004555",
+        "real": 28,
+        "dhIgn": 3.4700000000000273,
+        "dhTerr": 0.863241604016082,
+        "estIgn": 20,
+        "estTerr": 5,
+        "length": 9.441896681795404
+      },
+      {
+        "name": "way 254282490",
+        "real": 13,
+        "dhIgn": 0.21999999999997044,
+        "dhTerr": 0.7615853424384795,
+        "estIgn": 1,
+        "estTerr": 4,
+        "length": 5.025086837590924
+      },
+      {
+        "name": "way 254282493",
+        "real": 30,
+        "dhIgn": 1.0199999999999818,
+        "dhTerr": 1.250187342281265,
+        "estIgn": 6,
+        "estTerr": 7,
+        "length": 14.867050059304967
+      },
+      {
+        "name": "way 254282494",
+        "real": 3,
+        "dhIgn": 0.2599999999999909,
+        "dhTerr": 0.01599515758027792,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 2.8305835352766775
+      },
+      {
+        "name": "way 254282497",
+        "real": 13,
+        "dhIgn": 1.3599999999999568,
+        "dhTerr": 0.6720110264841423,
+        "estIgn": 8,
+        "estTerr": 4,
+        "length": 5.131210456814474
+      },
+      {
+        "name": "way 914386548",
+        "real": 10,
+        "dhIgn": 1.2900000000000205,
+        "dhTerr": 0.6160631975245678,
+        "estIgn": 8,
+        "estTerr": 4,
+        "length": 4.078475795806785
+      },
+      {
+        "name": "way 914386549",
+        "real": 5,
+        "dhIgn": 1.509999999999991,
+        "dhTerr": 0.7129392763493456,
+        "estIgn": 9,
+        "estTerr": 4,
+        "length": 4.769895109240573
+      },
+      {
+        "name": "way 1299511243",
+        "real": 3,
+        "dhIgn": 0.11000000000001364,
+        "dhTerr": 0.38262975368115804,
+        "estIgn": 1,
+        "estTerr": 2,
+        "length": 3.5451299701570083
+      },
+      {
+        "name": "way 1299511246",
+        "real": 5,
+        "dhIgn": 0,
+        "dhTerr": 0.21533279087663004,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 2.9119210186998075
+      },
+      {
+        "name": "way 1324304386",
+        "real": 6,
+        "dhIgn": 0,
+        "dhTerr": 0.2749691351474439,
+        "estIgn": 0,
+        "estTerr": 2,
+        "length": 1.8514397414147192
+      },
+      {
+        "name": "way 1412246455",
+        "real": 6,
+        "dhIgn": 0.2899999999999636,
+        "dhTerr": 0.07000078727065784,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 2.3006501109908655
+      },
+      {
+        "name": "Rue Saint Irénée",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.03744675858069968,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 0.8912168525895994
+      },
+      {
+        "name": "way 1416760045",
+        "real": 16,
+        "dhIgn": 0.2599999999999909,
+        "dhTerr": 0.1732018225506522,
+        "estIgn": 2,
+        "estTerr": 1,
+        "length": 6.708434467948291
+      },
+      {
+        "name": "way 1486495028",
+        "real": 15,
+        "dhIgn": 0.6999999999999886,
+        "dhTerr": 1.2346377217313034,
+        "estIgn": 4,
+        "estTerr": 7,
+        "length": 8.599273076231164
+      },
+      {
+        "name": "way 1487723280",
+        "real": 9,
+        "dhIgn": 0.6200000000000045,
+        "dhTerr": 0.21422614592432865,
+        "estIgn": 4,
+        "estTerr": 1,
+        "length": 5.782260943734178
+      },
+      {
+        "name": "way 1488686121",
+        "real": 11,
+        "dhIgn": 0.009999999999990905,
+        "dhTerr": 0.6672623811571157,
+        "estIgn": 0,
+        "estTerr": 4,
+        "length": 4.0140161893942015
+      },
+      {
+        "name": "way 1507529110",
+        "real": 24,
+        "dhIgn": 2.1299999999999955,
+        "dhTerr": 1.1409532552656856,
+        "estIgn": 13,
+        "estTerr": 7,
+        "length": 6.9826797503973586
+      },
+      {
+        "name": "Rue des Farges",
+        "real": 35,
+        "dhIgn": 5.189999999999998,
+        "dhTerr": 1.2762456138524385,
+        "estIgn": 31,
+        "estTerr": 8,
+        "length": 17.068448217883763
+      },
+      {
+        "name": "way 41084462",
+        "real": 54,
+        "dhIgn": 14.160000000000025,
+        "dhTerr": 12.084664280949482,
+        "estIgn": 83,
+        "estTerr": 71,
+        "length": 50.51090909135453
+      },
+      {
+        "name": "way 41084463",
+        "real": 15,
+        "dhIgn": 3.1899999999999977,
+        "dhTerr": 3.06154425036749,
+        "estIgn": 19,
+        "estTerr": 18,
+        "length": 11.586616047451404
+      },
+      {
+        "name": "way 41084464",
+        "real": 70,
+        "dhIgn": 15.599999999999966,
+        "dhTerr": 5.332647478487104,
+        "estIgn": 92,
+        "estTerr": 31,
+        "length": 42.85002797765373
+      },
+      {
+        "name": "way 41084465",
+        "real": 87,
+        "dhIgn": 19.83000000000004,
+        "dhTerr": 7.667609383564525,
+        "estIgn": 117,
+        "estTerr": 45,
+        "length": 41.63467302759917
+      },
+      {
+        "name": "way 41084466",
+        "real": 111,
+        "dhIgn": 21.620000000000005,
+        "dhTerr": 9.14203515225961,
+        "estIgn": 127,
+        "estTerr": 54,
+        "length": 48.85580747894201
+      },
+      {
+        "name": "way 95010028",
+        "real": 49,
+        "dhIgn": 6.339999999999975,
+        "dhTerr": 1.8429846751355967,
+        "estIgn": 37,
+        "estTerr": 11,
+        "length": 19.241370502407722
+      },
+      {
+        "name": "way 113304533",
+        "real": 32,
+        "dhIgn": 6.039999999999964,
+        "dhTerr": 4.10674441624252,
+        "estIgn": 36,
+        "estTerr": 24,
+        "length": 16.934055473910345
+      },
+      {
+        "name": "way 113304537",
+        "real": 32,
+        "dhIgn": 6.220000000000027,
+        "dhTerr": 2.356579490415527,
+        "estIgn": 37,
+        "estTerr": 14,
+        "length": 13.522058166146808
+      },
+      {
+        "name": "way 113304540",
+        "real": 21,
+        "dhIgn": 3.1899999999999977,
+        "dhTerr": 2.682924647728271,
+        "estIgn": 19,
+        "estTerr": 16,
+        "length": 13.137328384599815
+      },
+      {
+        "name": "way 113304543",
+        "real": 35,
+        "dhIgn": 8.289999999999964,
+        "dhTerr": 4.495447949526124,
+        "estIgn": 49,
+        "estTerr": 26,
+        "length": 25.708452012884358
+      },
+      {
+        "name": "way 190031634",
+        "real": 7,
+        "dhIgn": 3.1200000000000045,
+        "dhTerr": 0.26478662039542655,
+        "estIgn": 18,
+        "estTerr": 2,
+        "length": 7.3174127156429885
+      },
+      {
+        "name": "way 207829646",
+        "real": 18,
+        "dhIgn": 3,
+        "dhTerr": 0.9644686269288343,
+        "estIgn": 18,
+        "estTerr": 6,
+        "length": 13.939299081873052
+      },
+      {
+        "name": "way 221424534",
+        "real": 16,
+        "dhIgn": 1.8900000000000148,
+        "dhTerr": 1.2797720908143049,
+        "estIgn": 11,
+        "estTerr": 8,
+        "length": 6.619187417862251
+      },
+      {
+        "name": "way 233966036",
+        "real": 68,
+        "dhIgn": 13.120000000000005,
+        "dhTerr": 6.1933511586726695,
+        "estIgn": 77,
+        "estTerr": 36,
+        "length": 42.880346584107464
+      },
+      {
+        "name": "way 269782137",
+        "real": 3,
+        "dhIgn": 1.6099999999999852,
+        "dhTerr": 0.5398371714053383,
+        "estIgn": 9,
+        "estTerr": 3,
+        "length": 6.625200930151159
+      },
+      {
+        "name": "way 304906634",
+        "real": 13,
+        "dhIgn": 1.2900000000000205,
+        "dhTerr": 0.22043933443376318,
+        "estIgn": 8,
+        "estTerr": 1,
+        "length": 6.438837129441822
+      },
+      {
+        "name": "Montée du Cardo",
+        "real": 23,
+        "dhIgn": 4.310000000000002,
+        "dhTerr": 1.1709899484848165,
+        "estIgn": 25,
+        "estTerr": 7,
+        "length": 9.579600496535338
+      },
+      {
+        "name": "way 324511757",
+        "real": 16,
+        "dhIgn": 2.0200000000000102,
+        "dhTerr": 0.19663703397569066,
+        "estIgn": 12,
+        "estTerr": 1,
+        "length": 4.91073018522105
+      },
+      {
+        "name": "way 393250003",
+        "real": 8,
+        "dhIgn": 0.2899999999999636,
+        "dhTerr": 0.00974177987012581,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 3.588639392863563
+      },
+      {
+        "name": "way 393250006",
+        "real": 8,
+        "dhIgn": 1.0200000000000387,
+        "dhTerr": 0.04538017764838287,
+        "estIgn": 6,
+        "estTerr": 0,
+        "length": 2.8836642045478955
+      },
+      {
+        "name": "way 408824815",
+        "real": 11,
+        "dhIgn": 1.490000000000009,
+        "dhTerr": 0.6710467210930915,
+        "estIgn": 9,
+        "estTerr": 4,
+        "length": 4.6204222235860986
+      },
+      {
+        "name": "way 408824817",
+        "real": 5,
+        "dhIgn": 0.22000000000002728,
+        "dhTerr": 0.4729475412369766,
+        "estIgn": 1,
+        "estTerr": 3,
+        "length": 2.842982663967288
+      },
+      {
+        "name": "way 408824818",
+        "real": 25,
+        "dhIgn": 2.2999999999999545,
+        "dhTerr": 0.8023013145217419,
+        "estIgn": 14,
+        "estTerr": 5,
+        "length": 5.748793292765041
+      },
+      {
+        "name": "way 653766434",
+        "real": 10,
+        "dhIgn": 0.8300000000000125,
+        "dhTerr": 0.15097341558688981,
+        "estIgn": 5,
+        "estTerr": 1,
+        "length": 3.980818681654068
+      },
+      {
+        "name": "way 653766435",
+        "real": 5,
+        "dhIgn": 0.5900000000000034,
+        "dhTerr": 0.13402623436013528,
+        "estIgn": 3,
+        "estTerr": 1,
+        "length": 2.9249737757763845
+      },
+      {
+        "name": "way 653766437",
+        "real": 22,
+        "dhIgn": 4.6699999999999875,
+        "dhTerr": 1.0208456811212159,
+        "estIgn": 27,
+        "estTerr": 6,
+        "length": 7.435244805036302
+      },
+      {
+        "name": "Montée du Télégraphe",
+        "real": 16,
+        "dhIgn": 1.420000000000016,
+        "dhTerr": 0.4474490851588371,
+        "estIgn": 8,
+        "estTerr": 3,
+        "length": 5.4501569924013005
+      },
+      {
+        "name": "way 741903147",
+        "real": 39,
+        "dhIgn": 1.4599999999999795,
+        "dhTerr": 0.8140142000069659,
+        "estIgn": 9,
+        "estTerr": 5,
+        "length": 5.920742508364643
+      },
+      {
+        "name": "Montée du Cardo",
+        "real": 33,
+        "dhIgn": 3.230000000000018,
+        "dhTerr": 0.6799890809773501,
+        "estIgn": 19,
+        "estTerr": 4,
+        "length": 10.877400676561681
+      },
+      {
+        "name": "way 1175762649",
+        "real": 11,
+        "dhIgn": 2.920000000000016,
+        "dhTerr": 2.1090871941075022,
+        "estIgn": 17,
+        "estTerr": 12,
+        "length": 18.270725949601903
+      },
+      {
+        "name": "way 1175919977",
+        "real": 14,
+        "dhIgn": 1.6999999999999886,
+        "dhTerr": 0.588482218712528,
+        "estIgn": 10,
+        "estTerr": 3,
+        "length": 8.19740748736324
+      },
+      {
+        "name": "way 1175919978",
+        "real": 7,
+        "dhIgn": 0.9399999999999977,
+        "dhTerr": 0.28976490389692344,
+        "estIgn": 6,
+        "estTerr": 2,
+        "length": 8.253109591515592
+      },
+      {
+        "name": "way 1175919979",
+        "real": 10,
+        "dhIgn": 2.490000000000009,
+        "dhTerr": 0.4561554437606503,
+        "estIgn": 15,
+        "estTerr": 3,
+        "length": 21.003395860063137
+      },
+      {
+        "name": "way 1291007470",
+        "real": 18,
+        "dhIgn": 0.0800000000000125,
+        "dhTerr": 0.8346949153002754,
+        "estIgn": 0,
+        "estTerr": 5,
+        "length": 5.852431481829365
+      },
+      {
+        "name": "way 1338486343",
+        "real": 9,
+        "dhIgn": 0,
+        "dhTerr": 0.327750432197945,
+        "estIgn": 0,
+        "estTerr": 2,
+        "length": 2.861203492295179
+      },
+      {
+        "name": "way 1342185372",
+        "real": 8,
+        "dhIgn": 1.8999999999999773,
+        "dhTerr": 1.6141185504211535,
+        "estIgn": 11,
+        "estTerr": 9,
+        "length": 16.23180214947068
+      },
+      {
+        "name": "way 1364220852",
+        "real": 18,
+        "dhIgn": 0.1599999999999966,
+        "dhTerr": 0.932167922709283,
+        "estIgn": 1,
+        "estTerr": 5,
+        "length": 7.522369092680828
+      },
+      {
+        "name": "way 1364220854",
+        "real": 34,
+        "dhIgn": 3.200000000000017,
+        "dhTerr": 1.8354885919211483,
+        "estIgn": 19,
+        "estTerr": 11,
+        "length": 14.193042197481054
+      },
+      {
+        "name": "way 1364271548",
+        "real": 20,
+        "dhIgn": 0.9499999999999886,
+        "dhTerr": 0.6046116668722448,
+        "estIgn": 6,
+        "estTerr": 4,
+        "length": 8.736472215895725
+      },
+      {
+        "name": "way 1388937896",
+        "real": 12,
+        "dhIgn": 1.5600000000000023,
+        "dhTerr": 0.35889710779343886,
+        "estIgn": 9,
+        "estTerr": 2,
+        "length": 6.238024393155367
+      },
+      {
+        "name": "Allée du Champ de Colle",
+        "real": 14,
+        "dhIgn": 1.5,
+        "dhTerr": 0.06307392901047137,
+        "estIgn": 9,
+        "estTerr": 0,
+        "length": 6.548749127133727
+      },
+      {
+        "name": "way 1446900861",
+        "real": 4,
+        "dhIgn": 0,
+        "dhTerr": 0.2990309313967998,
+        "estIgn": 0,
+        "estTerr": 2,
+        "length": 1.0836833406900654
+      },
+      {
+        "name": "way 239449405",
+        "real": 79,
+        "dhIgn": 9.090000000000032,
+        "dhTerr": 5.543697275636532,
+        "estIgn": 53,
+        "estTerr": 33,
+        "length": 40.448878793762916
+      },
+      {
+        "name": "way 239449409",
+        "real": 50,
+        "dhIgn": 7.990000000000009,
+        "dhTerr": 3.363278703058711,
+        "estIgn": 47,
+        "estTerr": 20,
+        "length": 35.28216908736094
+      },
+      {
+        "name": "way 390955474",
+        "real": 30,
+        "dhIgn": 3.7800000000000296,
+        "dhTerr": 0.9161899185531865,
+        "estIgn": 22,
+        "estTerr": 5,
+        "length": 11.098247785207302
+      },
+      {
+        "name": "way 390955477",
+        "real": 30,
+        "dhIgn": 3.849999999999966,
+        "dhTerr": 0.929204928419324,
+        "estIgn": 23,
+        "estTerr": 5,
+        "length": 11.230799554561196
+      },
+      {
+        "name": "way 1253739180",
+        "real": 5,
+        "dhIgn": 0.6800000000000068,
+        "dhTerr": 0.17693794633316884,
+        "estIgn": 4,
+        "estTerr": 1,
+        "length": 2.5908569834624005
+      },
+      {
+        "name": "way 1253739181",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.052876964011716154,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.4349408605554528
+      },
+      {
+        "name": "way 166301367",
+        "real": 40,
+        "dhIgn": 3.5600000000000023,
+        "dhTerr": 1.7730095970063076,
+        "estIgn": 21,
+        "estTerr": 10,
+        "length": 14.187473870886707
+      },
+      {
+        "name": "way 166301369",
+        "real": 21,
+        "dhIgn": 3.1899999999999977,
+        "dhTerr": 0.22511574864154227,
+        "estIgn": 19,
+        "estTerr": 1,
+        "length": 7.896837265624091
+      },
+      {
+        "name": "way 242417304",
+        "real": 10,
+        "dhIgn": 0,
+        "dhTerr": 0.10801284111221321,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 3.069892714348557
+      },
+      {
+        "name": "way 300936086",
+        "real": 109,
+        "dhIgn": 15.939999999999998,
+        "dhTerr": 12.3428375217633,
+        "estIgn": 94,
+        "estTerr": 73,
+        "length": 54.172483653965145
+      },
+      {
+        "name": "way 319483149",
+        "real": 40,
+        "dhIgn": 0,
+        "dhTerr": 0.12320569687221905,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 7.836358188976057
+      },
+      {
+        "name": "way 235626088",
+        "real": 44,
+        "dhIgn": 6.339999999999975,
+        "dhTerr": 0.39400205658847653,
+        "estIgn": 37,
+        "estTerr": 2,
+        "length": 16.514454250446576
+      },
+      {
+        "name": "Chemin de la Demi-Lune",
+        "real": 24,
+        "dhIgn": 7.939999999999998,
+        "dhTerr": 2.864833737221261,
+        "estIgn": 47,
+        "estTerr": 17,
+        "length": 41.00137483068754
+      },
+      {
+        "name": "way 1343861727",
+        "real": 14,
+        "dhIgn": 0.4000000000000057,
+        "dhTerr": 0.09609376770890776,
+        "estIgn": 2,
+        "estTerr": 1,
+        "length": 13.388610316119394
+      },
+      {
+        "name": "way 29471733",
+        "real": 8,
+        "dhIgn": 0.8900000000000148,
+        "dhTerr": 0.962242257929347,
+        "estIgn": 5,
+        "estTerr": 6,
+        "length": 17.934832696873308
+      },
+      {
+        "name": "way 29471734",
+        "real": 33,
+        "dhIgn": 6.199999999999989,
+        "dhTerr": 2.0484625263141822,
+        "estIgn": 36,
+        "estTerr": 12,
+        "length": 50.309680848438546
+      },
+      {
+        "name": "Impasse du Chapeau Rouge",
+        "real": 14,
+        "dhIgn": 1.5999999999999943,
+        "dhTerr": 0.9056081599384811,
+        "estIgn": 9,
+        "estTerr": 5,
+        "length": 8.71706896331542
+      },
+      {
+        "name": "way 104656769",
+        "real": 56,
+        "dhIgn": 17.630000000000024,
+        "dhTerr": 3.984472086853401,
+        "estIgn": 104,
+        "estTerr": 23,
+        "length": 63.17285775250461
+      },
+      {
+        "name": "way 379826562",
+        "real": 34,
+        "dhIgn": 7.909999999999997,
+        "dhTerr": 1.6834538997468371,
+        "estIgn": 47,
+        "estTerr": 10,
+        "length": 43.52258659384944
+      },
+      {
+        "name": "Rue de la Carrière",
+        "real": 113,
+        "dhIgn": 18.72,
+        "dhTerr": 18.32279809823723,
+        "estIgn": 110,
+        "estTerr": 108,
+        "length": 131.47950908018598
+      },
+      {
+        "name": "Impasse du Chapeau Rouge",
+        "real": 20,
+        "dhIgn": 3.369999999999976,
+        "dhTerr": 1.3555294361752601,
+        "estIgn": 20,
+        "estTerr": 8,
+        "length": 10.222180338020868
+      },
+      {
+        "name": "way 1450381300",
+        "real": 5,
+        "dhIgn": 0,
+        "dhTerr": 0.44952286605757763,
+        "estIgn": 0,
+        "estTerr": 3,
+        "length": 1.4703077869550158
+      },
+      {
+        "name": "Montée de la Sarra",
+        "real": 269,
+        "dhIgn": 46.23000000000002,
+        "dhTerr": 48.5130246658417,
+        "estIgn": 272,
+        "estTerr": 285,
+        "length": 120.96623971956771
+      },
+      {
+        "name": "Montée de la Sarra",
+        "real": 150,
+        "dhIgn": 51.880000000000024,
+        "dhTerr": 47.590442388231054,
+        "estIgn": 305,
+        "estTerr": 280,
+        "length": 155.72930684539992
+      },
+      {
+        "name": "way 233966040",
+        "real": 4,
+        "dhIgn": 0.40999999999996817,
+        "dhTerr": 0.16906234349033866,
+        "estIgn": 2,
+        "estTerr": 1,
+        "length": 3.505807262007709
+      },
+      {
+        "name": "way 238821021",
+        "real": 15,
+        "dhIgn": 0.960000000000008,
+        "dhTerr": 0.056123084158883785,
+        "estIgn": 6,
+        "estTerr": 0,
+        "length": 6.122112483778353
+      },
+      {
+        "name": "way 238821024",
+        "real": 16,
+        "dhIgn": 2.1399999999999864,
+        "dhTerr": 0.12848217356176406,
+        "estIgn": 13,
+        "estTerr": 1,
+        "length": 5.307153807420903
+      },
+      {
+        "name": "way 247574425",
+        "real": 20,
+        "dhIgn": 3.2099999999999795,
+        "dhTerr": 0.09964040668512553,
+        "estIgn": 19,
+        "estTerr": 1,
+        "length": 10.794372035385969
+      },
+      {
+        "name": "way 934729658",
+        "real": 6,
+        "dhIgn": 0.3299999999999841,
+        "dhTerr": 0.0829112922576769,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 3.0045423022136846
+      },
+      {
+        "name": "way 1123228645",
+        "real": 16,
+        "dhIgn": 1.4099999999999966,
+        "dhTerr": 0.04951197401948093,
+        "estIgn": 8,
+        "estTerr": 0,
+        "length": 6.276036211978379
+      },
+      {
+        "name": "way 1123228647",
+        "real": 16,
+        "dhIgn": 0.3300000000000125,
+        "dhTerr": 0.06599307414333566,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 4.55436936914075
+      },
+      {
+        "name": "way 233961371",
+        "real": 35,
+        "dhIgn": 4.670000000000016,
+        "dhTerr": 3.0195921090971183,
+        "estIgn": 27,
+        "estTerr": 18,
+        "length": 17.70430609817557
+      },
+      {
+        "name": "way 238821017",
+        "real": 17,
+        "dhIgn": 0.47999999999998977,
+        "dhTerr": 0.12312771838833214,
+        "estIgn": 3,
+        "estTerr": 1,
+        "length": 6.2539334164391995
+      },
+      {
+        "name": "way 238821022",
+        "real": 17,
+        "dhIgn": 0.9399999999999977,
+        "dhTerr": 0.06685122270911847,
+        "estIgn": 6,
+        "estTerr": 0,
+        "length": 6.047101452531846
+      },
+      {
+        "name": "way 238821023",
+        "real": 18,
+        "dhIgn": 0.11999999999997613,
+        "dhTerr": 0.049115488308871136,
+        "estIgn": 1,
+        "estTerr": 0,
+        "length": 6.107125121974541
+      },
+      {
+        "name": "way 249914224",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.07569089469257051,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.0454211649231806
+      },
+      {
+        "name": "Chemin du Rosaire",
+        "real": 41,
+        "dhIgn": 3.0400000000000205,
+        "dhTerr": 0.6485664881418529,
+        "estIgn": 18,
+        "estTerr": 4,
+        "length": 16.43888881336307
+      },
+      {
+        "name": "way 826187904",
+        "real": 28,
+        "dhIgn": 8.020000000000039,
+        "dhTerr": 4.211619856811581,
+        "estIgn": 47,
+        "estTerr": 25,
+        "length": 41.80964128147595
+      },
+      {
+        "name": "way 934724846",
+        "real": 9,
+        "dhIgn": 0.7400000000000091,
+        "dhTerr": 0.003036520490240946,
+        "estIgn": 4,
+        "estTerr": 0,
+        "length": 3.0181595093030413
+      },
+      {
+        "name": "way 934725192",
+        "real": 3,
+        "dhIgn": 0.30000000000001137,
+        "dhTerr": 0.20205201707426568,
+        "estIgn": 2,
+        "estTerr": 1,
+        "length": 3.7002184694422446
+      },
+      {
+        "name": "way 1123206368",
+        "real": 17,
+        "dhIgn": 0.18000000000000682,
+        "dhTerr": 0.12187822065732234,
+        "estIgn": 1,
+        "estTerr": 1,
+        "length": 5.896310707106652
+      },
+      {
+        "name": "way 1123206370",
+        "real": 17,
+        "dhIgn": 1.329999999999984,
+        "dhTerr": 0.06778894361127641,
+        "estIgn": 8,
+        "estTerr": 0,
+        "length": 6.29752827343816
+      },
+      {
+        "name": "way 1123228639",
+        "real": 19,
+        "dhIgn": 3.219999999999999,
+        "dhTerr": 0.07567195074381061,
+        "estIgn": 19,
+        "estTerr": 0,
+        "length": 6.683953808856408
+      },
+      {
+        "name": "way 1291845710",
+        "real": 7,
+        "dhIgn": 0,
+        "dhTerr": 0.05263659253824926,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 2.716750851121453
+      },
+      {
+        "name": "way 1389344793",
+        "real": 10,
+        "dhIgn": 1.1200000000000045,
+        "dhTerr": 0.12034128533827015,
+        "estIgn": 7,
+        "estTerr": 1,
+        "length": 3.8461868560543424
+      },
+      {
+        "name": "way 1389361032",
+        "real": 12,
+        "dhIgn": 2.420000000000016,
+        "dhTerr": 1.1660379782675818,
+        "estIgn": 14,
+        "estTerr": 7,
+        "length": 13.394967481113332
+      },
+      {
+        "name": "way 1533907193",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.1315254043217351,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 0.6945544585043701
+      },
+      {
+        "name": "Montée Nicolas de Lange",
+        "real": 562,
+        "dhIgn": 68.33999999999997,
+        "dhTerr": 61.77447290861738,
+        "estIgn": 402,
+        "estTerr": 363,
+        "length": 252.83401020508452
+      },
+      {
+        "name": "way 166303685",
+        "real": 90,
+        "dhIgn": 16.23999999999998,
+        "dhTerr": 15.521156459856456,
+        "estIgn": 96,
+        "estTerr": 91,
+        "length": 37.2029910035747
+      },
+      {
+        "name": "way 300868093",
+        "real": 73,
+        "dhIgn": 14.519999999999982,
+        "dhTerr": 7.847651941475647,
+        "estIgn": 85,
+        "estTerr": 46,
+        "length": 27.633702433379888
+      },
+      {
+        "name": "way 983904966",
+        "real": 44,
+        "dhIgn": 7.969999999999999,
+        "dhTerr": 6.215282464526865,
+        "estIgn": 47,
+        "estTerr": 37,
+        "length": 16.012554702940477
+      },
+      {
+        "name": "way 23527590",
+        "real": 52,
+        "dhIgn": 2.719999999999999,
+        "dhTerr": 3.881352701423964,
+        "estIgn": 16,
+        "estTerr": 23,
+        "length": 18.914456204290136
+      },
+      {
+        "name": "way 39025684",
+        "real": 118,
+        "dhIgn": 14.589999999999975,
+        "dhTerr": 1.919541321549218,
+        "estIgn": 86,
+        "estTerr": 11,
+        "length": 66.2231463176483
+      },
+      {
+        "name": "way 39025685",
+        "real": 58,
+        "dhIgn": 15.849999999999994,
+        "dhTerr": 4.5471350132749535,
+        "estIgn": 93,
+        "estTerr": 27,
+        "length": 85.83579536726441
+      },
+      {
+        "name": "way 39025690",
+        "real": 29,
+        "dhIgn": 6.1299999999999955,
+        "dhTerr": 2.198171677689487,
+        "estIgn": 36,
+        "estTerr": 13,
+        "length": 14.039484971074238
+      },
+      {
+        "name": "Montée de la Butte",
+        "real": 101,
+        "dhIgn": 19.47,
+        "dhTerr": 10.203899131562906,
+        "estIgn": 115,
+        "estTerr": 60,
+        "length": 70.36427361999591
+      },
+      {
+        "name": "Montée Hoche",
+        "real": 219,
+        "dhIgn": 26.569999999999993,
+        "dhTerr": 17.517810825421805,
+        "estIgn": 156,
+        "estTerr": 103,
+        "length": 92.185430780181
+      },
+      {
+        "name": "way 237903406",
+        "real": 32,
+        "dhIgn": 0.3299999999999841,
+        "dhTerr": 0.6491030245387321,
+        "estIgn": 2,
+        "estTerr": 4,
+        "length": 11.43387731715597
+      },
+      {
+        "name": "way 237903410",
+        "real": 35,
+        "dhIgn": 3.5600000000000023,
+        "dhTerr": 1.5636062262001644,
+        "estIgn": 21,
+        "estTerr": 9,
+        "length": 14.123076268869555
+      },
+      {
+        "name": "way 237903413",
+        "real": 25,
+        "dhIgn": 0.6200000000000045,
+        "dhTerr": 0.3352700307864893,
+        "estIgn": 4,
+        "estTerr": 2,
+        "length": 10.451542840328614
+      },
+      {
+        "name": "way 237903415",
+        "real": 28,
+        "dhIgn": 0.710000000000008,
+        "dhTerr": 0.43564271966707224,
+        "estIgn": 4,
+        "estTerr": 3,
+        "length": 9.766891108633152
+      },
+      {
+        "name": "way 237903419",
+        "real": 28,
+        "dhIgn": 1.0800000000000125,
+        "dhTerr": 0.641494814635081,
+        "estIgn": 6,
+        "estTerr": 4,
+        "length": 10.386346701776384
+      },
+      {
+        "name": "way 237903421",
+        "real": 29,
+        "dhIgn": 1.009999999999991,
+        "dhTerr": 0.35743849376248704,
+        "estIgn": 6,
+        "estTerr": 2,
+        "length": 12.643069579400908
+      },
+      {
+        "name": "way 237903423",
+        "real": 30,
+        "dhIgn": 0.28000000000000114,
+        "dhTerr": 0.3420176085848823,
+        "estIgn": 2,
+        "estTerr": 2,
+        "length": 12.45637321208581
+      },
+      {
+        "name": "way 237903428",
+        "real": 31,
+        "dhIgn": 2.4199999999999875,
+        "dhTerr": 1.3736600014793794,
+        "estIgn": 14,
+        "estTerr": 8,
+        "length": 10.782986649069063
+      },
+      {
+        "name": "way 238821019",
+        "real": 18,
+        "dhIgn": 0.8700000000000045,
+        "dhTerr": 0.17836781525400625,
+        "estIgn": 5,
+        "estTerr": 1,
+        "length": 6.843448297200641
+      },
+      {
+        "name": "way 478284500",
+        "real": 16,
+        "dhIgn": 2.9599999999999795,
+        "dhTerr": 2.300491114270727,
+        "estIgn": 17,
+        "estTerr": 14,
+        "length": 11.31104158428462
+      },
+      {
+        "name": "way 478284503",
+        "real": 12,
+        "dhIgn": 1.8700000000000045,
+        "dhTerr": 1.6689875116058488,
+        "estIgn": 11,
+        "estTerr": 10,
+        "length": 6.485065582444463
+      },
+      {
+        "name": "way 940169092",
+        "real": 26,
+        "dhIgn": 2.3799999999999955,
+        "dhTerr": 1.607076290115856,
+        "estIgn": 14,
+        "estTerr": 9,
+        "length": 8.567477427632731
+      },
+      {
+        "name": "way 940169094",
+        "real": 3,
+        "dhIgn": 5.030000000000001,
+        "dhTerr": 1.2580180622699118,
+        "estIgn": 30,
+        "estTerr": 7,
+        "length": 4.314594163364939
+      },
+      {
+        "name": "way 947496257",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.2916258884408478,
+        "estIgn": 0,
+        "estTerr": 2,
+        "length": 1.3913627977439167
+      },
+      {
+        "name": "way 1017263154",
+        "real": 6,
+        "dhIgn": 0,
+        "dhTerr": 1.7475199911579296,
+        "estIgn": 0,
+        "estTerr": 10,
+        "length": 2.0664168551356275
+      },
+      {
+        "name": "way 1017452266",
+        "real": 7,
+        "dhIgn": 0,
+        "dhTerr": 0.8356707451175112,
+        "estIgn": 0,
+        "estTerr": 5,
+        "length": 1.4505787799551753
+      },
+      {
+        "name": "way 1123228649",
+        "real": 15,
+        "dhIgn": 0.8499999999999943,
+        "dhTerr": 0.2857247169982031,
+        "estIgn": 5,
+        "estTerr": 2,
+        "length": 5.905661096834665
+      },
+      {
+        "name": "way 1311596483",
+        "real": 16,
+        "dhIgn": 0.12000000000000455,
+        "dhTerr": 1.4213801641384691,
+        "estIgn": 1,
+        "estTerr": 8,
+        "length": 5.096016581468099
+      },
+      {
+        "name": "way 1315692873",
+        "real": 8,
+        "dhIgn": 0,
+        "dhTerr": 0.14692083079839335,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 2.285168278056109
+      },
+      {
+        "name": "way 1315692875",
+        "real": 8,
+        "dhIgn": 0.009999999999990905,
+        "dhTerr": 0.06511461155028542,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.4876206922893578
+      },
+      {
+        "name": "way 1315692895",
+        "real": 24,
+        "dhIgn": 2.2700000000000102,
+        "dhTerr": 1.403647614268749,
+        "estIgn": 13,
+        "estTerr": 8,
+        "length": 6.651747697274311
+      },
+      {
+        "name": "way 1315692919",
+        "real": 10,
+        "dhIgn": 0,
+        "dhTerr": 0.46149287330550237,
+        "estIgn": 0,
+        "estTerr": 3,
+        "length": 3.687669681162077
+      },
+      {
+        "name": "way 1315692923",
+        "real": 10,
+        "dhIgn": 0,
+        "dhTerr": 0.033250561937734346,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 3.6195870801040466
+      },
+      {
+        "name": "way 1315823910",
+        "real": 6,
+        "dhIgn": 1.75,
+        "dhTerr": 0.07101497623540354,
+        "estIgn": 10,
+        "estTerr": 0,
+        "length": 9.620119169183928
+      },
+      {
+        "name": "way 1315823912",
+        "real": 19,
+        "dhIgn": 1.6399999999999864,
+        "dhTerr": 0.7522516419693943,
+        "estIgn": 10,
+        "estTerr": 4,
+        "length": 9.449100911070719
+      },
+      {
+        "name": "way 1315823921",
+        "real": 31,
+        "dhIgn": 5.8700000000000045,
+        "dhTerr": 5.352211763437708,
+        "estIgn": 35,
+        "estTerr": 31,
+        "length": 15.656091354889874
+      },
+      {
+        "name": "way 1381625954",
+        "real": 15,
+        "dhIgn": 1.4000000000000057,
+        "dhTerr": 1.4796698132216193,
+        "estIgn": 8,
+        "estTerr": 9,
+        "length": 19.218630592319716
+      },
+      {
+        "name": "way 1450381302",
+        "real": 5,
+        "dhIgn": 0.36000000000001364,
+        "dhTerr": 0.18696304502225303,
+        "estIgn": 2,
+        "estTerr": 1,
+        "length": 1.2563002084765633
+      },
+      {
+        "name": "way 1450381306",
+        "real": 3,
+        "dhIgn": 0,
+        "dhTerr": 0.07990160850135908,
+        "estIgn": 0,
+        "estTerr": 0,
+        "length": 1.1593256920000095
+      },
+      {
+        "name": "Rue de la Muette",
+        "real": 270,
+        "dhIgn": 41.390000000000015,
+        "dhTerr": 18.734770597953997,
+        "estIgn": 243,
+        "estTerr": 110,
+        "length": 124.33922470077198
+      },
+      {
+        "name": "way 237903398",
+        "real": 33,
+        "dhIgn": 2.75,
+        "dhTerr": 0.41570423687275593,
+        "estIgn": 16,
+        "estTerr": 2,
+        "length": 10.795511956236682
+      },
+      {
+        "name": "way 237903417",
+        "real": 32,
+        "dhIgn": 0.9300000000000068,
+        "dhTerr": 0.15388713846172664,
+        "estIgn": 5,
+        "estTerr": 1,
+        "length": 10.657913593190273
+      },
+      {
+        "name": "way 634158761",
+        "real": 25,
+        "dhIgn": 2.280000000000001,
+        "dhTerr": 9.172397575145197,
+        "estIgn": 13,
+        "estTerr": 54,
+        "length": 11.674459309359435
+      },
+      {
+        "name": "way 634158762",
+        "real": 25,
+        "dhIgn": 2.4199999999999875,
+        "dhTerr": 3.1913740048052546,
+        "estIgn": 14,
+        "estTerr": 19,
+        "length": 12.22220249555539
+      },
+      {
+        "name": "way 634368996",
+        "real": 16,
+        "dhIgn": 1.5600000000000023,
+        "dhTerr": 0.20394111770653467,
+        "estIgn": 9,
+        "estTerr": 1,
+        "length": 10.2854798758142
+      },
+      {
+        "name": "way 1185364557",
+        "real": 15,
+        "dhIgn": 2.3799999999999955,
+        "dhTerr": 0.45347457425665993,
+        "estIgn": 14,
+        "estTerr": 3,
+        "length": 8.575545213356031
+      },
+      {
+        "name": "way 1185413128",
+        "real": 12,
+        "dhIgn": 1.6299999999999955,
+        "dhTerr": 1.9366075729633963,
+        "estIgn": 10,
+        "estTerr": 11,
+        "length": 8.265556881505564
+      },
+      {
+        "name": "Impasse Berger",
+        "real": 5,
+        "dhIgn": 0.3900000000000148,
+        "dhTerr": 0.015176453355053354,
+        "estIgn": 2,
+        "estTerr": 0,
+        "length": 0.68866122118675
+      },
+      {
+        "name": "way 213306351",
+        "real": 24,
+        "dhIgn": 2.259999999999991,
+        "dhTerr": 0.23996174590857322,
+        "estIgn": 13,
+        "estTerr": 1,
+        "length": 8.177954318166345
+      },
+      {
+        "name": "way 229840644",
+        "real": 31,
+        "dhIgn": 4.160000000000025,
+        "dhTerr": 0.0696372929975837,
+        "estIgn": 24,
+        "estTerr": 0,
+        "length": 13.308768517286937
+      },
+      {
+        "name": "way 235877386",
+        "real": 24,
+        "dhIgn": 2.670000000000016,
+        "dhTerr": 0.24139293768683956,
+        "estIgn": 16,
+        "estTerr": 1,
+        "length": 8.649398574277388
+      },
+      {
+        "name": "way 319836260",
+        "real": 29,
+        "dhIgn": 0.05000000000001137,
+        "dhTerr": 0.32168336039882206,
+        "estIgn": 0,
+        "estTerr": 2,
+        "length": 34.14282244874215
+      },
+      {
+        "name": "way 371496373",
+        "real": 32,
+        "dhIgn": 1.289999999999992,
+        "dhTerr": 0.1483867694429648,
+        "estIgn": 8,
+        "estTerr": 1,
+        "length": 6.092885677100819
+      },
+      {
+        "name": "way 604718654",
+        "real": 22,
+        "dhIgn": 0.20999999999997954,
+        "dhTerr": 0.3306692254866448,
+        "estIgn": 1,
+        "estTerr": 2,
+        "length": 6.145260978432118
+      },
+      {
+        "name": "way 604718656",
+        "real": 25,
+        "dhIgn": 0.12000000000000455,
+        "dhTerr": 0.6853536014278347,
+        "estIgn": 1,
+        "estTerr": 4,
+        "length": 7.629506383458355
+      },
+      {
+        "name": "way 634379942",
+        "real": 32,
+        "dhIgn": 0.030000000000001137,
+        "dhTerr": 0.2122233713708681,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 15.393543174908432
+      },
+      {
+        "name": "way 650761705",
+        "real": 32,
+        "dhIgn": 1.4099999999999966,
+        "dhTerr": 1.46522175624321,
+        "estIgn": 8,
+        "estTerr": 9,
+        "length": 10.159993199991762
+      },
+      {
+        "name": "way 674993662",
+        "real": 22,
+        "dhIgn": 0.15000000000000568,
+        "dhTerr": 0.004084182777319256,
+        "estIgn": 1,
+        "estTerr": 0,
+        "length": 7.345850537429318
+      },
+      {
+        "name": "way 319542967",
+        "real": 24,
+        "dhIgn": 0.09999999999999432,
+        "dhTerr": 0.13945764549828255,
+        "estIgn": 1,
+        "estTerr": 1,
+        "length": 13.674092024530042
+      },
+      {
+        "name": "way 319542974",
+        "real": 24,
+        "dhIgn": 0.030000000000001137,
+        "dhTerr": 0.1230539374255386,
+        "estIgn": 0,
+        "estTerr": 1,
+        "length": 11.030253631193137
+      }
+    ]
+  },
+  "r2": [
+    {
+      "label": "Bellecour → Fourvière",
+      "stairs": "avoid",
+      "length": 1947.730599252601,
+      "gain": 133.65000000000003,
+      "loss": 10.720000000000027,
+      "stairsEdges": 1,
+      "steps": 19,
+      "estimatedSteps": 0,
+      "names": [],
+      "ms": 23.069074,
+      "edges": 106
+    },
+    {
+      "label": "Bellecour → Fourvière",
+      "stairs": "tolerate",
+      "length": 1461.8030232239691,
+      "gain": 132.52999999999994,
+      "loss": 9.019999999999953,
+      "stairsEdges": 10,
+      "steps": 821,
+      "estimatedSteps": 64,
+      "names": [
+        "Montée des Chazeaux",
+        "Montée Cardinal Louis-Marie Billé",
+        "Chemin du Rosaire"
+      ],
+      "ms": 6.3733179999999265,
+      "edges": 92
+    },
+    {
+      "label": "Bellecour → Fourvière",
+      "stairs": "prefer",
+      "length": 1461.8030232239691,
+      "gain": 132.52999999999994,
+      "loss": 9.019999999999953,
+      "stairsEdges": 10,
+      "steps": 821,
+      "estimatedSteps": 64,
+      "names": [
+        "Montée des Chazeaux",
+        "Montée Cardinal Louis-Marie Billé",
+        "Chemin du Rosaire"
+      ],
+      "ms": 11.584292000000005,
+      "edges": 92
+    },
+    {
+      "label": "Terreaux → Croix-Rousse",
+      "stairs": "avoid",
+      "length": 1104.7605663186846,
+      "gain": 80.89000000000001,
+      "loss": 0,
+      "stairsEdges": 0,
+      "steps": 0,
+      "estimatedSteps": 0,
+      "names": [],
+      "ms": 4.503889000000072,
+      "edges": 66
+    },
+    {
+      "label": "Terreaux → Croix-Rousse",
+      "stairs": "tolerate",
+      "length": 961.7356396559051,
+      "gain": 82.07000000000002,
+      "loss": 1.1800000000000068,
+      "stairsEdges": 10,
+      "steps": 722,
+      "estimatedSteps": 0,
+      "names": [
+        "Rue Sainte-Marie des Terreaux",
+        "Montée de la Grande Côte"
+      ],
+      "ms": 1.8850419999998849,
+      "edges": 61
+    },
+    {
+      "label": "Terreaux → Croix-Rousse",
+      "stairs": "prefer",
+      "length": 961.7356396559051,
+      "gain": 82.07000000000002,
+      "loss": 1.1800000000000068,
+      "stairsEdges": 10,
+      "steps": 722,
+      "estimatedSteps": 0,
+      "names": [
+        "Rue Sainte-Marie des Terreaux",
+        "Montée de la Grande Côte"
+      ],
+      "ms": 5.039584999999988,
+      "edges": 61
+    },
+    {
+      "label": "Saint-Paul → Fourvière",
+      "stairs": "avoid",
+      "length": 1262.7118292357566,
+      "gain": 120.73000000000002,
+      "loss": 1.8700000000000045,
+      "stairsEdges": 0,
+      "steps": 0,
+      "estimatedSteps": 0,
+      "names": [],
+      "ms": 1.9919409999997697,
+      "edges": 42
+    },
+    {
+      "label": "Saint-Paul → Fourvière",
+      "stairs": "tolerate",
+      "length": 742.8043601728085,
+      "gain": 119.21999999999997,
+      "loss": 0,
+      "stairsEdges": 3,
+      "steps": 1362,
+      "estimatedSteps": 0,
+      "names": [
+        "Montée des Carmes Déchaussés",
+        "Montée Nicolas de Lange"
+      ],
+      "ms": 0.4988939999998365,
+      "edges": 26
+    },
+    {
+      "label": "Saint-Paul → Fourvière",
+      "stairs": "prefer",
+      "length": 742.8043601728085,
+      "gain": 119.21999999999997,
+      "loss": 0,
+      "stairsEdges": 3,
+      "steps": 1362,
+      "estimatedSteps": 0,
+      "names": [
+        "Montée des Carmes Déchaussés",
+        "Montée Nicolas de Lange"
+      ],
+      "ms": 0.6806060000003527,
+      "edges": 26
+    },
+    {
+      "label": "Quai Saint-Antoine → Croix-Rousse",
+      "stairs": "avoid",
+      "length": 1675.6264865775913,
+      "gain": 83.75,
+      "loss": 0,
+      "stairsEdges": 0,
+      "steps": 0,
+      "estimatedSteps": 0,
+      "names": [],
+      "ms": 3.1068970000001173,
+      "edges": 124
+    },
+    {
+      "label": "Quai Saint-Antoine → Croix-Rousse",
+      "stairs": "tolerate",
+      "length": 1562.6241627826448,
+      "gain": 83.75,
+      "loss": 0,
+      "stairsEdges": 9,
+      "steps": 679,
+      "estimatedSteps": 0,
+      "names": [
+        "Montée de la Grande Côte"
+      ],
+      "ms": 2.9096949999998287,
+      "edges": 126
+    },
+    {
+      "label": "Quai Saint-Antoine → Croix-Rousse",
+      "stairs": "prefer",
+      "length": 1562.6241627826448,
+      "gain": 83.75,
+      "loss": 0,
+      "stairsEdges": 9,
+      "steps": 679,
+      "estimatedSteps": 0,
+      "names": [
+        "Montée de la Grande Côte"
+      ],
+      "ms": 7.113786999999775,
+      "edges": 126
+    },
+    {
+      "label": "Bellecour → Fourvière (sans escaliers)",
+      "slopes": "neutral",
+      "length": 1947.730599252601,
+      "gain": 133.65000000000003,
+      "steepLength": 509.50906213182054,
+      "maxGrade": 22.712622615729753
+    },
+    {
+      "label": "Bellecour → Fourvière (sans escaliers)",
+      "slopes": "limit",
+      "length": 2205.0953959503117,
+      "gain": 134.16000000000003,
+      "steepLength": 460.121666568264,
+      "maxGrade": 15.678142400059848
+    },
+    {
+      "label": "Bellecour → Fourvière (sans escaliers)",
+      "slopes": "seek",
+      "length": 1947.730599252601,
+      "gain": 133.65000000000003,
+      "steepLength": 509.50906213182054,
+      "maxGrade": 22.712622615729753
+    }
+  ],
+  "r3TerrariumVsIgnAll": {
+    "n": 121713,
+    "mean": 5.659060251329184,
+    "mae": 6.830050079891429,
+    "rmse": 8.232237415174724,
+    "max": 56.695639070624594,
+    "p90": 12.900735519646787
+  },
+  "r3Anomalies": {
+    "bridges": 277,
+    "tunnels": 415,
+    "report": {
+      "bridgeEdges": 267,
+      "tunnelEdges": 381,
+      "jumpEdges": 114,
+      "corrected": 174
+    },
+    "top": [
+      {
+        "edgeId": 9701,
+        "kind": "jump",
+        "maxDeltaM": 9.763638564872878,
+        "name": ""
+      },
+      {
+        "edgeId": 38443,
+        "kind": "bridge",
+        "maxDeltaM": 8.723593187292579,
+        "name": ""
+      },
+      {
+        "edgeId": 43121,
+        "kind": "jump",
+        "maxDeltaM": 7.950000000000017,
+        "name": ""
+      },
+      {
+        "edgeId": 25786,
+        "kind": "jump",
+        "maxDeltaM": 7.8300000000000125,
+        "name": "Pont de la Guillotière"
+      },
+      {
+        "edgeId": 44746,
+        "kind": "jump",
+        "maxDeltaM": 7.699999999999989,
+        "name": "Montée Coquillat"
+      },
+      {
+        "edgeId": 19331,
+        "kind": "jump",
+        "maxDeltaM": 7.650000000000006,
+        "name": ""
+      },
+      {
+        "edgeId": 45698,
+        "kind": "bridge",
+        "maxDeltaM": 7.5625143756118405,
+        "name": ""
+      },
+      {
+        "edgeId": 26803,
+        "kind": "jump",
+        "maxDeltaM": 7.399999999999977,
+        "name": ""
+      },
+      {
+        "edgeId": 38477,
+        "kind": "bridge",
+        "maxDeltaM": 7.2663574218432245,
+        "name": ""
+      },
+      {
+        "edgeId": 13021,
+        "kind": "jump",
+        "maxDeltaM": 7.090000000000003,
+        "name": ""
+      }
+    ]
+  },
+  "r3Gains": [
+    {
+      "label": "IGN brut",
+      "s0_t1": {
+        "gain": 150.9299999999999,
+        "loss": 150.9299999999999
+      },
+      "s10_t1": {
+        "gain": 150.26349999999994,
+        "loss": 150.26349999999994
+      },
+      "s25_t3": {
+        "gain": 133.52444444444447,
+        "loss": 132.13722222222222
+      },
+      "s50_t5": {
+        "gain": 123.39999999999998,
+        "loss": 125.0776923076923
+      },
+      "length": 2962.881851578513
+    },
+    {
+      "label": "IGN corrigé ponts/tunnels",
+      "s0_t1": {
+        "gain": 143.62999999999988,
+        "loss": 143.62999999999988
+      },
+      "s10_t1": {
+        "gain": 143.16806727813437,
+        "loss": 143.16806727813437
+      },
+      "s25_t3": {
+        "gain": 130.4759743734315,
+        "loss": 129.08875215120926
+      },
+      "s50_t5": {
+        "gain": 123.39999999999998,
+        "loss": 125.0776923076923
+      },
+      "length": 2962.881851578513
+    },
+    {
+      "label": "Terrarium brut",
+      "s0_t1": {
+        "gain": 177.84167905773418,
+        "loss": 178.4136532289904
+      },
+      "s10_t1": {
+        "gain": 176.05561739251377,
+        "loss": 176.58168404834183
+      },
+      "s25_t3": {
+        "gain": 165.22755756577274,
+        "loss": 165.65546255080764
+      },
+      "s50_t5": {
+        "gain": 174.68302998290994,
+        "loss": 175.11093496794484
+      },
+      "length": 2962.881851578513
+    },
+    {
+      "label": "Terrarium corrigé",
+      "s0_t1": {
+        "gain": 174.8856157275891,
+        "loss": 175.45758989884533
+      },
+      "s10_t1": {
+        "gain": 173.0995540623687,
+        "loss": 173.62562071819676
+      },
+      "s25_t3": {
+        "gain": 165.82497849107475,
+        "loss": 166.25288347610964
+      },
+      "s50_t5": {
+        "gain": 174.74941008572128,
+        "loss": 175.17731507075618
+      },
+      "length": 2962.881851578513
+    }
+  ],
+  "probes": [
+    {
+      "name": "ign-wmts-planignv2",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/png&TILEMATRIX=15&TILEROW=11531&TILECOL=16827",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 17654,
+      "cors": "*",
+      "ms": 943
+    },
+    {
+      "name": "ign-wmts-ortho",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/jpeg&TILEMATRIX=15&TILEROW=11531&TILECOL=16827",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/jpeg",
+      "bytes": 7779,
+      "cors": "*",
+      "ms": 418
+    },
+    {
+      "name": "ign-wmts-capabilities",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetCapabilities&VERSION=1.0.0",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml",
+      "bytes": 3080569,
+      "cors": "*",
+      "ms": 430
+    },
+    {
+      "name": "opentopomap",
+      "url": "https://a.tile.opentopomap.org/15/16827/11531.png",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 8014,
+      "cors": "*",
+      "ms": 449
+    },
+    {
+      "name": "terrarium-aws",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/8413/5765.png",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 60845,
+      "cors": null,
+      "ms": 244
+    },
+    {
+      "name": "ign-alti-get",
+      "url": "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json?lon=4.8226&lat=45.7624&resource=ign_rge_alti_wld&zonly=true",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 24,
+      "cors": "*",
+      "ms": 203
+    },
+    {
+      "name": "open-meteo",
+      "url": "https://api.open-meteo.com/v1/elevation?latitude=45.7624&longitude=4.8226",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 21,
+      "cors": null,
+      "ms": 188
+    },
+    {
+      "name": "opentopodata-srtm30m",
+      "url": "https://api.opentopodata.org/v1/srtm30m?locations=45.7624,4.8226",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 181,
+      "cors": null,
+      "ms": 496
+    },
+    {
+      "name": "overpass-status https://overpass-api.de",
+      "url": "https://overpass-api.de/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30002
+    },
+    {
+      "name": "overpass-status https://overpass.kumi.systems",
+      "url": "https://overpass.kumi.systems/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30001
+    },
+    {
+      "name": "overpass-status https://overpass.private.coffee",
+      "url": "https://overpass.private.coffee/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30000
+    },
+    {
+      "name": "overpass-status https://maps.mail.ru/osm/tools/overpass",
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/status",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 168,
+      "cors": "*",
+      "ms": 13977
+    }
+  ],
+  "r4": {
+    "fixtureBytes": 10302240,
+    "fixtureGzipBytes": 1691654,
+    "elements": 22190,
+    "ways": 22190,
+    "nodes": 34097,
+    "edges": 46460,
+    "parseMs": 25.221497,
+    "buildMs": 163.62597200000005,
+    "terrariumAssignMs": 77.66679199999999,
+    "astarBellecourCroixRousseMs": 4.4880319999992935,
+    "outAndBackSameMs": 112.72839000000022,
+    "outAndBackDiffMs": 201.38220499999989,
+    "loopsMs": 256.64514599999984,
+    "loops": 5,
+    "variantsMs": 32.60094600000048,
+    "variants": 3
+  }
+}

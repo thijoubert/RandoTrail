@@ -1,0 +1,1038 @@
+{
+  "generatedAt": "2026-11-01T16:08:45.260Z",
+  "fixture": "fixtures/lyon-centre.overpass.json",
+  "elevation": "fixtures/lyon-centre.ign-alti.json",
+  "tolerance": {
+    "relative": 0.02,
+    "absoluteM": 3
+  },
+  "cases": [
+    {
+      "id": "bellecour-fourviere-tolerate",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.83215,
+            "lat": 45.75777
+          },
+          {
+            "lng": 4.8225,
+            "lat": 45.76235
+          }
+        ],
+        "prefs": {
+          "stairs": "tolerate",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1462,
+        "gain": 133,
+        "loss": 9,
+        "minEle": 166,
+        "maxEle": 292,
+        "stairsEdges": 10,
+        "steps": 821,
+        "estimatedSteps": 64,
+        "climbs": [
+          {
+            "name": "Chemin du Rosaire",
+            "gain": 135,
+            "length": 1377,
+            "avgGradePct": 9,
+            "steps": 802
+          }
+        ],
+        "timeS": 1354,
+        "osmWayIds": [
+          387504432,
+          387504435,
+          1047873522,
+          1047873523,
+          743589116,
+          1274481461,
+          1274481465,
+          1274481464,
+          465422698,
+          1274481459,
+          465422697,
+          743589114,
+          743589115,
+          737105627,
+          1274481452,
+          737105631,
+          737105630,
+          1274481451,
+          1274481449,
+          737105625,
+          737105621,
+          1283302079,
+          1447217092,
+          1447217093,
+          737105620,
+          1283302083,
+          1283302085,
+          1291255481,
+          1441894060,
+          4526980,
+          854672190,
+          854672188,
+          219642514,
+          854672187,
+          112179416,
+          112179417,
+          1158174642,
+          1441634229,
+          1441634231,
+          276400139,
+          1354146254,
+          4328058,
+          1388925995,
+          1354146253,
+          52769021,
+          997462259,
+          379727149,
+          1388925997,
+          1228133939,
+          1388925999,
+          1388926000,
+          379727151,
+          379727150,
+          379727148,
+          393269788,
+          168646458,
+          29180179,
+          166303685,
+          385737030,
+          95011553,
+          934724847
+        ]
+      }
+    },
+    {
+      "id": "bellecour-fourviere-avoid",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.83215,
+            "lat": 45.75777
+          },
+          {
+            "lng": 4.8225,
+            "lat": 45.76235
+          }
+        ],
+        "prefs": {
+          "stairs": "avoid",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1948,
+        "gain": 134,
+        "loss": 11,
+        "minEle": 166,
+        "maxEle": 293,
+        "stairsEdges": 1,
+        "steps": 19,
+        "estimatedSteps": 0,
+        "climbs": [
+          {
+            "name": "Montée du Gourguillon",
+            "gain": 135,
+            "length": 1766,
+            "avgGradePct": 7.1,
+            "steps": 0
+          }
+        ],
+        "timeS": 1714,
+        "osmWayIds": [
+          387504432,
+          387504435,
+          1047873522,
+          1047873523,
+          743589116,
+          1274481461,
+          1274481465,
+          1274481464,
+          465422698,
+          1274481459,
+          465422697,
+          743589114,
+          743589115,
+          737105627,
+          1274481452,
+          737105631,
+          737105630,
+          1274481450,
+          737105624,
+          1303660545,
+          737105626,
+          826178043,
+          1443341562,
+          1443341561,
+          1443341563,
+          737105616,
+          737105617,
+          1283302070,
+          1283302071,
+          1283302072,
+          1283302073,
+          1283302069,
+          1283302064,
+          1283302063,
+          1283302062,
+          221423607,
+          4378880,
+          221423609,
+          1233389877,
+          1233389878,
+          276392195,
+          35016657,
+          280834359,
+          4298020,
+          608450733,
+          142059939,
+          1442560545,
+          269782141,
+          1175919976,
+          1389643166,
+          1389643167,
+          1389643161,
+          4253144,
+          1308817988,
+          276487347,
+          1279881575,
+          4430155,
+          377841817,
+          1389344784,
+          1533907183,
+          1389326963,
+          29179497,
+          1533883640,
+          1533883642
+        ]
+      }
+    },
+    {
+      "id": "bellecour-fourviere-prefer",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.83215,
+            "lat": 45.75777
+          },
+          {
+            "lng": 4.8225,
+            "lat": 45.76235
+          }
+        ],
+        "prefs": {
+          "stairs": "prefer",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1462,
+        "gain": 133,
+        "loss": 9,
+        "minEle": 166,
+        "maxEle": 292,
+        "stairsEdges": 10,
+        "steps": 821,
+        "estimatedSteps": 64,
+        "climbs": [
+          {
+            "name": "Chemin du Rosaire",
+            "gain": 135,
+            "length": 1377,
+            "avgGradePct": 9,
+            "steps": 802
+          }
+        ],
+        "timeS": 1354,
+        "osmWayIds": [
+          387504432,
+          387504435,
+          1047873522,
+          1047873523,
+          743589116,
+          1274481461,
+          1274481465,
+          1274481464,
+          465422698,
+          1274481459,
+          465422697,
+          743589114,
+          743589115,
+          737105627,
+          1274481452,
+          737105631,
+          737105630,
+          1274481451,
+          1274481449,
+          737105625,
+          737105621,
+          1283302079,
+          1447217092,
+          1447217093,
+          737105620,
+          1283302083,
+          1283302085,
+          1291255481,
+          1441894060,
+          4526980,
+          854672190,
+          854672188,
+          219642514,
+          854672187,
+          112179416,
+          112179417,
+          1158174642,
+          1441634229,
+          1441634231,
+          276400139,
+          1354146254,
+          4328058,
+          1388925995,
+          1354146253,
+          52769021,
+          997462259,
+          379727149,
+          1388925997,
+          1228133939,
+          1388925999,
+          1388926000,
+          379727151,
+          379727150,
+          379727148,
+          393269788,
+          168646458,
+          29180179,
+          166303685,
+          385737030,
+          95011553,
+          934724847
+        ]
+      }
+    },
+    {
+      "id": "gourguillon",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.8268,
+            "lat": 45.7589
+          },
+          {
+            "lng": 4.8232,
+            "lat": 45.7602
+          }
+        ],
+        "prefs": {
+          "stairs": "avoid",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1129,
+        "gain": 109,
+        "loss": 7,
+        "minEle": 166,
+        "maxEle": 273,
+        "stairsEdges": 0,
+        "steps": 0,
+        "estimatedSteps": 0,
+        "climbs": [
+          {
+            "name": "Montée du Gourguillon",
+            "gain": 110,
+            "length": 1031,
+            "avgGradePct": 10.3,
+            "steps": 0
+          }
+        ],
+        "timeS": 1229,
+        "osmWayIds": [
+          216693008,
+          854677925,
+          5182787,
+          5182784,
+          1233389877,
+          1233389878,
+          276392195,
+          35016657,
+          280834359,
+          4298020,
+          608450733,
+          142059939,
+          1442560545,
+          269782141,
+          1175919976,
+          1389643166,
+          1389643167,
+          1389643161,
+          4253144,
+          1308817988,
+          276487347,
+          1279881575,
+          4430155,
+          1389326958,
+          1388937894,
+          1291845709
+        ]
+      }
+    },
+    {
+      "id": "saint-barthelemy",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.8277,
+            "lat": 45.7658
+          },
+          {
+            "lng": 4.8225,
+            "lat": 45.76235
+          }
+        ],
+        "prefs": {
+          "stairs": "avoid",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1263,
+        "gain": 121,
+        "loss": 2,
+        "minEle": 172,
+        "maxEle": 293,
+        "stairsEdges": 0,
+        "steps": 0,
+        "estimatedSteps": 0,
+        "climbs": [
+          {
+            "name": "Montée Saint-Barthélémy",
+            "gain": 121,
+            "length": 1120,
+            "avgGradePct": 10.8,
+            "steps": 0
+          }
+        ],
+        "timeS": 1317,
+        "osmWayIds": [
+          1299045888,
+          1299045889,
+          1299045883,
+          1299045918,
+          1299045926,
+          1299045857,
+          1299045860,
+          207811521,
+          52769021,
+          759856473,
+          1388937884,
+          1342185373,
+          1388937891,
+          1388937895,
+          1388937890,
+          276487347,
+          1279881575,
+          4430155,
+          377841817,
+          1389344784,
+          1533907183,
+          1389326963,
+          29179497,
+          1533883640,
+          1533883642
+        ]
+      }
+    },
+    {
+      "id": "saint-paul-fourviere-stairs",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.8277,
+            "lat": 45.7658
+          },
+          {
+            "lng": 4.8225,
+            "lat": 45.76235
+          }
+        ],
+        "prefs": {
+          "stairs": "prefer",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 743,
+        "gain": 119,
+        "loss": 0,
+        "minEle": 172,
+        "maxEle": 291,
+        "stairsEdges": 3,
+        "steps": 1362,
+        "estimatedSteps": 0,
+        "climbs": [
+          {
+            "name": "Montée Nicolas de Lange",
+            "gain": 119,
+            "length": 743,
+            "avgGradePct": 16,
+            "steps": 1362
+          }
+        ],
+        "timeS": 875,
+        "osmWayIds": [
+          1299045888,
+          1299045889,
+          1299045883,
+          1299045918,
+          1388925990,
+          1388925991,
+          319483247,
+          1339016345,
+          1299045859,
+          1299045858,
+          1299045861,
+          236260917,
+          1445721722,
+          10375207,
+          760642246,
+          29179684,
+          10375208,
+          934725191,
+          1389326963,
+          29179497,
+          1533883640,
+          1533883642
+        ]
+      }
+    },
+    {
+      "id": "grande-cote",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.8337,
+            "lat": 45.768
+          },
+          {
+            "lng": 4.83165,
+            "lat": 45.77445
+          }
+        ],
+        "prefs": {
+          "stairs": "tolerate",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 962,
+        "gain": 81,
+        "loss": 0,
+        "minEle": 169,
+        "maxEle": 251,
+        "stairsEdges": 4,
+        "steps": 218,
+        "estimatedSteps": 0,
+        "climbs": [
+          {
+            "name": "Rue Pouteau",
+            "gain": 82,
+            "length": 929,
+            "avgGradePct": 8.7,
+            "steps": 218
+          }
+        ],
+        "timeS": 843,
+        "osmWayIds": [
+          1298965115,
+          58975406,
+          5120849,
+          5117446,
+          5120892,
+          1302536728,
+          1302536727,
+          1322876855,
+          1302536733,
+          1302536735,
+          1302536734,
+          1322876853,
+          1322876851,
+          859068016,
+          859068015,
+          5120896,
+          858290425,
+          1322876850,
+          1322505512,
+          1302536740,
+          1302536774,
+          1302536773,
+          1302536772,
+          1302536777,
+          1302536803,
+          1302536802,
+          1302536808,
+          1362871019,
+          5120899,
+          1362871020,
+          1510388773,
+          1510388771,
+          1510388772,
+          1305212568,
+          1305212562,
+          1305212563,
+          5120902,
+          1305212566,
+          1305212567,
+          1322876837,
+          1322876835,
+          1510388775,
+          5120900,
+          1019411770,
+          5120901,
+          23441461,
+          1302278172,
+          1302278168,
+          1323016423,
+          1302278165,
+          1350423715,
+          1303046317,
+          1303046318,
+          1303044346,
+          1311630189
+        ]
+      }
+    },
+    {
+      "id": "quais-pont-bonaparte",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.8316,
+            "lat": 45.7623
+          },
+          {
+            "lng": 4.8275,
+            "lat": 45.7585
+          }
+        ],
+        "prefs": {
+          "stairs": "tolerate",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 673,
+        "gain": 5,
+        "loss": 9,
+        "minEle": 163,
+        "maxEle": 170,
+        "stairsEdges": 1,
+        "steps": 23,
+        "estimatedSteps": 0,
+        "climbs": [],
+        "timeS": 310,
+        "osmWayIds": [
+          4378872,
+          741201886,
+          1323192256,
+          1302494300,
+          741201881,
+          741201882,
+          741201878,
+          741201875,
+          741201874,
+          741201873,
+          1274481446,
+          741201872,
+          1274481444,
+          741201871,
+          1274481443,
+          741201870,
+          741201869,
+          741201868,
+          741201867,
+          741201866,
+          741201880,
+          1274481455,
+          1447217086,
+          1447217087,
+          737105628,
+          1274481453,
+          737105627,
+          1274481452,
+          737105631,
+          737105630,
+          1274481450,
+          737105624,
+          1303660545,
+          737105626,
+          826178043,
+          826178041,
+          216693004,
+          1022261932,
+          1022261922,
+          1022261923
+        ]
+      }
+    },
+    {
+      "id": "tete-dor-plat",
+      "input": {
+        "waypoints": [
+          {
+            "lng": 4.846,
+            "lat": 45.775
+          },
+          {
+            "lng": 4.849,
+            "lat": 45.7835
+          }
+        ],
+        "prefs": {
+          "stairs": "tolerate",
+          "slopes": "neutral",
+          "maxGradePct": 12,
+          "avoidMajorRoads": true,
+          "stairsAvoidFactor": 6,
+          "stairsPreferFactor": 0.45,
+          "stairsAvoidPenaltyM": 60
+        },
+        "elevationSource": "ign",
+        "analysis": {
+          "profile": {
+            "smoothWindowM": 0,
+            "gainThresholdM": 1
+          },
+          "thresholds": {
+            "flatPct": 2,
+            "gentlePct": 6,
+            "moderatePct": 12,
+            "steepPct": 20,
+            "stepRiseM": 0.17
+          },
+          "climbs": {
+            "minGainM": 10,
+            "maxDipM": 5,
+            "maxGradeWindowM": 50
+          },
+          "time": {
+            "runSpeedKmh": 10,
+            "walkSpeedKmh": 5.5,
+            "walkAbovePct": 15,
+            "ascentSPerM": 7,
+            "steepDescentSPerM": 2,
+            "stairsUpVerticalMh": 600,
+            "stairsDownVerticalMh": 900
+          }
+        }
+      },
+      "expected": {
+        "length": 1183,
+        "gain": 5,
+        "loss": 4,
+        "minEle": 166,
+        "maxEle": 170,
+        "stairsEdges": 0,
+        "steps": 0,
+        "estimatedSteps": 0,
+        "climbs": [],
+        "timeS": 468,
+        "osmWayIds": [
+          1298102218,
+          1298102219,
+          1298102201,
+          1298102202,
+          1298102190,
+          1298102191,
+          1298102187,
+          1298102188,
+          1298102177,
+          1298121591,
+          1350681391,
+          1453071151,
+          155815403,
+          1453071152,
+          172892187,
+          286005825,
+          5209814,
+          503880191,
+          5215801,
+          616370005,
+          1305051590,
+          1305051589,
+          199767370
+        ]
+      }
+    }
+  ]
+}

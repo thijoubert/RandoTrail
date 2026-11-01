@@ -41,7 +41,7 @@ export async function mockNetwork(page: Page, opts: MockOptions): Promise<void> 
     const file = resolve(`fixtures/terrarium/${m[1]}/${m[2]}/${m[3]}.png`);
     log.push('terrarium');
     if (opts.terrarium !== false && existsSync(file)) await route.fulfill({ status: 200, contentType: 'image/png', body: readFileSync(file) });
-    else await route.fulfill({ status: 404, body: '' });
+    else await route.fulfill({ status: 200, contentType: 'image/png', body: readFileSync(resolve('e2e/terrarium-zero.png')) }); // sea level tile outside the fixture ring
   });
   await page.route(/data\.geopf\.fr\/altimetrie/, async (route) => {
     log.push('ign-alti');

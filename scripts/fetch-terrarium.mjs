@@ -5,7 +5,7 @@ import { LYON_CENTRE, fetchWithTimeout } from './lib.mjs';
 
 const Z = Number(process.argv[2] ?? 14);
 const b = LYON_CENTRE;
-const pad = 0.004;
+const pad = Number(process.argv[3] ?? 0.02);
 function tileX(lng, z) { return Math.floor(((lng + 180) / 360) * 2 ** z); }
 function tileY(lat, z) {
   const r = (lat * Math.PI) / 180;
