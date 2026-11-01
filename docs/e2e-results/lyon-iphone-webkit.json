@@ -1,14 +1,14 @@
 {
   "project": "iphone-webkit",
-  "loadMs": 1881,
+  "loadMs": 2271,
   "info": {
     "nodes": 34097,
     "edges": 46460,
     "steps": 1141,
     "stairsWays": 1055,
-    "downloadMs": 801,
-    "buildMs": 134,
-    "elevationMs": 426,
+    "downloadMs": 963,
+    "buildMs": 148,
+    "elevationMs": 551,
     "bytes": 10302240
   },
   "r2": {
@@ -16,21 +16,21 @@
       "length": 1948,
       "gain": 145,
       "steps": 19,
-      "routeMs": 16,
+      "routeMs": 39,
       "edges": 106
     },
     "tolerate": {
       "length": 1462,
       "gain": 147,
       "steps": 829,
-      "routeMs": 4,
+      "routeMs": 9,
       "edges": 92
     },
     "prefer": {
       "length": 1462,
       "gain": 147,
       "steps": 829,
-      "routeMs": 11,
+      "routeMs": 9,
       "edges": 92
     }
   },
@@ -61,157 +61,157 @@
     }
   },
   "generators": {
-    "ar-same": 425,
-    "ar-diff": 242,
-    "loop": 313,
-    "variants": 187,
+    "ar-same": 523,
+    "ar-diff": 314,
+    "loop": 385,
+    "variants": 579,
     "variantsCount": 4
   },
   "timings": [
     {
       "label": "Téléchargement/chargement graphe",
-      "ms": 801,
-      "at": 1793549845101
+      "ms": 963,
+      "at": 1793551528931
     },
     {
       "label": "Construction graphe",
-      "ms": 134,
-      "at": 1793549845101
+      "ms": 148,
+      "at": 1793551528931
     },
     {
       "label": "Altitudes graphe",
-      "ms": 426,
-      "at": 1793549845101
+      "ms": 551,
+      "at": 1793551528931
     },
     {
       "label": "Routage A*",
-      "ms": 16,
-      "at": 1793549852701
+      "ms": 39,
+      "at": 1793551538298
     },
     {
       "label": "Analyse du tracé",
-      "ms": 2,
-      "at": 1793549852703
+      "ms": 3,
+      "at": 1793551538301
     },
     {
       "label": "Routage A*",
+      "ms": 8,
+      "at": 1793551546631
+    },
+    {
+      "label": "Analyse du tracé",
       "ms": 4,
-      "at": 1793549859659
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793549859660
+      "at": 1793551546635
     },
     {
       "label": "Routage A*",
-      "ms": 4,
-      "at": 1793549859732
+      "ms": 9,
+      "at": 1793551546694
     },
     {
       "label": "Analyse du tracé",
       "ms": 1,
-      "at": 1793549859733
+      "at": 1793551546695
     },
     {
       "label": "Routage A*",
-      "ms": 6,
-      "at": 1793549866120
+      "ms": 7,
+      "at": 1793551554372
     },
     {
       "label": "Analyse du tracé",
       "ms": 1,
-      "at": 1793549866121
+      "at": 1793551554372
+    },
+    {
+      "label": "Routage A*",
+      "ms": 9,
+      "at": 1793551554415
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 1,
+      "at": 1793551554415
     },
     {
       "label": "Routage A*",
       "ms": 11,
-      "at": 1793549866169
+      "at": 1793551561935
     },
     {
       "label": "Analyse du tracé",
-      "ms": 3,
-      "at": 1793549866172
+      "ms": 2,
+      "at": 1793551561937
     },
     {
       "label": "Routage A*",
-      "ms": 2,
-      "at": 1793549872446
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 0,
-      "at": 1793549872446
-    },
-    {
-      "label": "Routage A*",
-      "ms": 2,
-      "at": 1793549872510
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 0,
-      "at": 1793549872511
-    },
-    {
-      "label": "Routage A*",
-      "ms": 2,
-      "at": 1793549873283
+      "ms": 4,
+      "at": 1793551562008
     },
     {
       "label": "Analyse du tracé",
       "ms": 1,
-      "at": 1793549873283
-    },
-    {
-      "label": "Routage A*",
-      "ms": 2,
-      "at": 1793549873983
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793549873983
+      "at": 1793551562009
     },
     {
       "label": "Routage A*",
       "ms": 1,
-      "at": 1793549874680
+      "at": 1793551563019
     },
     {
       "label": "Analyse du tracé",
       "ms": 0,
-      "at": 1793549874681
+      "at": 1793551563019
+    },
+    {
+      "label": "Routage A*",
+      "ms": 4,
+      "at": 1793551563899
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 0,
+      "at": 1793551563900
+    },
+    {
+      "label": "Routage A*",
+      "ms": 2,
+      "at": 1793551564779
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 0,
+      "at": 1793551564780
     },
     {
       "label": "A/R même chemin",
-      "ms": 101,
-      "at": 1793549875878
+      "ms": 156,
+      "at": 1793551566331
     },
     {
       "label": "A/R retour différent",
-      "ms": 124,
-      "at": 1793549876316
+      "ms": 166,
+      "at": 1793551566940
     },
     {
       "label": "Boucle",
-      "ms": 212,
-      "at": 1793549876833
+      "ms": 248,
+      "at": 1793551567538
     },
     {
       "label": "Routage A*",
-      "ms": 3,
-      "at": 1793549877052
+      "ms": 7,
+      "at": 1793551567838
     },
     {
       "label": "Analyse du tracé",
       "ms": 0,
-      "at": 1793549877052
+      "at": 1793551567838
     },
     {
       "label": "Variantes",
-      "ms": 36,
-      "at": 1793549877281
+      "ms": 57,
+      "at": 1793551568305
     }
   ]
 }

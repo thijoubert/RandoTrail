@@ -1,51 +1,51 @@
 {
-  "at": "2026-11-01T16:18:00.350Z",
+  "at": "2026-11-01T16:46:12.285Z",
   "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Mobile/15E148 Safari/604.1",
   "basemap": {
     "current": "ign",
     "responses": {
       "localhost": {
-        "ok": 7,
-        "ko": 2,
-        "bytes": 1182,
+        "ok": 4,
+        "ko": 0,
+        "bytes": 591,
         "cors": "http://localhost:4173"
       },
       "": {
-        "ok": 2,
+        "ok": 1,
         "ko": 0,
-        "bytes": 980406,
+        "bytes": 490203,
         "cors": null
       },
       "data.geopf.fr": {
-        "ok": 24,
-        "ko": 2,
-        "bytes": 1973186,
+        "ok": 23,
+        "ko": 0,
+        "bytes": 1491782,
         "cors": "*"
       }
     }
   },
   "overpass": {
-    "ok": false,
-    "wallMs": 420115,
+    "ok": true,
+    "wallMs": 34724,
     "error": null,
-    "busy": "Téléchargement Overpass 4/4…"
+    "busy": null
   },
   "graph": {
-    "wallMs": 425437,
+    "wallMs": 35117,
     "info": {
       "zone": "lyon-centre",
       "nodes": 34097,
       "edges": 46460,
       "steps": 1141,
       "lengthKm": 989.7988806380541,
-      "downloadMs": 508,
-      "buildMs": 72,
-      "elevationMs": 1087,
+      "downloadMs": 32531,
+      "buildMs": 181,
+      "elevationMs": 1240,
       "fromCache": false,
-      "mirror": null,
-      "bytes": 10302240,
-      "parts": 0,
-      "source": "embedded",
+      "mirror": "https://overpass-api.de/api/interpreter",
+      "bytes": 13867622,
+      "parts": 1,
+      "source": "overpass",
       "stairs": {
         "ways": 1055,
         "withStepCount": 778,
@@ -66,7 +66,7 @@
       },
       "elevationSource": "Terrarium AWS (z14, ~7 m/px, source SRTM/EU-DEM ~30 m)",
       "missingEle": 0,
-      "osmTimestamp": "2026-11-01T15:52:50Z"
+      "osmTimestamp": "2026-11-01T16:44:51Z"
     }
   },
   "r2": {
@@ -74,29 +74,29 @@
       "length": 1461.8030232239691,
       "gain": 146.75087967550812,
       "steps": 829,
-      "routeMs": 13,
+      "routeMs": 23,
       "climbs": 1
     },
     "avoid": {
       "length": 1947.730599252601,
       "gain": 144.75992463650334,
       "steps": 19,
-      "routeMs": 18,
+      "routeMs": 12,
       "climbs": 1
     },
     "prefer": {
       "length": 1461.8030232239691,
       "gain": 146.75087967550812,
       "steps": 829,
-      "routeMs": 7,
+      "routeMs": 22,
       "climbs": 1
     }
   },
   "r3-route": {
     "ign": {
-      "gain": 0,
-      "loss": 0,
-      "missing": 142,
+      "gain": 136.17999999999995,
+      "loss": 12.669999999999959,
+      "missing": 0,
       "error": null
     },
     "open-meteo": {
@@ -106,145 +106,139 @@
       "error": null
     }
   },
-  "r3-reference": "Point\tRéf.\tTerrarium\tIGN\tOpen-Meteo\nEsplanade de Fourvière\t287\t298.2\t✗\t293.0\nPlace Bellecour\t168\t173.6\t✗\t168.0\nPlace de la Croix-Rousse\t250\t254.6\t✗\t254.0\nPlace des Terreaux\t170\t183.8\t✗\t177.0\nQuai Saint-Antoine\t166\t159.2\t✗\t161.0\nPlace Saint-Jean\t170\t179.0\t✗\t176.0\nTête d'Or (lac)\t170\t180.4\t✗\t180.0\nPont Bonaparte (tablier)\t172\t160.0\t✗\t161.0\n\nterrarium : 0 ms — OK (CORS accepté)\nign : 571 ms — erreur : HTTP 500\nopen-meteo : 67 ms — OK (CORS accepté)",
+  "r3-reference": "Point\tRéf.\tTerrarium\tIGN\tOpen-Meteo\nEsplanade de Fourvière\t287\t298.2\t291.7\t293.0\nPlace Bellecour\t168\t173.6\t168.1\t168.0\nPlace de la Croix-Rousse\t250\t254.6\t250.4\t254.0\nPlace des Terreaux\t170\t183.8\t169.6\t177.0\nQuai Saint-Antoine\t166\t159.2\t167.2\t161.0\nPlace Saint-Jean\t170\t179.0\t168.7\t176.0\nTête d'Or (lac)\t170\t180.4\t167.5\t180.0\nPont Bonaparte (tablier)\t172\t160.0\t162.1\t161.0\n\nterrarium : 0 ms — OK (CORS accepté)\nign : 425 ms — OK (CORS accepté)\nopen-meteo : 68 ms — OK (CORS accepté)",
   "r4-generators": {
-    "ar-same": 236,
-    "ar-diff": 386,
-    "loop": 491,
-    "variants": 244,
+    "ar-same": 503,
+    "ar-diff": 552,
+    "loop": 873,
+    "variants": 243,
     "variantsCount": 4
   },
   "timings": [
     {
       "label": "Téléchargement/chargement graphe",
-      "ms": 508,
-      "at": 1793550311014
+      "ms": 32531,
+      "at": 1793551612780
     },
     {
       "label": "Construction graphe",
-      "ms": 72,
-      "at": 1793550311014
+      "ms": 181,
+      "at": 1793551612780
     },
     {
       "label": "Altitudes graphe",
-      "ms": 1087,
-      "at": 1793550311014
+      "ms": 1240,
+      "at": 1793551612780
     },
     {
       "label": "Routage A*",
-      "ms": 13,
-      "at": 1793550312083
+      "ms": 23,
+      "at": 1793551613792
     },
     {
       "label": "Analyse du tracé",
       "ms": 2,
-      "at": 1793550312085
+      "at": 1793551613795
     },
     {
       "label": "Routage A*",
-      "ms": 9,
-      "at": 1793550312649
+      "ms": 14,
+      "at": 1793551623463
     },
     {
       "label": "Analyse du tracé",
       "ms": 1,
-      "at": 1793550312650
+      "at": 1793551623464
     },
     {
       "label": "Routage A*",
-      "ms": 18,
-      "at": 1793550312702
+      "ms": 12,
+      "at": 1793551623528
     },
     {
       "label": "Analyse du tracé",
       "ms": 1,
-      "at": 1793550312702
-    },
-    {
-      "label": "Routage A*",
-      "ms": 6,
-      "at": 1793550313262
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 1,
-      "at": 1793550313263
+      "at": 1793551623528
     },
     {
       "label": "Routage A*",
       "ms": 7,
-      "at": 1793550313305
+      "at": 1793551632443
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 1,
+      "at": 1793551632443
+    },
+    {
+      "label": "Routage A*",
+      "ms": 22,
+      "at": 1793551632525
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 1,
+      "at": 1793551632526
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 827,
+      "at": 1793551642339
+    },
+    {
+      "label": "Analyse du tracé",
+      "ms": 362,
+      "at": 1793551643304
     },
     {
       "label": "Analyse du tracé",
       "ms": 0,
-      "at": 1793550313305
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 443,
-      "at": 1793550314241
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 396,
-      "at": 1793550315244
-    },
-    {
-      "label": "Analyse du tracé",
-      "ms": 0,
-      "at": 1793550315849
+      "at": 1793551643956
     },
     {
       "label": "A/R même chemin",
-      "ms": 115,
-      "at": 1793550317595
+      "ms": 136,
+      "at": 1793551646161
     },
     {
       "label": "A/R retour différent",
-      "ms": 209,
-      "at": 1793550317949
+      "ms": 275,
+      "at": 1793551646708
     },
     {
       "label": "Boucle",
-      "ms": 288,
-      "at": 1793550318479
+      "ms": 519,
+      "at": 1793551647577
     },
     {
       "label": "Variantes",
-      "ms": 53,
-      "at": 1793550318910
+      "ms": 68,
+      "at": 1793551648059
     }
   ],
   "responses": {
     "localhost": {
-      "ok": 7,
-      "ko": 2,
-      "bytes": 1182,
+      "ok": 4,
+      "ko": 0,
+      "bytes": 591,
       "cors": "http://localhost:4173"
     },
     "": {
-      "ok": 2,
+      "ok": 1,
       "ko": 0,
-      "bytes": 980406,
+      "bytes": 490203,
       "cors": null
     },
     "data.geopf.fr": {
-      "ok": 24,
-      "ko": 2,
-      "bytes": 1973186,
+      "ok": 23,
+      "ko": 0,
+      "bytes": 1491782,
       "cors": "*"
     },
     "overpass-api.de": {
-      "ok": 3,
-      "ko": 2,
-      "bytes": 1068,
-      "cors": "*"
-    },
-    "maps.mail.ru": {
-      "ok": 0,
-      "ko": 1,
-      "bytes": 160,
+      "ok": 1,
+      "ko": 0,
+      "bytes": 0,
       "cors": "*"
     },
     "s3.amazonaws.com": {
@@ -260,20 +254,5 @@
       "cors": "*"
     }
   },
-  "consoleErrors": [
-    "Failed to load resource: the server responded with a status of 502 (Bad Gateway)",
-    "Failed to load resource: the server responded with a status of 504 (Gateway Time-out)",
-    "Failed to load resource: the server responded with a status of 502 (Bad Gateway)",
-    "pageerror: /overpass.private.coffee/api/interpreter due to access control checks.",
-    "pageerror: /maps.mail.ru/osm/tools/overpass/api/interpreter due to access control checks.",
-    "pageerror: /overpass-api.de/api/interpreter due to access control checks.",
-    "pageerror: /overpass.kumi.systems/api/interpreter due to access control checks.",
-    "pageerror: /overpass.private.coffee/api/interpreter due to access control checks.",
-    "pageerror: /maps.mail.ru/osm/tools/overpass/api/interpreter due to access control checks.",
-    "pageerror: /overpass-api.de/api/interpreter due to access control checks.",
-    "pageerror: /overpass.kumi.systems/api/interpreter due to access control checks.",
-    "pageerror: /overpass.private.coffee/api/interpreter due to access control checks.",
-    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
-    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
-  ]
+  "consoleErrors": []
 }
