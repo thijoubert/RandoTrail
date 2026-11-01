@@ -1,6 +1,6 @@
 // Fetch REAL data for the Lyon centre zone (runs in GitHub Actions, which has internet access).
 // Outputs are committed into fixtures/ so that tests, the report and the embedded demo use real data.
-// fixtures-version: 5 (skip bulk IGN when present, Open-Meteo backoff)
+// fixtures-version: 6 (commit strategy fixed)
 import {
   LYON_CENTRE, REFERENCE_POINTS, KNOWN_STAIRS, overpass, overpassQuery, ignElevations, openMeteoElevations, probe, writeJson, writeJsonPretty,
 } from './lib.mjs';
