@@ -102,7 +102,7 @@ export function overpassCacheKey(bbox: BBox): string {
 
 export async function downloadZone(bbox: BBox, opts: DownloadOptions = {}): Promise<DownloadResult> {
   const t0 = performance.now();
-  const timeoutMs = opts.timeoutMs ?? 90_000;
+  const timeoutMs = opts.timeoutMs ?? 120_000;
   const mirrors = opts.mirrors ?? OVERPASS_MIRRORS;
   const key = overpassCacheKey(bbox);
   const progress = (p: DownloadProgress): void => opts.onProgress?.(p);
