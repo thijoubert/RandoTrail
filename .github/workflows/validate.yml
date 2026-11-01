@@ -1,0 +1,72 @@
+name: validate-real
+# Runs the REAL-NETWORK E2E (WebKit iPhone) and the Lyon-fixture E2E, then commits the JSON results and
+# key screenshots into docs/ so that REPORT.md can cite them (the dev sandbox cannot download artifacts).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'e2e/real-network.spec.ts'
+      - 'e2e/lyon.spec.ts'
+      - '.github/workflows/validate.yml'
+      - 'fixtures/lyon-centre.overpass.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: validate-real
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps webkit chromium
+      - run: npm run build
+        env:
+          BASE_PATH: /RandoTrail/
+      - name: Lyon fixture E2E (WebKit + Chromium, offline)
+        continue-on-error: true
+        env:
+          BASE_PATH: /RandoTrail/
+        run: npx playwright test e2e/lyon.spec.ts
+      - name: Real network E2E (WebKit iPhone 13)
+        continue-on-error: true
+        env:
+          BASE_PATH: /RandoTrail/
+          REAL_NETWORK: '1'
+        run: npx playwright test e2e/real-network.spec.ts --project=iphone-webkit
+      - name: Collect results
+        if: always()
+        run: |
+          mkdir -p docs/e2e-results docs/screenshots
+          cp e2e/results/*.json docs/e2e-results/ 2>/dev/null || true
+          cp e2e/screenshots/lyon-*.png e2e/screenshots/real-*.png docs/screenshots/ 2>/dev/null || true
+          ls -la docs/e2e-results docs/screenshots
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validate-real
+          path: |
+            e2e/screenshots
+            e2e/results
+            test-results
+          if-no-files-found: warn
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/e2e-results docs/screenshots
+          git commit -m "validate: real-network and Lyon E2E results (WebKit)" || echo "nothing to commit"
+          git pull --rebase origin main
+          git push origin HEAD:main
