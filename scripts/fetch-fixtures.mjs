@@ -1,6 +1,6 @@
 // Fetch REAL data for the Lyon centre zone (runs in GitHub Actions, which has internet access).
 // Outputs are committed into fixtures/ so that tests, the report and the embedded demo use real data.
-// fixtures-version: 1
+// fixtures-version: 2
 import {
   LYON_CENTRE, REFERENCE_POINTS, KNOWN_STAIRS, overpass, overpassQuery, ignElevations, openMeteoElevations, probe, writeJson, writeJsonPretty,
 } from './lib.mjs';
@@ -16,9 +16,15 @@ if (!only || only === 'overpass') {
   // Known stairs lookup by name (any highway type), wider bbox (whole Lyon).
   const re = KNOWN_STAIRS.map((n) => n.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|');
   const q = `[out:json][timeout:120][bbox:45.72,4.78,45.80,4.90];way["name"~"^(${re})",i];out tags geom qt;`;
-  const known = await overpass(q);
-  writeJson('fixtures/lyon-known-stairs.overpass.json', known.json);
-  meta.steps.knownStairs = { mirror: known.mirror, ms: known.ms, elements: known.json.elements.length };
+  await new Promise((r) => setTimeout(r, 10000));
+  try {
+    const known = await overpass(q, { timeoutMs: 120000, rounds: 2 });
+    writeJson('fixtures/lyon-known-stairs.overpass.json', known.json);
+    meta.steps.knownStairs = { mirror: known.mirror, ms: known.ms, elements: known.json.elements.length };
+  } catch (e) {
+    console.warn('known stairs query failed (non fatal):', e.message);
+    meta.steps.knownStairs = { error: e.message };
+  }
 }
 
 if (!only || only === 'elevation') {

@@ -79,22 +79,33 @@ export async function fetchWithTimeout(url, init = {}, timeoutMs = 120000) {
   }
 }
 
-export async function overpass(query, { timeoutMs = 180000 } = {}) {
+export const USER_AGENT = 'randotrail-lab/0.1 (+https://github.com/thijoubert/RandoTrail; urban trail research)';
+
+export async function overpass(query, { timeoutMs = 180000, rounds = 3 } = {}) {
   const errors = [];
-  for (const url of OVERPASS_MIRRORS) {
-    const t0 = Date.now();
-    try {
-      const res = await fetchWithTimeout(url, { method: 'POST', body: 'data=' + encodeURIComponent(query), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, timeoutMs);
-      if (!res.ok) {
-        errors.push(`${url}: HTTP ${res.status}`);
-        continue;
+  for (let round = 0; round < rounds; round++) {
+    for (const url of OVERPASS_MIRRORS) {
+      const t0 = Date.now();
+      try {
+        const res = await fetchWithTimeout(url, {
+          method: 'POST',
+          body: 'data=' + encodeURIComponent(query),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': USER_AGENT, Accept: 'application/json' },
+        }, timeoutMs);
+        if (!res.ok) {
+          const txt = (await res.text()).replace(/\s+/g, ' ').slice(0, 160);
+          errors.push(`${url}: HTTP ${res.status} ${txt}`);
+          continue;
+        }
+        const json = await res.json();
+        console.log(`overpass ${url}: ${json.elements?.length ?? 0} elements in ${Date.now() - t0} ms`);
+        return { json, mirror: url, ms: Date.now() - t0 };
+      } catch (e) {
+        errors.push(`${url}: ${e.message}`);
       }
-      const json = await res.json();
-      console.log(`overpass ${url}: ${json.elements?.length ?? 0} elements in ${Date.now() - t0} ms`);
-      return { json, mirror: url, ms: Date.now() - t0 };
-    } catch (e) {
-      errors.push(`${url}: ${e.message}`);
     }
+    console.warn(`overpass round ${round + 1} failed, waiting before retry…`);
+    await new Promise((r) => setTimeout(r, 15000 * (round + 1)));
   }
   throw new Error('All Overpass mirrors failed: ' + errors.join(' | '));
 }
@@ -166,7 +177,7 @@ export async function openMeteoElevations(points) {
 export async function probe(name, url, init = {}) {
   const t0 = Date.now();
   try {
-    const res = await fetchWithTimeout(url, init, 30000);
+    const res = await fetchWithTimeout(url, { ...init, headers: { 'User-Agent': USER_AGENT, ...(init.headers ?? {}) } }, 30000);
     const buf = await res.arrayBuffer();
     return {
       name,
