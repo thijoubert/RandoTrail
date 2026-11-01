@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { analyzeRoute, DEFAULT_ANALYSIS_OPTIONS } from '../src/core/analysis';
+import { analyzeRoute } from '../src/core/analysis';
 import { estimateSteps, kindForGrade, DEFAULT_THRESHOLDS } from '../src/core/classify';
 import { DEFAULT_PREFERENCES } from '../src/core/cost';
 import { astar, concatLegs, routeNodes } from '../src/core/router';
