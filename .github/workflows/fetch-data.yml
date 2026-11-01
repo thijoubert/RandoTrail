@@ -29,10 +29,13 @@ jobs:
       - name: Fetch Overpass (Lyon centre + known stairs)
         run: node scripts/fetch-fixtures.mjs overpass
       - name: Fetch elevations (IGN RGE ALTI for all nodes, Open-Meteo sample)
+        continue-on-error: true
         run: node scripts/fetch-fixtures.mjs elevation
       - name: Network probes (IGN WMTS no key, CORS headers, mirrors)
+        continue-on-error: true
         run: node scripts/fetch-fixtures.mjs probes
       - name: Summary
+        if: always()
         run: |
           ls -la fixtures
           cat fixtures/meta.json
@@ -44,6 +47,7 @@ jobs:
           name: fixtures
           path: fixtures/
       - name: Commit fixtures
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

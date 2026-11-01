@@ -116,41 +116,84 @@ export function overpassQuery(b, timeoutSec = 180) {
   return `[out:json][timeout:${timeoutSec}][bbox:${bbox}];way["highway"~"^(${walkable.join('|')})$"]["foot"!~"^(no|private)$"]["access"!~"^(private|no)$"]["area"!="yes"];out body geom qt;`;
 }
 
-/** IGN Géoplateforme altimetry, RGE ALTI (1 m). Up to 5000 points per POST. */
-export async function ignElevations(points, { resource = 'ign_rge_alti_wld', batch = 2000 } = {}) {
+/** IGN Géoplateforme altimetry, RGE ALTI (1 m). The service rejects large batches with HTTP 500:
+ *  the batch size and method are probed adaptively (POST form 500/200/100, then GET 50/20). */
+export async function ignElevations(points, { resource = 'ign_rge_alti_wld' } = {}) {
   const out = new Array(points.length).fill(null);
   const log = [];
-  for (let i = 0; i < points.length; i += batch) {
-    const chunk = points.slice(i, i + batch);
-    const body = new URLSearchParams({
+  const strategies = [
+    { method: 'POST', batch: 500 },
+    { method: 'POST', batch: 200 },
+    { method: 'POST', batch: 100 },
+    { method: 'GET', batch: 50 },
+    { method: 'GET', batch: 20 },
+  ];
+  let strategy = null;
+  const request = async (chunk, st) => {
+    const params = new URLSearchParams({
       lon: chunk.map((p) => p.lng.toFixed(6)).join('|'),
       lat: chunk.map((p) => p.lat.toFixed(6)).join('|'),
       resource,
       zonly: 'true',
       delimiter: '|',
     });
+    const headers = { 'User-Agent': USER_AGENT, Accept: 'application/json' };
+    const res = st.method === 'POST'
+      ? await fetchWithTimeout('https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json', { method: 'POST', body: params, headers: { ...headers, 'Content-Type': 'application/x-www-form-urlencoded' } }, 120000)
+      : await fetchWithTimeout('https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json?' + params.toString(), { headers }, 120000);
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + (await res.text()).replace(/\s+/g, ' ').slice(0, 160));
+    const json = await res.json();
+    const els = json.elevations ?? [];
+    if (els.length !== chunk.length) throw new Error(`got ${els.length} elevations for ${chunk.length} points`);
+    return { els, cors: res.headers.get('access-control-allow-origin') };
+  };
+  // Probe strategies on the first points.
+  for (const st of strategies) {
+    try {
+      const chunk = points.slice(0, Math.min(st.batch, points.length));
+      const t0 = Date.now();
+      const r = await request(chunk, st);
+      for (let k = 0; k < chunk.length; k++) {
+        const e = r.els[k];
+        const z = typeof e === 'number' ? e : e?.z;
+        out[k] = typeof z === 'number' && z > -1000 ? z : null;
+      }
+      strategy = st;
+      log.push({ i: 0, n: chunk.length, ms: Date.now() - t0, cors: r.cors, method: st.method, batch: st.batch });
+      console.log(`ign strategy ${st.method} x${st.batch} OK in ${Date.now() - t0} ms`);
+      break;
+    } catch (e) {
+      console.warn(`ign strategy ${st.method} x${st.batch} failed: ${e.message}`);
+      log.push({ probe: `${st.method} x${st.batch}`, error: e.message });
+    }
+  }
+  if (!strategy) throw new Error('IGN altimetry: all strategies failed');
+  for (let i = strategy.batch; i < points.length; i += strategy.batch) {
+    const chunk = points.slice(i, i + strategy.batch);
     const t0 = Date.now();
     let ok = false;
-    for (let attempt = 0; attempt < 3 && !ok; attempt++) {
+    for (let attempt = 0; attempt < 4 && !ok; attempt++) {
       try {
-        const res = await fetchWithTimeout('https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json', { method: 'POST', body, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, 120000);
-        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + (await res.text()).slice(0, 200));
-        const json = await res.json();
-        const els = json.elevations ?? [];
+        const r = await request(chunk, strategy);
         for (let k = 0; k < chunk.length; k++) {
-          const e = els[k];
+          const e = r.els[k];
           const z = typeof e === 'number' ? e : e?.z;
           out[i + k] = typeof z === 'number' && z > -1000 ? z : null;
         }
         ok = true;
-        log.push({ i, n: chunk.length, ms: Date.now() - t0, cors: res.headers.get('access-control-allow-origin') });
-        console.log(`ign ${i}/${points.length} ${chunk.length} pts ${Date.now() - t0} ms`);
+        log.push({ i, n: chunk.length, ms: Date.now() - t0, cors: r.cors });
+        if ((i / strategy.batch) % 20 === 0) console.log(`ign ${i}/${points.length} ${Date.now() - t0} ms`);
       } catch (e) {
         console.warn('ign retry', attempt, e.message);
-        await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
+        await new Promise((r) => setTimeout(r, 3000 * (attempt + 1)));
       }
     }
-    if (!ok) throw new Error('IGN altimetry failed at ' + i);
+    if (!ok) {
+      console.warn('IGN altimetry: giving up at ' + i + ' (partial result kept)');
+      log.push({ i, error: 'gave up' });
+      break;
+    }
+    await new Promise((r) => setTimeout(r, 150));
   }
   return { values: out, log };
 }
