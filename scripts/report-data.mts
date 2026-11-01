@@ -6,7 +6,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { PNG } from 'pngjs';
 import { parseOverpass, buildGraph, stairsStats, parseNumber, type OverpassJson, type OsmWay } from '../src/core/osm';
-import { assignElevations, correctAnomalies, decodeTilePixels, elevationsFromTiles, fillMissingElevations, graphVertices, pointToTile, stats, tileKey, vertexElevationsById, type ElevationTile } from '../src/core/elevation';
+import { assignElevations, correctAnomalies, decodeTilePixels, elevationsFromTiles, fillMissingElevations, graphVertices, stats, tileKey, vertexElevationsById, type ElevationTile } from '../src/core/elevation';
 import { analyzeRoute, DEFAULT_ANALYSIS_OPTIONS, type AnalysisOptions } from '../src/core/analysis';
 import { DEFAULT_PREFERENCES, type RoutingPreferences } from '../src/core/cost';
 import { nearestNode, type Graph } from '../src/core/graph';
