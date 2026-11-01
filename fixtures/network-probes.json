@@ -1,0 +1,119 @@
+{
+  "fetchedAt": "2026-11-01T16:06:54.511Z",
+  "probes": [
+    {
+      "name": "ign-wmts-planignv2",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/png&TILEMATRIX=15&TILEROW=11531&TILECOL=16827",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 17654,
+      "cors": "*",
+      "ms": 943
+    },
+    {
+      "name": "ign-wmts-ortho",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&FORMAT=image/jpeg&TILEMATRIX=15&TILEROW=11531&TILECOL=16827",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/jpeg",
+      "bytes": 7779,
+      "cors": "*",
+      "ms": 418
+    },
+    {
+      "name": "ign-wmts-capabilities",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetCapabilities&VERSION=1.0.0",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/xml",
+      "bytes": 3080569,
+      "cors": "*",
+      "ms": 430
+    },
+    {
+      "name": "opentopomap",
+      "url": "https://a.tile.opentopomap.org/15/16827/11531.png",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 8014,
+      "cors": "*",
+      "ms": 449
+    },
+    {
+      "name": "terrarium-aws",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/8413/5765.png",
+      "status": 200,
+      "ok": true,
+      "contentType": "image/png",
+      "bytes": 60845,
+      "cors": null,
+      "ms": 244
+    },
+    {
+      "name": "ign-alti-get",
+      "url": "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json?lon=4.8226&lat=45.7624&resource=ign_rge_alti_wld&zonly=true",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 24,
+      "cors": "*",
+      "ms": 203
+    },
+    {
+      "name": "open-meteo",
+      "url": "https://api.open-meteo.com/v1/elevation?latitude=45.7624&longitude=4.8226",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 21,
+      "cors": null,
+      "ms": 188
+    },
+    {
+      "name": "opentopodata-srtm30m",
+      "url": "https://api.opentopodata.org/v1/srtm30m?locations=45.7624,4.8226",
+      "status": 200,
+      "ok": true,
+      "contentType": "application/json",
+      "bytes": 181,
+      "cors": null,
+      "ms": 496
+    },
+    {
+      "name": "overpass-status https://overpass-api.de",
+      "url": "https://overpass-api.de/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30002
+    },
+    {
+      "name": "overpass-status https://overpass.kumi.systems",
+      "url": "https://overpass.kumi.systems/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30001
+    },
+    {
+      "name": "overpass-status https://overpass.private.coffee",
+      "url": "https://overpass.private.coffee/api/status",
+      "status": 0,
+      "ok": false,
+      "error": "This operation was aborted",
+      "ms": 30000
+    },
+    {
+      "name": "overpass-status https://maps.mail.ru/osm/tools/overpass",
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/status",
+      "status": 200,
+      "ok": true,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 168,
+      "cors": "*",
+      "ms": 13977
+    }
+  ]
+}
