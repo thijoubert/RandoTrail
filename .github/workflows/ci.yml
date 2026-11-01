@@ -35,8 +35,27 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+  pages-enabled:
+    # GitHub Pages must be enabled once by a repository admin (Settings > Pages > Source: GitHub Actions).
+    # The GITHUB_TOKEN cannot create the Pages site itself ("Resource not accessible by integration").
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=GitHub Pages désactivé::Activez Pages (Settings > Pages > Build and deployment > Source: GitHub Actions). Sur un dépôt privé en plan gratuit, passez d'abord le dépôt en public."
+          fi
   deploy:
-    needs: check
+    needs: [check, pages-enabled]
+    if: needs.pages-enabled.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
@@ -44,7 +63,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - id: deployment
         uses: actions/deploy-pages@v4
