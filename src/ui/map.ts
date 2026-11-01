@@ -82,11 +82,10 @@ function style(basemap: BasemapId): StyleSpecification {
     { id: 'route-lines', type: 'line', source: 'route', paint: { 'line-color': ['get', 'color'], 'line-width': 5 }, layout: { 'line-cap': 'round', 'line-join': 'round' } },
     { id: 'route-stairs', type: 'line', source: 'route', filter: ['==', ['get', 'stairs'], true], paint: { 'line-color': '#ffffff', 'line-width': 2, 'line-dasharray': [0.5, 1.2] } },
     { id: 'highlight-lines', type: 'line', source: 'highlight', paint: { 'line-color': '#ffd60a', 'line-width': 12, 'line-opacity': 0.6, 'line-blur': 2 }, layout: { 'line-cap': 'round' } },
-    { id: 'waypoints-circles', type: 'circle', source: 'waypoints', paint: { 'circle-radius': 9, 'circle-color': ['get', 'color'], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } },
-    { id: 'waypoints-labels', type: 'symbol', source: 'waypoints', layout: { 'text-field': ['get', 'label'], 'text-size': 11, 'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'], 'text-allow-overlap': true }, paint: { 'text-color': '#fff' } },
+    { id: 'waypoints-circles', type: 'circle', source: 'waypoints', paint: { 'circle-radius': ['case', ['get', 'end'], 10, 7], 'circle-color': ['get', 'color'], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } },
     { id: 'hover-circle', type: 'circle', source: 'hover', paint: { 'circle-radius': 8, 'circle-color': '#ffd60a', 'circle-stroke-color': '#222', 'circle-stroke-width': 2 } },
   );
-  return { version: 8, sources, layers, glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf' };
+  return { version: 8, sources, layers };
 }
 
 export function createMap(container: HTMLElement, center: [number, number], zoom: number, basemap: BasemapId = 'ign'): MapController {
@@ -107,12 +106,11 @@ export function createMap(container: HTMLElement, center: [number, number], zoom
   const data: Record<string, FeatureCollection> = {};
   const setData = (id: string, fc: FeatureCollection): void => {
     data[id] = fc;
-    const apply = (): void => {
-      const src = map.getSource(id) as GeoJSONSource | undefined;
-      if (src) src.setData(fc);
-    };
-    if (map.isStyleLoaded()) apply();
-    else map.once('load', apply);
+    // Note: map.isStyleLoaded() is false while any source is still parsing, so we rely on the
+    // existence of the source instead (setData works on a loading source).
+    const src = map.getSource(id) as GeoJSONSource | undefined;
+    if (src) src.setData(fc);
+    else map.once('style.load', () => (map.getSource(id) as GeoJSONSource | undefined)?.setData(fc));
   };
   let currentBasemap: BasemapId = basemap;
   let basemapErrors = 0;
@@ -194,7 +192,7 @@ export function createMap(container: HTMLElement, center: [number, number], zoom
         type: 'FeatureCollection',
         features: points.map((p, i) => ({
           type: 'Feature',
-          properties: { color: i === 0 ? '#2a9d8f' : i === n - 1 ? '#d7263d' : '#3a86ff', label: i === 0 ? 'D' : i === n - 1 ? 'A' : String(i) },
+          properties: { color: i === 0 ? '#2a9d8f' : i === n - 1 ? '#d7263d' : '#3a86ff', end: i === 0 || i === n - 1 },
           geometry: { type: 'Point', coordinates: [p.lng, p.lat] },
         })),
       });

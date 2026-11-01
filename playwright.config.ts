@@ -5,6 +5,8 @@ const port = 4173;
 
 export default defineConfig({
   testDir: 'e2e',
+  // The real-network spec only runs when REAL_NETWORK=1 (CI job with internet access).
+  testIgnore: process.env['REAL_NETWORK'] ? [] : ['**/real-network.spec.ts'],
   timeout: 120_000,
   expect: { timeout: 15_000 },
   retries: isCI ? 1 : 0,

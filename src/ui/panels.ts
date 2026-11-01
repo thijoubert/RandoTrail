@@ -138,6 +138,9 @@ const traceTab: Tab = {
         <button id="btn-clear">Effacer</button>
         <button id="btn-reverse">Inverser</button>
       </div>
+      <div id="trace-stats"></div>
+      <div id="profile" class="profile"></div>
+      <p id="trace-meta" class="muted small"></p>
       <fieldset><legend>Escaliers</legend>
         <label><input type="radio" name="stairs" value="avoid"> éviter</label>
         <label><input type="radio" name="stairs" value="tolerate" checked> tolérer</label>
@@ -153,10 +156,7 @@ const traceTab: Tab = {
         <option value="graph">celles du graphe</option>
         <option value="ign">IGN RGE ALTI (API, en ligne, tracé seul)</option>
         <option value="open-meteo">Open-Meteo (API, en ligne, tracé seul)</option>
-      </select></label>
-      <div id="trace-stats"></div>
-      <div id="profile" class="profile"></div>
-      <p id="trace-meta" class="muted small"></p>`;
+      </select></label>`;
     q<HTMLButtonElement>(root, '#btn-undo').addEventListener('click', () => {
       state.waypoints.pop();
       void computeRoute();

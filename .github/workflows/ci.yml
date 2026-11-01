@@ -35,6 +35,36 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps webkit chromium
+      - run: npm run build
+      - name: E2E (WebKit iPhone 13 + Chromium), offline fixtures
+        run: npx playwright test
+      - name: E2E real network (WebKit): Overpass, IGN, Terrarium, Open-Meteo, IGN WMTS from a browser
+        if: always()
+        env:
+          REAL_NETWORK: '1'
+        run: npx playwright test e2e/real-network.spec.ts --project=iphone-webkit || echo "real network test failed (see artifact)"
+      - name: Upload screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-screenshots-and-results
+          path: |
+            e2e/screenshots
+            e2e/results
+            playwright-report
+            test-results
+          if-no-files-found: warn
   pages-enabled:
     # GitHub Pages must be enabled once by a repository admin (Settings > Pages > Source: GitHub Actions).
     # The GITHUB_TOKEN cannot create the Pages site itself ("Resource not accessible by integration").

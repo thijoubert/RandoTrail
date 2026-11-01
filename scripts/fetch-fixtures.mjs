@@ -5,7 +5,10 @@ import {
   LYON_CENTRE, REFERENCE_POINTS, KNOWN_STAIRS, overpass, overpassQuery, ignElevations, openMeteoElevations, probe, writeJson, writeJsonPretty,
 } from './lib.mjs';
 
-const meta = { fetchedAt: new Date().toISOString(), bbox: LYON_CENTRE, steps: {} };
+import { readJson } from './lib.mjs';
+const meta = readJson('fixtures/meta.json') ?? { bbox: LYON_CENTRE, steps: {} };
+meta.fetchedAt = new Date().toISOString();
+meta.steps = meta.steps ?? {};
 const only = process.argv[2]; // optional: 'overpass' | 'elevation' | 'probes'
 
 if (!only || only === 'overpass') {
