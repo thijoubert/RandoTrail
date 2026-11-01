@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-01T16:48:14.910Z",
+  "fetchedAt": "2026-11-01T21:07:53.123Z",
   "bbox": {
     "south": 45.746,
     "west": 4.796,
@@ -10,13 +10,13 @@
     "probes": 12,
     "overpass": {
       "mirror": "https://overpass-api.de/api/interpreter",
-      "ms": 36208,
+      "ms": 36326,
       "elements": 22190,
-      "osmTimestamp": "2026-11-01T16:41:41Z"
+      "osmTimestamp": "2026-11-01T21:05:21Z"
     },
     "knownStairs": {
       "mirror": "https://overpass-api.de/api/interpreter",
-      "ms": 39930,
+      "ms": 38355,
       "elements": 93
     },
     "ign": {

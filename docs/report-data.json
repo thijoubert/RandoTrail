@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T16:52:20.896Z",
+  "generatedAt": "2026-11-01T21:10:13.207Z",
   "meta": {
-    "fetchedAt": "2026-11-01T16:48:14.910Z",
+    "fetchedAt": "2026-11-01T21:07:53.123Z",
     "bbox": {
       "south": 45.746,
       "west": 4.796,
@@ -12,13 +12,13 @@
       "probes": 12,
       "overpass": {
         "mirror": "https://overpass-api.de/api/interpreter",
-        "ms": 36208,
+        "ms": 36326,
         "elements": 22190,
-        "osmTimestamp": "2026-11-01T16:41:41Z"
+        "osmTimestamp": "2026-11-01T21:05:21Z"
       },
       "knownStairs": {
         "mirror": "https://overpass-api.de/api/interpreter",
-        "ms": 39930,
+        "ms": 38355,
         "elements": 93
       },
       "ign": {
@@ -2367,7 +2367,7 @@
       "steps": 19,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 26.955167999999958,
+      "ms": 15.882655999999997,
       "edges": 106
     },
     {
@@ -2384,7 +2384,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 9.35822300000018,
+      "ms": 4.603354000000081,
       "edges": 92
     },
     {
@@ -2401,7 +2401,7 @@
         "Montée Cardinal Louis-Marie Billé",
         "Chemin du Rosaire"
       ],
-      "ms": 14.994032999999945,
+      "ms": 7.341036999999915,
       "edges": 92
     },
     {
@@ -2414,7 +2414,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 5.016071000000011,
+      "ms": 4.083448999999973,
       "edges": 66
     },
     {
@@ -2430,7 +2430,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 2.0976630000000114,
+      "ms": 0.9369819999999436,
       "edges": 61
     },
     {
@@ -2446,7 +2446,7 @@
         "Rue Sainte-Marie des Terreaux",
         "Montée de la Grande Côte"
       ],
-      "ms": 4.332174000000123,
+      "ms": 2.6406520000000455,
       "edges": 61
     },
     {
@@ -2459,7 +2459,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 2.164176000000225,
+      "ms": 1.4562969999999495,
       "edges": 42
     },
     {
@@ -2475,7 +2475,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.5456500000000233,
+      "ms": 0.26076499999999214,
       "edges": 26
     },
     {
@@ -2491,7 +2491,7 @@
         "Montée des Carmes Déchaussés",
         "Montée Nicolas de Lange"
       ],
-      "ms": 0.7222890000002735,
+      "ms": 0.3470879999999852,
       "edges": 26
     },
     {
@@ -2504,7 +2504,7 @@
       "steps": 0,
       "estimatedSteps": 0,
       "names": [],
-      "ms": 4.32287899999983,
+      "ms": 2.0268610000000535,
       "edges": 124
     },
     {
@@ -2519,7 +2519,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 2.2082400000003872,
+      "ms": 1.0805849999999282,
       "edges": 126
     },
     {
@@ -2534,7 +2534,7 @@
       "names": [
         "Montée de la Grande Côte"
       ],
-      "ms": 8.867032000000108,
+      "ms": 5.403524999999945,
       "edges": 126
     },
     {
@@ -2853,7 +2853,7 @@
       "contentType": "image/png",
       "bytes": 17654,
       "cors": "*",
-      "ms": 979
+      "ms": 771
     },
     {
       "name": "ign-wmts-ortho",
@@ -2863,7 +2863,7 @@
       "contentType": "image/jpeg",
       "bytes": 7779,
       "cors": "*",
-      "ms": 548
+      "ms": 672
     },
     {
       "name": "ign-wmts-capabilities",
@@ -2873,7 +2873,7 @@
       "contentType": "application/xml",
       "bytes": 3080569,
       "cors": "*",
-      "ms": 467
+      "ms": 437
     },
     {
       "name": "opentopomap",
@@ -2883,7 +2883,7 @@
       "contentType": "image/png",
       "bytes": 8014,
       "cors": "*",
-      "ms": 421
+      "ms": 577
     },
     {
       "name": "terrarium-aws",
@@ -2893,7 +2893,7 @@
       "contentType": "image/png",
       "bytes": 60845,
       "cors": null,
-      "ms": 235
+      "ms": 315
     },
     {
       "name": "ign-alti-get",
@@ -2903,7 +2903,7 @@
       "contentType": "application/json",
       "bytes": 24,
       "cors": "*",
-      "ms": 183
+      "ms": 304
     },
     {
       "name": "open-meteo",
@@ -2913,7 +2913,7 @@
       "contentType": "application/json",
       "bytes": 21,
       "cors": null,
-      "ms": 550
+      "ms": 297
     },
     {
       "name": "opentopodata-srtm30m",
@@ -2923,17 +2923,15 @@
       "contentType": "application/json",
       "bytes": 181,
       "cors": null,
-      "ms": 344
+      "ms": 441
     },
     {
       "name": "overpass-status https://overpass-api.de",
       "url": "https://overpass-api.de/api/status",
-      "status": 502,
+      "status": 0,
       "ok": false,
-      "contentType": "text/plain",
-      "bytes": 534,
-      "cors": "*",
-      "ms": 356
+      "error": "This operation was aborted",
+      "ms": 30002
     },
     {
       "name": "overpass-status https://overpass.kumi.systems",
@@ -2941,7 +2939,7 @@
       "status": 0,
       "ok": false,
       "error": "This operation was aborted",
-      "ms": 30003
+      "ms": 30000
     },
     {
       "name": "overpass-status https://overpass.private.coffee",
@@ -2949,7 +2947,7 @@
       "status": 0,
       "ok": false,
       "error": "This operation was aborted",
-      "ms": 30000
+      "ms": 30001
     },
     {
       "name": "overpass-status https://maps.mail.ru/osm/tools/overpass",
@@ -2959,25 +2957,25 @@
       "contentType": "text/plain; charset=utf-8",
       "bytes": 168,
       "cors": "*",
-      "ms": 9518
+      "ms": 20777
     }
   ],
   "r4": {
     "fixtureBytes": 10302240,
-    "fixtureGzipBytes": 1691653,
+    "fixtureGzipBytes": 1691654,
     "elements": 22190,
     "ways": 22190,
     "nodes": 34097,
     "edges": 46460,
-    "parseMs": 13.924082999999882,
-    "buildMs": 187.26008000000002,
-    "terrariumAssignMs": 38.35806600000001,
-    "astarBellecourCroixRousseMs": 3.9394589999992604,
-    "outAndBackSameMs": 129.87262800000008,
-    "outAndBackDiffMs": 254.61999800000012,
-    "loopsMs": 303.2805510000003,
+    "parseMs": 9.525404000000094,
+    "buildMs": 120.97291199999995,
+    "terrariumAssignMs": 26.18156799999997,
+    "astarBellecourCroixRousseMs": 2.2552559999999175,
+    "outAndBackSameMs": 74.19785700000011,
+    "outAndBackDiffMs": 132.7445419999999,
+    "loopsMs": 182.70523999999978,
     "loops": 5,
-    "variantsMs": 43.08564000000024,
+    "variantsMs": 16.94995000000017,
     "variants": 3
   }
 }

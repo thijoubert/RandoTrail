@@ -54,18 +54,18 @@ Escaliers longs (≥ 30 m, n = 68), hauteur calibrée : IGN erreur relative méd
 ## R2 — Le routage réagit-il aux préférences ?
 | Trajet | Préférence | Distance | D+ | Escaliers (arêtes) | Marches | Noms d'escaliers empruntés | Temps A* (Node) |
 |---|---|---|---|---|---|---|---|
-| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 27 ms |
-| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 9 ms |
-| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 15 ms |
-| Terreaux → Croix-Rousse | avoid | 1105 m | 81 m | 0 | 0 | — | 5 ms |
-| Terreaux → Croix-Rousse | tolerate | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 2 ms |
-| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 4 ms |
-| Saint-Paul → Fourvière | avoid | 1263 m | 121 m | 0 | 0 | — | 2 ms |
-| Saint-Paul → Fourvière | tolerate | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 1 ms |
-| Saint-Paul → Fourvière | prefer | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 1 ms |
-| Quai Saint-Antoine → Croix-Rousse | avoid | 1676 m | 84 m | 0 | 0 | — | 4 ms |
-| Quai Saint-Antoine → Croix-Rousse | tolerate | 1563 m | 84 m | 9 | 679 | Montée de la Grande Côte | 2 ms |
-| Quai Saint-Antoine → Croix-Rousse | prefer | 1563 m | 84 m | 9 | 679 | Montée de la Grande Côte | 9 ms |
+| Bellecour → Fourvière | avoid | 1948 m | 134 m | 1 | 19 | — | 16 ms |
+| Bellecour → Fourvière | tolerate | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 5 ms |
+| Bellecour → Fourvière | prefer | 1462 m | 133 m | 10 | 821 (dont 64 est.) | Montée des Chazeaux, Montée Cardinal Louis-Marie Billé, Chemin du Rosaire | 7 ms |
+| Terreaux → Croix-Rousse | avoid | 1105 m | 81 m | 0 | 0 | — | 4 ms |
+| Terreaux → Croix-Rousse | tolerate | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 1 ms |
+| Terreaux → Croix-Rousse | prefer | 962 m | 82 m | 10 | 722 | Rue Sainte-Marie des Terreaux, Montée de la Grande Côte | 3 ms |
+| Saint-Paul → Fourvière | avoid | 1263 m | 121 m | 0 | 0 | — | 1 ms |
+| Saint-Paul → Fourvière | tolerate | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 0 ms |
+| Saint-Paul → Fourvière | prefer | 743 m | 119 m | 3 | 1362 | Montée des Carmes Déchaussés, Montée Nicolas de Lange | 0 ms |
+| Quai Saint-Antoine → Croix-Rousse | avoid | 1676 m | 84 m | 0 | 0 | — | 2 ms |
+| Quai Saint-Antoine → Croix-Rousse | tolerate | 1563 m | 84 m | 9 | 679 | Montée de la Grande Côte | 1 ms |
+| Quai Saint-Antoine → Croix-Rousse | prefer | 1563 m | 84 m | 9 | 679 | Montée de la Grande Côte | 5 ms |
 | Bellecour → Fourvière, escaliers évités | pentes : neutral | 1948 m | 134 m | — | — | raide+très raide : 510 m, pente max 23 % | — |
 | Bellecour → Fourvière, escaliers évités | pentes : limit (8 %) | 2205 m | 134 m | — | — | raide+très raide : 460 m, pente max 16 % | — |
 | Bellecour → Fourvière, escaliers évités | pentes : seek | 1948 m | 134 m | — | — | raide+très raide : 510 m, pente max 23 % | — |
@@ -121,36 +121,36 @@ Sur **tous** les sommets du graphe (121829) : Terrarium − IGN : biais 5.65 m, 
 | Terrarium brut | +178 / −178 m | +176 / −177 m | +165 / −166 m | +175 / −175 m | 2963 m |
 | Terrarium corrigé | +175 / −175 m | +173 / −174 m | +166 / −166 m | +175 / −175 m | 2963 m |
 
-### Sondes réseau (depuis GitHub Actions, 2026-11-01T16:49:28.515Z)
+### Sondes réseau (depuis GitHub Actions, 2026-11-01T21:09:47.717Z)
 
 | Service | HTTP | Type | Octets | CORS (`Access-Control-Allow-Origin`) | Temps |
 |---|---|---|---|---|---|
-| ign-wmts-planignv2 | 200 | image/png | 17654 | * | 979 ms |
-| ign-wmts-ortho | 200 | image/jpeg | 7779 | * | 548 ms |
-| ign-wmts-capabilities | 200 | application/xml | 3080569 | * | 467 ms |
-| opentopomap | 200 | image/png | 8014 | * | 421 ms |
-| terrarium-aws | 200 | image/png | 60845 | — | 235 ms |
-| ign-alti-get | 200 | application/json | 24 | * | 183 ms |
-| open-meteo | 200 | application/json | 21 | — | 550 ms |
-| opentopodata-srtm30m | 200 | application/json | 181 | — | 344 ms |
-| overpass-status https://overpass-api.de | 502 | text/plain | 534 | * | 356 ms |
-| overpass-status https://overpass.kumi.systems | 0 (This operation was aborted) | — | — | — | 30003 ms |
-| overpass-status https://overpass.private.coffee | 0 (This operation was aborted) | — | — | — | 30000 ms |
-| overpass-status https://maps.mail.ru/osm/tools/overpass | 200 | text/plain; charset=utf-8 | 168 | * | 9518 ms |
+| ign-wmts-planignv2 | 200 | image/png | 17654 | * | 771 ms |
+| ign-wmts-ortho | 200 | image/jpeg | 7779 | * | 672 ms |
+| ign-wmts-capabilities | 200 | application/xml | 3080569 | * | 437 ms |
+| opentopomap | 200 | image/png | 8014 | * | 577 ms |
+| terrarium-aws | 200 | image/png | 60845 | — | 315 ms |
+| ign-alti-get | 200 | application/json | 24 | * | 304 ms |
+| open-meteo | 200 | application/json | 21 | — | 297 ms |
+| opentopodata-srtm30m | 200 | application/json | 181 | — | 441 ms |
+| overpass-status https://overpass-api.de | 0 (This operation was aborted) | — | — | — | 30002 ms |
+| overpass-status https://overpass.kumi.systems | 0 (This operation was aborted) | — | — | — | 30000 ms |
+| overpass-status https://overpass.private.coffee | 0 (This operation was aborted) | — | — | — | 30001 ms |
+| overpass-status https://maps.mail.ru/osm/tools/overpass | 200 | text/plain; charset=utf-8 | 168 | * | 20777 ms |
 
 ## R4 — Performance du routage navigateur (mesures Node.js ; mesures navigateur dans le rapport)
 | Mesure | Valeur |
 |---|---|
 | JSON Overpass (zone 4,2 × 4,4 km) | 10.30 Mo brut, **1.69 Mo gzip** (22190 ways) |
 | Graphe | 34097 nœuds, 46460 arêtes |
-| Parse JSON → ways | 14 ms |
-| Construction du graphe | 187 ms |
-| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 38 ms |
-| A* Bellecour → Croix-Rousse | 4 ms |
-| A/R même chemin (6 km, 250 m D+) | 130 ms |
-| A/R retour différent | 255 ms |
-| Boucles (5 résultats) | 303 ms |
-| Variantes (3 résultats) | 43 ms |
+| Parse JSON → ways | 10 ms |
+| Construction du graphe | 121 ms |
+| Altitudes Terrarium (décodage + échantillonnage 121829 sommets) | 26 ms |
+| A* Bellecour → Croix-Rousse | 2 ms |
+| A/R même chemin (6 km, 250 m D+) | 74 ms |
+| A/R retour différent | 133 ms |
+| Boucles (5 résultats) | 183 ms |
+| Variantes (3 résultats) | 17 ms |
 
 ## Cas de test de référence (export JSON pour la future app Swift)
 
